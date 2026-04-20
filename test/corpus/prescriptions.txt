@@ -1,0 +1,103 @@
+================================================================================
+Simple prescription
+================================================================================
+
+R/ zinc 100mg
+S/ once daily
+
+---
+
+(source_file
+  (prescription
+    (recipe_section
+      (recipe_marker)
+      (recipe_body_line
+        (ingredient
+          drug: (drug_name
+            (identifier))
+          dose: (dose
+            (amount
+              (number)
+              (dose_unit))))))
+    (signa_section
+      (signa_marker)
+      (signa_token
+        (identifier))
+      (signa_token
+        (identifier)))))
+
+================================================================================
+With dispense section
+================================================================================
+
+R/ aspirin 500mg
+Da/ 30
+S/ take one daily
+
+---
+
+(source_file
+  (prescription
+    (recipe_section
+      (recipe_marker)
+      (recipe_body_line
+        (ingredient
+          drug: (drug_name
+            (identifier))
+          dose: (dose
+            (amount
+              (number)
+              (dose_unit))))))
+    (da_section
+      (da_marker)
+      quantity: (quantity
+        (number)))
+    (signa_section
+      (signa_marker)
+      (signa_token
+        (identifier))
+      (signa_token
+        (identifier))
+      (signa_token
+        (identifier)))))
+
+================================================================================
+Multi-ingredient with frequency
+================================================================================
+
+R/ paracetamol 500mg
+   ibuprofen 200mg
+S/ 2 dd with meals
+
+---
+
+(source_file
+  (prescription
+    (recipe_section
+      (recipe_marker)
+      (recipe_body_line
+        (ingredient
+          drug: (drug_name
+            (identifier))
+          dose: (dose
+            (amount
+              (number)
+              (dose_unit)))))
+      (recipe_body_line
+        (ingredient
+          drug: (drug_name
+            (identifier))
+          dose: (dose
+            (amount
+              (number)
+              (dose_unit))))))
+    (signa_section
+      (signa_marker)
+      (signa_token
+        (frequency
+          (integer)
+          (dd_kw)))
+      (signa_token
+        (identifier))
+      (signa_token
+        (identifier)))))

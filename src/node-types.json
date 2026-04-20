@@ -1,12 +1,696 @@
 [
 	{
-		"type": "source_file",
+		"type": "aa_quantity",
 		"named": true,
-		"root": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "dose_unit",
+					"named": true
+				},
+				{
+					"type": "number",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "ad_quantity",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "dose_unit",
+					"named": true
+				},
+				{
+					"type": "number",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "administration",
+		"named": true,
 		"fields": {}
 	},
 	{
-		"type": "hello",
+		"type": "amount",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "dose_unit",
+					"named": true
+				},
+				{
+					"type": "number",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "concentration",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": false,
+			"required": true,
+			"types": [
+				{
+					"type": "number",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "da_section",
+		"named": true,
+		"fields": {
+			"quantity": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "quantity",
+						"named": true
+					}
+				]
+			}
+		},
+		"children": {
+			"multiple": false,
+			"required": true,
+			"types": [
+				{
+					"type": "da_marker",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "daags_kw",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "dd_kw",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "dose",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": false,
+			"required": false,
+			"types": [
+				{
+					"type": "aa_quantity",
+					"named": true
+				},
+				{
+					"type": "ad_quantity",
+					"named": true
+				},
+				{
+					"type": "amount",
+					"named": true
+				},
+				{
+					"type": "concentration",
+					"named": true
+				},
+				{
+					"type": "qs_ad_quantity",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "dose_unit",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "drug_name",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "form_word",
+					"named": true
+				},
+				{
+					"type": "identifier",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "dtd_spec",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": false,
+			"required": false,
+			"types": [
+				{
+					"type": "integer",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "form_word",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "frequency",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "daags_kw",
+					"named": true
+				},
+				{
+					"type": "dd_kw",
+					"named": true
+				},
+				{
+					"type": "integer",
+					"named": true
+				},
+				{
+					"type": "x_kw",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "ingredient",
+		"named": true,
+		"fields": {
+			"dose": {
+				"multiple": false,
+				"required": false,
+				"types": [
+					{
+						"type": "dose",
+						"named": true
+					}
+				]
+			},
+			"drug": {
+				"multiple": false,
+				"required": true,
+				"types": [
+					{
+						"type": "drug_name",
+						"named": true
+					}
+				]
+			}
+		}
+	},
+	{
+		"type": "mf_directive",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "dtd_spec",
+					"named": true
+				},
+				{
+					"type": "preparation_form",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "preparation_form",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "prescription",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "da_section",
+					"named": true
+				},
+				{
+					"type": "recipe_section",
+					"named": true
+				},
+				{
+					"type": "signa_section",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "qs_ad_quantity",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "dose_unit",
+					"named": true
+				},
+				{
+					"type": "number",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "quantity",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "number",
+					"named": true
+				},
+				{
+					"type": "quantity_unit",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "quantity_unit",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "recipe_body_line",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": false,
+			"required": true,
+			"types": [
+				{
+					"type": "ingredient",
+					"named": true
+				},
+				{
+					"type": "mf_directive",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "recipe_section",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "recipe_body_line",
+					"named": true
+				},
+				{
+					"type": "recipe_marker",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "signa_section",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": true,
+			"types": [
+				{
+					"type": "signa_marker",
+					"named": true
+				},
+				{
+					"type": "signa_token",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "signa_token",
+		"named": true,
+		"fields": {},
+		"children": {
+			"multiple": false,
+			"required": true,
+			"types": [
+				{
+					"type": "administration",
+					"named": true
+				},
+				{
+					"type": "frequency",
+					"named": true
+				},
+				{
+					"type": "identifier",
+					"named": true
+				},
+				{
+					"type": "timing",
+					"named": true
+				},
+				{
+					"type": "warning",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "source_file",
+		"named": true,
+		"root": true,
+		"fields": {},
+		"children": {
+			"multiple": true,
+			"required": false,
+			"types": [
+				{
+					"type": "prescription",
+					"named": true
+				}
+			]
+		}
+	},
+	{
+		"type": "timing",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "warning",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "x_kw",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "%",
+		"named": false
+	},
+	{
+		"type": "IE",
+		"named": false
+	},
+	{
+		"type": "IU",
+		"named": false
+	},
+	{
+		"type": "aa",
+		"named": false
+	},
+	{
+		"type": "ad",
+		"named": false
+	},
+	{
+		"type": "after_meal",
+		"named": false
+	},
+	{
+		"type": "as_needed",
+		"named": false
+	},
+	{
+		"type": "before_meal",
+		"named": false
+	},
+	{
+		"type": "before_night",
+		"named": false
+	},
+	{
+		"type": "caps",
+		"named": false
+	},
+	{
+		"type": "capsulae",
+		"named": false
+	},
+	{
+		"type": "capsule",
+		"named": false
+	},
+	{
+		"type": "da_marker",
+		"named": true
+	},
+	{
+		"type": "daily",
+		"named": false
+	},
+	{
+		"type": "danger_if_delayed",
+		"named": false
+	},
+	{
+		"type": "dd",
+		"named": false
+	},
+	{
+		"type": "form_capsule",
+		"named": false
+	},
+	{
+		"type": "form_cream",
+		"named": false
+	},
+	{
+		"type": "form_drops",
+		"named": false
+	},
+	{
+		"type": "form_ointment",
+		"named": false
+	},
+	{
+		"type": "form_powder",
+		"named": false
+	},
+	{
+		"type": "form_solution",
+		"named": false
+	},
+	{
+		"type": "form_suppository",
+		"named": false
+	},
+	{
+		"type": "form_syrup",
+		"named": false
+	},
+	{
+		"type": "form_tablet",
+		"named": false
+	},
+	{
+		"type": "g",
+		"named": false
+	},
+	{
+		"type": "give_with_prohibition",
+		"named": false
+	},
+	{
+		"type": "identifier",
+		"named": true
+	},
+	{
+		"type": "immediately",
+		"named": false
+	},
+	{
+		"type": "integer",
+		"named": true
+	},
+	{
+		"type": "intramuscular",
+		"named": false
+	},
+	{
+		"type": "intravenous",
+		"named": false
+	},
+	{
+		"type": "keyword_dtd",
+		"named": false
+	},
+	{
+		"type": "keyword_mf",
+		"named": false
+	},
+	{
+		"type": "l",
+		"named": false
+	},
+	{
+		"type": "left_eye",
+		"named": false
+	},
+	{
+		"type": "mcg",
+		"named": false
+	},
+	{
+		"type": "mg",
+		"named": false
+	},
+	{
+		"type": "ml",
+		"named": false
+	},
+	{
+		"type": "morning",
+		"named": false
+	},
+	{
+		"type": "nec",
+		"named": false
+	},
+	{
+		"type": "night",
+		"named": false
+	},
+	{
+		"type": "no",
+		"named": false
+	},
+	{
+		"type": "no.",
+		"named": false
+	},
+	{
+		"type": "no_repeats",
+		"named": false
+	},
+	{
+		"type": "number",
+		"named": true
+	},
+	{
+		"type": "q.s.",
+		"named": false
+	},
+	{
+		"type": "qs_alone",
+		"named": false
+	},
+	{
+		"type": "recipe_marker",
+		"named": true
+	},
+	{
+		"type": "right_eye",
+		"named": false
+	},
+	{
+		"type": "si",
+		"named": false
+	},
+	{
+		"type": "signa_marker",
+		"named": true
+	},
+	{
+		"type": "subcutaneous",
+		"named": false
+	},
+	{
+		"type": "sublingual",
+		"named": false
+	},
+	{
+		"type": "tablet",
+		"named": false
+	},
+	{
+		"type": "tablets",
+		"named": false
+	},
+	{
+		"type": "tabletten",
+		"named": false
+	},
+	{
+		"type": "times",
+		"named": false
+	},
+	{
+		"type": "ung",
+		"named": false
+	},
+	{
+		"type": "unguentum",
+		"named": false
+	},
+	{
+		"type": "urgent",
 		"named": false
 	}
 ]

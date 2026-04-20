@@ -1,10 +1,1035 @@
 {
 	"$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
 	"name": "prescription",
+	"word": "identifier",
 	"rules": {
 		"source_file": {
+			"type": "REPEAT",
+			"content": {
+				"type": "SYMBOL",
+				"name": "prescription"
+			}
+		},
+		"prescription": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "recipe_section"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "da_section"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				},
+				{
+					"type": "SYMBOL",
+					"name": "signa_section"
+				}
+			]
+		},
+		"recipe_section": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "recipe_marker"
+				},
+				{
+					"type": "REPEAT1",
+					"content": {
+						"type": "SYMBOL",
+						"name": "recipe_body_line"
+					}
+				}
+			]
+		},
+		"recipe_marker": {
 			"type": "STRING",
-			"value": "hello"
+			"value": "R/"
+		},
+		"recipe_body_line": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "mf_directive"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "ingredient"
+				}
+			]
+		},
+		"ingredient": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "FIELD",
+					"name": "drug",
+					"content": {
+						"type": "SYMBOL",
+						"name": "drug_name"
+					}
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "FIELD",
+							"name": "dose",
+							"content": {
+								"type": "SYMBOL",
+								"name": "dose"
+							}
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"drug_name": {
+			"type": "PREC_LEFT",
+			"value": 0,
+			"content": {
+				"type": "REPEAT1",
+				"content": {
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "identifier"
+						},
+						{
+							"type": "SYMBOL",
+							"name": "form_word"
+						}
+					]
+				}
+			}
+		},
+		"form_word": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "tablet"
+				},
+				{
+					"type": "STRING",
+					"value": "tablets"
+				},
+				{
+					"type": "STRING",
+					"value": "tabletten"
+				},
+				{
+					"type": "STRING",
+					"value": "caps"
+				},
+				{
+					"type": "STRING",
+					"value": "capsule"
+				},
+				{
+					"type": "STRING",
+					"value": "capsulae"
+				},
+				{
+					"type": "STRING",
+					"value": "ung"
+				},
+				{
+					"type": "STRING",
+					"value": "unguentum"
+				}
+			]
+		},
+		"dose": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "concentration"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "amount"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "ad_quantity"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "qs_ad_quantity"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "aa_quantity"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "q.s."
+					},
+					"named": false,
+					"value": "qs_alone"
+				}
+			]
+		},
+		"concentration": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "number"
+				},
+				{
+					"type": "STRING",
+					"value": "%"
+				}
+			]
+		},
+		"amount": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "number"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "dose_unit"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"ad_quantity": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "ad"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "number"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "dose_unit"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"qs_ad_quantity": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "q.s."
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "STRING",
+							"value": "ad"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				},
+				{
+					"type": "SYMBOL",
+					"name": "number"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "dose_unit"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"aa_quantity": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "aa"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "number"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "dose_unit"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"mf_directive": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "mf"
+					},
+					"named": false,
+					"value": "keyword_mf"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "preparation_form"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "dtd_spec"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"preparation_form": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "caps"
+					},
+					"named": false,
+					"value": "form_capsule"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "capsule"
+					},
+					"named": false,
+					"value": "form_capsule"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "capsulae"
+					},
+					"named": false,
+					"value": "form_capsule"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "cap"
+					},
+					"named": false,
+					"value": "form_capsule"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "tabs"
+					},
+					"named": false,
+					"value": "form_tablet"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "tablet"
+					},
+					"named": false,
+					"value": "form_tablet"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "tabletten"
+					},
+					"named": false,
+					"value": "form_tablet"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "tab"
+					},
+					"named": false,
+					"value": "form_tablet"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "ung"
+					},
+					"named": false,
+					"value": "form_ointment"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "unguentum"
+					},
+					"named": false,
+					"value": "form_ointment"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "cremor"
+					},
+					"named": false,
+					"value": "form_cream"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "sol"
+					},
+					"named": false,
+					"value": "form_solution"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "solutio"
+					},
+					"named": false,
+					"value": "form_solution"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "pulv"
+					},
+					"named": false,
+					"value": "form_powder"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "pulvis"
+					},
+					"named": false,
+					"value": "form_powder"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "syr"
+					},
+					"named": false,
+					"value": "form_syrup"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "syrupus"
+					},
+					"named": false,
+					"value": "form_syrup"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "supp"
+					},
+					"named": false,
+					"value": "form_suppository"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "suppositorium"
+					},
+					"named": false,
+					"value": "form_suppository"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "gtt"
+					},
+					"named": false,
+					"value": "form_drops"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "drops"
+					},
+					"named": false,
+					"value": "form_drops"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "druppels"
+					},
+					"named": false,
+					"value": "form_drops"
+				}
+			]
+		},
+		"dtd_spec": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "dtd"
+					},
+					"named": false,
+					"value": "keyword_dtd"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SEQ",
+							"members": [
+								{
+									"type": "CHOICE",
+									"members": [
+										{
+											"type": "STRING",
+											"value": "no"
+										},
+										{
+											"type": "STRING",
+											"value": "no."
+										}
+									]
+								},
+								{
+									"type": "SYMBOL",
+									"name": "integer"
+								}
+							]
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"da_section": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "da_marker"
+				},
+				{
+					"type": "FIELD",
+					"name": "quantity",
+					"content": {
+						"type": "SYMBOL",
+						"name": "quantity"
+					}
+				}
+			]
+		},
+		"da_marker": {
+			"type": "TOKEN",
+			"content": {
+				"type": "CHOICE",
+				"members": [
+					{
+						"type": "STRING",
+						"value": "Da/"
+					},
+					{
+						"type": "STRING",
+						"value": "da/"
+					},
+					{
+						"type": "STRING",
+						"value": "D/"
+					},
+					{
+						"type": "STRING",
+						"value": "d/"
+					}
+				]
+			}
+		},
+		"quantity": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "number"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "quantity_unit"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"signa_section": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "signa_marker"
+				},
+				{
+					"type": "REPEAT1",
+					"content": {
+						"type": "SYMBOL",
+						"name": "signa_token"
+					}
+				}
+			]
+		},
+		"signa_marker": {
+			"type": "STRING",
+			"value": "S/"
+		},
+		"signa_token": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "frequency"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "timing"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "administration"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "warning"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "identifier"
+				}
+			]
+		},
+		"frequency": {
+			"type": "SEQ",
+			"members": [
+				{
+					"type": "SYMBOL",
+					"name": "integer"
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "dd_kw"
+						},
+						{
+							"type": "SYMBOL",
+							"name": "x_kw"
+						}
+					]
+				},
+				{
+					"type": "CHOICE",
+					"members": [
+						{
+							"type": "SYMBOL",
+							"name": "daags_kw"
+						},
+						{
+							"type": "BLANK"
+						}
+					]
+				}
+			]
+		},
+		"dd_kw": {
+			"type": "ALIAS",
+			"content": {
+				"type": "STRING",
+				"value": "dd"
+			},
+			"named": false,
+			"value": "dd"
+		},
+		"x_kw": {
+			"type": "ALIAS",
+			"content": {
+				"type": "STRING",
+				"value": "x"
+			},
+			"named": false,
+			"value": "times"
+		},
+		"daags_kw": {
+			"type": "ALIAS",
+			"content": {
+				"type": "STRING",
+				"value": "daags"
+			},
+			"named": false,
+			"value": "daily"
+		},
+		"timing": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "a.c."
+					},
+					"named": false,
+					"value": "before_meal"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "p.c."
+					},
+					"named": false,
+					"value": "after_meal"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "a.n."
+					},
+					"named": false,
+					"value": "before_night"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "z.n."
+					},
+					"named": false,
+					"value": "as_needed"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "s.o.s."
+					},
+					"named": false,
+					"value": "as_needed"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "p.r.n."
+					},
+					"named": false,
+					"value": "as_needed"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "mane"
+					},
+					"named": false,
+					"value": "morning"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "nocte"
+					},
+					"named": false,
+					"value": "night"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "stat"
+					},
+					"named": false,
+					"value": "immediately"
+				},
+				{
+					"type": "SEQ",
+					"members": [
+						{
+							"type": "STRING",
+							"value": "si"
+						},
+						{
+							"type": "STRING",
+							"value": "nec"
+						}
+					]
+				}
+			]
+		},
+		"administration": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "s.c."
+					},
+					"named": false,
+					"value": "subcutaneous"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "i.m."
+					},
+					"named": false,
+					"value": "intramuscular"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "i.v."
+					},
+					"named": false,
+					"value": "intravenous"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "subling."
+					},
+					"named": false,
+					"value": "sublingual"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "o.d."
+					},
+					"named": false,
+					"value": "right_eye"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "o.s."
+					},
+					"named": false,
+					"value": "left_eye"
+				}
+			]
+		},
+		"warning": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "d.c.p."
+					},
+					"named": false,
+					"value": "give_with_prohibition"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "CITO"
+					},
+					"named": false,
+					"value": "urgent"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "PIM"
+					},
+					"named": false,
+					"value": "danger_if_delayed"
+				},
+				{
+					"type": "ALIAS",
+					"content": {
+						"type": "STRING",
+						"value": "non rep."
+					},
+					"named": false,
+					"value": "no_repeats"
+				}
+			]
+		},
+		"dose_unit": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "mg"
+				},
+				{
+					"type": "STRING",
+					"value": "g"
+				},
+				{
+					"type": "STRING",
+					"value": "ml"
+				},
+				{
+					"type": "STRING",
+					"value": "l"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg"
+				},
+				{
+					"type": "STRING",
+					"value": "IU"
+				},
+				{
+					"type": "STRING",
+					"value": "IE"
+				}
+			]
+		},
+		"quantity_unit": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "mg"
+				},
+				{
+					"type": "STRING",
+					"value": "g"
+				},
+				{
+					"type": "STRING",
+					"value": "ml"
+				},
+				{
+					"type": "STRING",
+					"value": "l"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg"
+				},
+				{
+					"type": "STRING",
+					"value": "IU"
+				},
+				{
+					"type": "STRING",
+					"value": "IE"
+				}
+			]
+		},
+		"number": {
+			"type": "PATTERN",
+			"value": "[0-9]+([.,][0-9]+)?"
+		},
+		"integer": {
+			"type": "PATTERN",
+			"value": "[0-9]+"
+		},
+		"identifier": {
+			"type": "PATTERN",
+			"value": "[a-zA-ZÀ-ÿ][a-zA-ZÀ-ÿ0-9_'-]*"
 		}
 	},
 	"extras": [

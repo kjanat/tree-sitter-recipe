@@ -1,5 +1,4 @@
-import assert from "node:assert";
-import { test } from "node:test";
+import { assert, test } from "bun:test";
 import Parser from "tree-sitter";
 
 test("can load grammar", () => {
