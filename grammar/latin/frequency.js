@@ -4,6 +4,7 @@
  * @license MIT
  */
 
+/** @type {readonly string[]} */
 export const FREQUENCY = [
 	"b.d.d.", // bis de die — twice daily
 	"t.d.d.", // ter de die — three times daily

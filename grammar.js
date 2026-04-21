@@ -8,7 +8,7 @@
 // @ts-check
 
 import { LATIN_ABBREVS, MULTIWORD_ABBREV_RE } from "./grammar/latin/index.js";
-import { UNITS } from "./grammar/units.js";
+import { UNITS } from "./grammar/units/index.js";
 
 export default grammar({
 	name: "prescription",

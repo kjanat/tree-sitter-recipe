@@ -3,6 +3,7 @@
  * @license MIT
  */
 
+/** @type {readonly string[]} */
 export const DISPENSING = [
 	"d.s.p.", // detur sine prescriptione — dispense without prescription label
 	"d.c.p.", // detur cum prescriptione — dispense with prescription label
@@ -11,6 +12,7 @@ export const DISPENSING = [
 	"z.n.", // zo nodig — as needed (Dutch)
 ];
 
+/** @type {readonly string[]} */
 export const DISPENSING_MULTIWORD = [
 	"d.c. prohib.", // dispensing repeat prohibited
 	"d.s. monit.", // dispense with monitoring label

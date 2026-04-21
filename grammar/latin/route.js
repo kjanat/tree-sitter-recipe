@@ -3,6 +3,7 @@
  * @license MIT
  */
 
+/** @type {readonly string[]} */
 export const ROUTE = [
 	"i.m.", // intramuscular
 	"i.v.", // intravenous

@@ -33,6 +33,7 @@ export {
 };
 
 // Atomic tokens — no embedded whitespace, fed to token(prec(3, choice(...))).
+/** @type {readonly string[]} */
 export const LATIN_ABBREVS = [
 	...FREQUENCY,
 	...TIMING,
@@ -44,8 +45,13 @@ export const LATIN_ABBREVS = [
 
 // Multi-word tokens — embedded whitespace. Escape dots, let \s+ absorb any
 // whitespace run so "m.  et   v." still matches.
+/**
+ * @param {string} s
+ * @returns {string}
+ */
 const toMultiwordPattern = s => s.replace(/\./g, "\\.").replace(/\s+/g, "\\s+");
 
+/** @type {readonly string[]} */
 export const MULTIWORD_ABBREVS = [
 	...TIMING_MULTIWORD,
 	...DISPENSING_MULTIWORD,
@@ -53,6 +59,7 @@ export const MULTIWORD_ABBREVS = [
 	...CONDITIONAL_MULTIWORD,
 ];
 
+/** @type {RegExp} */
 export const MULTIWORD_ABBREV_RE = new RegExp(
 	MULTIWORD_ABBREVS.map(toMultiwordPattern).join("|"),
 );
