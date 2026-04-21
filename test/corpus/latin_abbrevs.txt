@@ -16,9 +16,9 @@ S/ b.d.d. 1 caps p.c. gedurende 7 dagen
   (signa_section
     (signa_marker)
     (signa_line
-      (latin_abbrev)
+      (frequency_abbrev)
       (dose (number) (unit))
-      (latin_abbrev)
+      (timing_abbrev)
       (word)
       (number)
       (word))))
@@ -41,10 +41,10 @@ S/ d.s. monit. 2 tablets q.i.d. a.c.
   (signa_section
     (signa_marker)
     (signa_line
-      (latin_abbrev)
+      (dispensing_abbrev)
       (dose (number) (unit))
-      (latin_abbrev)
-      (latin_abbrev))))
+      (frequency_abbrev)
+      (timing_abbrev))))
 
 ==================
 Emergency and warning markers
@@ -64,9 +64,9 @@ S/ CITO i.m. z.n.
   (signa_section
     (signa_marker)
     (signa_line
-      (latin_abbrev)
-      (latin_abbrev)
-      (latin_abbrev))))
+      (warning_abbrev)
+      (route_abbrev)
+      (dispensing_abbrev))))
 
 ==================
 Uppercase and dotless route variants
@@ -90,20 +90,20 @@ S/ 2 dd 1 I.M.
     (signa_line
       (frequency)
       (dose (number) (unit))
-      (latin_abbrev)
-      (latin_abbrev)))
+      (route_abbrev)
+      (timing_abbrev)))
   (signa_section
     (signa_marker)
     (signa_line
       (number)
-      (latin_abbrev)
+      (route_abbrev)
       (word)))
   (signa_section
     (signa_marker)
     (signa_line
       (frequency)
       (number)
-      (latin_abbrev))))
+      (route_abbrev))))
 
 ==================
 Multi-word route with sentence-case
@@ -125,12 +125,12 @@ S/ Per rectum z.n.
     (signa_marker)
     (signa_line
       (dose (number) (unit))
-      (latin_abbrev)))
+      (route_abbrev)))
   (signa_section
     (signa_marker)
     (signa_line
-      (latin_abbrev)
-      (latin_abbrev))))
+      (route_abbrev)
+      (dispensing_abbrev))))
 
 ==================
 Cito casing variants
@@ -151,10 +151,10 @@ S/ Cito i.m.
   (signa_section
     (signa_marker)
     (signa_line
-      (latin_abbrev)
-      (latin_abbrev)))
+      (warning_abbrev)
+      (route_abbrev)))
   (signa_section
     (signa_marker)
     (signa_line
-      (latin_abbrev)
-      (latin_abbrev))))
+      (warning_abbrev)
+      (route_abbrev))))

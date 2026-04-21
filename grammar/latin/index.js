@@ -2,15 +2,17 @@
  * @file Barrel for Latin abbreviation vocabulary, grouped by semantic role.
  *
  * Each category exports its own list so downstream tooling (highlight queries,
- * linters, LSP) can reason about abbreviations semantically — e.g. a formatter
- * that normalizes only frequencies, or a linter that flags a dispensing
- * abbreviation without an accompanying quantity.
+ * linters, LSP) can reason about abbreviations semantically. grammar.js
+ * consumes the per-category exports directly — one rule per category —
+ * letting consumers query either the supertype `latin_abbrev` or a concrete
+ * category like `route_abbrev`.
  *
- * Single-word entries go into LATIN_ABBREVS; multi-word entries feed the
- * regex so "gtt  aur." (variable spacing) still tokenizes.
+ * Multi-word categories get their own compiled regex so escaped dots and
+ * flexible whitespace are compiled once, at generate time.
  * @license MIT
  */
 
+import { COMPOUNDING } from "./compounding.js";
 import { CONDITIONAL_MULTIWORD } from "./conditional.js";
 import { DISPENSING, DISPENSING_MULTIWORD } from "./dispensing.js";
 import { FORMS, FORMS_MULTIWORD } from "./forms.js";
@@ -20,6 +22,7 @@ import { TIMING, TIMING_MULTIWORD } from "./timing.js";
 import { WARNING } from "./warning.js";
 
 export {
+	COMPOUNDING,
 	CONDITIONAL_MULTIWORD,
 	DISPENSING,
 	DISPENSING_MULTIWORD,
@@ -33,35 +36,28 @@ export {
 	WARNING,
 };
 
-// Atomic tokens — no embedded whitespace, fed to token(prec(3, choice(...))).
-/** @type {readonly string[]} */
-export const LATIN_ABBREVS = [
-	...FREQUENCY,
-	...TIMING,
-	...ROUTE,
-	...DISPENSING,
-	...WARNING,
-	...FORMS,
-];
-
-// Multi-word tokens — embedded whitespace. Escape dots, let \s+ absorb any
-// whitespace run so "m.  et   v." still matches.
 /**
+ * Escape dots as regex metachars, expand any whitespace run into `\s+` so
+ * irregular spacing ("m.  et   v.") still matches.
  * @param {string} s
  * @returns {string}
  */
 const toMultiwordPattern = s => s.replace(/\./g, "\\.").replace(/\s+/g, "\\s+");
 
-/** @type {readonly string[]} */
-export const MULTIWORD_ABBREVS = [
-	...TIMING_MULTIWORD,
-	...ROUTE_MULTIWORD,
-	...DISPENSING_MULTIWORD,
-	...FORMS_MULTIWORD,
-	...CONDITIONAL_MULTIWORD,
-];
+/**
+ * Compile a multiword-abbreviation list into a single alternation regex.
+ * @param {readonly string[]} tokens
+ * @returns {RegExp}
+ */
+const buildMultiwordRegex = tokens => new RegExp(tokens.map(toMultiwordPattern).join("|"));
 
 /** @type {RegExp} */
-export const MULTIWORD_ABBREV_RE = new RegExp(
-	MULTIWORD_ABBREVS.map(toMultiwordPattern).join("|"),
-);
+export const TIMING_MULTIWORD_RE = buildMultiwordRegex(TIMING_MULTIWORD);
+/** @type {RegExp} */
+export const ROUTE_MULTIWORD_RE = buildMultiwordRegex(ROUTE_MULTIWORD);
+/** @type {RegExp} */
+export const DISPENSING_MULTIWORD_RE = buildMultiwordRegex(DISPENSING_MULTIWORD);
+/** @type {RegExp} */
+export const FORMS_MULTIWORD_RE = buildMultiwordRegex(FORMS_MULTIWORD);
+/** @type {RegExp} */
+export const CONDITIONAL_MULTIWORD_RE = buildMultiwordRegex(CONDITIONAL_MULTIWORD);

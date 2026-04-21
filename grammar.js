@@ -7,7 +7,20 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
-import { LATIN_ABBREVS, MULTIWORD_ABBREV_RE } from "./grammar/latin/index.js";
+import {
+	COMPOUNDING,
+	CONDITIONAL_MULTIWORD_RE,
+	DISPENSING,
+	DISPENSING_MULTIWORD_RE,
+	FORMS,
+	FORMS_MULTIWORD_RE,
+	FREQUENCY,
+	ROUTE,
+	ROUTE_MULTIWORD_RE,
+	TIMING,
+	TIMING_MULTIWORD_RE,
+	WARNING,
+} from "./grammar/latin/index.js";
 import { UNITS } from "./grammar/units/index.js";
 
 export default grammar({
@@ -33,6 +46,11 @@ export default grammar({
 		[$.recipe_section],
 		[$.signa_section],
 	],
+
+	// `latin_abbrev` is a supertype — queries can target either the
+	// supertype ((latin_abbrev) @foo) or the concrete category
+	// ((route_abbrev) @bar). AST emits the concrete subtype.
+	supertypes: $ => [$.latin_abbrev],
 
 	rules: {
 		source_file: $ => repeat(choice($._section, $._newline)),
@@ -79,11 +97,33 @@ export default grammar({
 				$.punctuation,
 			),
 
+		// Supertype of all Latin abbreviation categories. Body is a pure
+		// choice of concrete rule refs per tree-sitter supertype rules.
 		latin_abbrev: $ =>
 			choice(
-				token(prec(3, choice(...LATIN_ABBREVS))),
-				token(prec(3, MULTIWORD_ABBREV_RE)),
+				$.frequency_abbrev,
+				$.timing_abbrev,
+				$.route_abbrev,
+				$.dispensing_abbrev,
+				$.warning_abbrev,
+				$.form_abbrev,
+				$.compounding_abbrev,
+				$.conditional_abbrev,
 			),
+
+		// Plain string `choice(...)` lets tree-sitter's keyword extraction
+		// (via the `word` directive) enforce word boundaries — so "aa" won't
+		// eat the first two letters of "aanbrengen". Multiword regex alts can't
+		// benefit from that and must still go through `token()`; they're
+		// combined with the literals via an outer choice where present.
+		frequency_abbrev: $ => choice(...FREQUENCY),
+		timing_abbrev: $ => choice(...TIMING, token(prec(3, TIMING_MULTIWORD_RE))),
+		route_abbrev: $ => choice(...ROUTE, token(prec(3, ROUTE_MULTIWORD_RE))),
+		dispensing_abbrev: $ => choice(...DISPENSING, token(prec(3, DISPENSING_MULTIWORD_RE))),
+		warning_abbrev: $ => choice(...WARNING),
+		form_abbrev: $ => choice(...FORMS, token(prec(3, FORMS_MULTIWORD_RE))),
+		compounding_abbrev: $ => choice(...COMPOUNDING),
+		conditional_abbrev: $ => token(prec(3, CONDITIONAL_MULTIWORD_RE)),
 
 		// Compact modern frequency: "1 dd", "2 dd", "1dd" — caveman speak for dosing.
 		frequency: $ => token(prec(3, /[1-9]\s*dd/)),

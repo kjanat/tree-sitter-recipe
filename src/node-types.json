@@ -1,5 +1,48 @@
 [
 	{
+		"type": "latin_abbrev",
+		"named": true,
+		"subtypes": [
+			{
+				"type": "compounding_abbrev",
+				"named": true
+			},
+			{
+				"type": "conditional_abbrev",
+				"named": true
+			},
+			{
+				"type": "dispensing_abbrev",
+				"named": true
+			},
+			{
+				"type": "form_abbrev",
+				"named": true
+			},
+			{
+				"type": "frequency_abbrev",
+				"named": true
+			},
+			{
+				"type": "route_abbrev",
+				"named": true
+			},
+			{
+				"type": "timing_abbrev",
+				"named": true
+			},
+			{
+				"type": "warning_abbrev",
+				"named": true
+			}
+		]
+	},
+	{
+		"type": "compounding_abbrev",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "dispense_body",
 		"named": true,
 		"fields": {},
@@ -62,6 +105,11 @@
 		}
 	},
 	{
+		"type": "dispensing_abbrev",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "dose",
 		"named": true,
 		"fields": {},
@@ -111,6 +159,16 @@
 		}
 	},
 	{
+		"type": "form_abbrev",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "frequency_abbrev",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "ingredient_line",
 		"named": true,
 		"fields": {},
@@ -154,11 +212,6 @@
 		}
 	},
 	{
-		"type": "latin_abbrev",
-		"named": true,
-		"fields": {}
-	},
-	{
 		"type": "recipe_section",
 		"named": true,
 		"fields": {},
@@ -176,6 +229,11 @@
 				}
 			]
 		}
+	},
+	{
+		"type": "route_abbrev",
+		"named": true,
+		"fields": {}
 	},
 	{
 		"type": "signa_line",
@@ -264,7 +322,17 @@
 		}
 	},
 	{
+		"type": "timing_abbrev",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "unit",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "warning_abbrev",
 		"named": true,
 		"fields": {}
 	},
@@ -273,7 +341,39 @@
 		"named": false
 	},
 	{
+		"type": "A.U.E.",
+		"named": false
+	},
+	{
+		"type": "CITO",
+		"named": false
+	},
+	{
+		"type": "Cito",
+		"named": false
+	},
+	{
 		"type": "E",
+		"named": false
+	},
+	{
+		"type": "I.M.",
+		"named": false
+	},
+	{
+		"type": "I.N.",
+		"named": false
+	},
+	{
+		"type": "I.V.",
+		"named": false
+	},
+	{
+		"type": "IM",
+		"named": false
+	},
+	{
+		"type": "INH.",
 		"named": false
 	},
 	{
@@ -281,7 +381,95 @@
 		"named": false
 	},
 	{
+		"type": "IV",
+		"named": false
+	},
+	{
 		"type": "L",
+		"named": false
+	},
+	{
+		"type": "O.D.",
+		"named": false
+	},
+	{
+		"type": "O.S.",
+		"named": false
+	},
+	{
+		"type": "O.U.",
+		"named": false
+	},
+	{
+		"type": "P.O.",
+		"named": false
+	},
+	{
+		"type": "P.R.",
+		"named": false
+	},
+	{
+		"type": "P.V.",
+		"named": false
+	},
+	{
+		"type": "PIM",
+		"named": false
+	},
+	{
+		"type": "PO",
+		"named": false
+	},
+	{
+		"type": "S.C.",
+		"named": false
+	},
+	{
+		"type": "S.L.",
+		"named": false
+	},
+	{
+		"type": "SC",
+		"named": false
+	},
+	{
+		"type": "SL",
+		"named": false
+	},
+	{
+		"type": "SUBLING.",
+		"named": false
+	},
+	{
+		"type": "U.E.",
+		"named": false
+	},
+	{
+		"type": "a.c.",
+		"named": false
+	},
+	{
+		"type": "a.n.",
+		"named": false
+	},
+	{
+		"type": "a.u.e.",
+		"named": false
+	},
+	{
+		"type": "aa",
+		"named": false
+	},
+	{
+		"type": "aa.",
+		"named": false
+	},
+	{
+		"type": "aq. pur.",
+		"named": false
+	},
+	{
+		"type": "b.d.d.",
 		"named": false
 	},
 	{
@@ -307,6 +495,34 @@
 	},
 	{
 		"type": "capsules",
+		"named": false
+	},
+	{
+		"type": "cito",
+		"named": false
+	},
+	{
+		"type": "collut.",
+		"named": false
+	},
+	{
+		"type": "conditional_abbrev",
+		"named": true
+	},
+	{
+		"type": "d.c.p.",
+		"named": false
+	},
+	{
+		"type": "d.d.",
+		"named": false
+	},
+	{
+		"type": "d.i.m.m.",
+		"named": false
+	},
+	{
+		"type": "d.s.p.",
 		"named": false
 	},
 	{
@@ -340,6 +556,14 @@
 		"named": false
 	},
 	{
+		"type": "emp.",
+		"named": false
+	},
+	{
+		"type": "f.",
+		"named": false
+	},
+	{
 		"type": "fill_marker",
 		"named": false
 	},
@@ -356,6 +580,22 @@
 		"named": false
 	},
 	{
+		"type": "i.m.",
+		"named": false
+	},
+	{
+		"type": "i.n.",
+		"named": false
+	},
+	{
+		"type": "i.v.",
+		"named": false
+	},
+	{
+		"type": "inh.",
+		"named": false
+	},
+	{
 		"type": "kg",
 		"named": false
 	},
@@ -364,9 +604,17 @@
 		"named": false
 	},
 	{
+		"type": "lin.",
+		"named": false
+	},
+	{
 		"type": "line_comment",
 		"named": true,
 		"extra": true
+	},
+	{
+		"type": "m.f.",
+		"named": false
 	},
 	{
 		"type": "mL",
@@ -374,6 +622,10 @@
 	},
 	{
 		"type": "mcg",
+		"named": false
+	},
+	{
+		"type": "mf",
 		"named": false
 	},
 	{
@@ -389,12 +641,64 @@
 		"named": true
 	},
 	{
+		"type": "o.d.",
+		"named": false
+	},
+	{
+		"type": "o.s.",
+		"named": false
+	},
+	{
+		"type": "o.u.",
+		"named": false
+	},
+	{
+		"type": "p.c.",
+		"named": false
+	},
+	{
+		"type": "p.o.",
+		"named": false
+	},
+	{
+		"type": "p.r.",
+		"named": false
+	},
+	{
+		"type": "p.v.",
+		"named": false
+	},
+	{
+		"type": "pulv.",
+		"named": false
+	},
+	{
 		"type": "punctuation",
 		"named": true
 	},
 	{
+		"type": "q.i.d.",
+		"named": false
+	},
+	{
+		"type": "q.s.",
+		"named": false
+	},
+	{
 		"type": "recipe_marker",
 		"named": true
+	},
+	{
+		"type": "s.c.",
+		"named": false
+	},
+	{
+		"type": "s.d.d.",
+		"named": false
+	},
+	{
+		"type": "s.l.",
+		"named": false
 	},
 	{
 		"type": "signa_marker",
@@ -406,6 +710,18 @@
 	},
 	{
 		"type": "stuks",
+		"named": false
+	},
+	{
+		"type": "subling.",
+		"named": false
+	},
+	{
+		"type": "supp.",
+		"named": false
+	},
+	{
+		"type": "t.d.d.",
 		"named": false
 	},
 	{
@@ -425,8 +741,28 @@
 		"named": false
 	},
 	{
+		"type": "u.c.",
+		"named": false
+	},
+	{
+		"type": "u.e.",
+		"named": false
+	},
+	{
+		"type": "ung.",
+		"named": false
+	},
+	{
+		"type": "ungt.",
+		"named": false
+	},
+	{
 		"type": "word",
 		"named": true
+	},
+	{
+		"type": "z.n.",
+		"named": false
 	},
 	{
 		"type": "µg",

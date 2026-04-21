@@ -9,6 +9,10 @@ export const FORMS = [
 	"collut.", // collutorium — mouthwash
 	"lin.", // linimentum
 	"supp.", // suppositorium
+	"pulv.", // pulvis — powder
+	"ungt.", // unguentum — ointment
+	"ung.", // unguentum — shorter variant
+	"emp.", // emplastrum — medicinal plaster
 ];
 
 /** @type {readonly string[]} */

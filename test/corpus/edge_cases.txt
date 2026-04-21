@@ -22,7 +22,7 @@ s/ 1 tablet z.n.
     (signa_marker)
     (signa_line
       (dose (number) (unit))
-      (latin_abbrev))))
+      (dispensing_abbrev))))
 
 ==================
 Comma decimal and percent

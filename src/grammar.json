@@ -202,240 +202,78 @@
 			"type": "CHOICE",
 			"members": [
 				{
-					"type": "TOKEN",
-					"content": {
-						"type": "PREC",
-						"value": 3,
-						"content": {
-							"type": "CHOICE",
-							"members": [
-								{
-									"type": "STRING",
-									"value": "b.d.d."
-								},
-								{
-									"type": "STRING",
-									"value": "t.d.d."
-								},
-								{
-									"type": "STRING",
-									"value": "q.i.d."
-								},
-								{
-									"type": "STRING",
-									"value": "s.d.d."
-								},
-								{
-									"type": "STRING",
-									"value": "d.d."
-								},
-								{
-									"type": "STRING",
-									"value": "a.c."
-								},
-								{
-									"type": "STRING",
-									"value": "p.c."
-								},
-								{
-									"type": "STRING",
-									"value": "a.n."
-								},
-								{
-									"type": "STRING",
-									"value": "i.m."
-								},
-								{
-									"type": "STRING",
-									"value": "i.v."
-								},
-								{
-									"type": "STRING",
-									"value": "s.c."
-								},
-								{
-									"type": "STRING",
-									"value": "s.l."
-								},
-								{
-									"type": "STRING",
-									"value": "subling."
-								},
-								{
-									"type": "STRING",
-									"value": "p.o."
-								},
-								{
-									"type": "STRING",
-									"value": "p.r."
-								},
-								{
-									"type": "STRING",
-									"value": "p.v."
-								},
-								{
-									"type": "STRING",
-									"value": "i.n."
-								},
-								{
-									"type": "STRING",
-									"value": "inh."
-								},
-								{
-									"type": "STRING",
-									"value": "o.d."
-								},
-								{
-									"type": "STRING",
-									"value": "o.s."
-								},
-								{
-									"type": "STRING",
-									"value": "o.u."
-								},
-								{
-									"type": "STRING",
-									"value": "a.u.e."
-								},
-								{
-									"type": "STRING",
-									"value": "u.e."
-								},
-								{
-									"type": "STRING",
-									"value": "I.M."
-								},
-								{
-									"type": "STRING",
-									"value": "I.V."
-								},
-								{
-									"type": "STRING",
-									"value": "S.C."
-								},
-								{
-									"type": "STRING",
-									"value": "S.L."
-								},
-								{
-									"type": "STRING",
-									"value": "SUBLING."
-								},
-								{
-									"type": "STRING",
-									"value": "P.O."
-								},
-								{
-									"type": "STRING",
-									"value": "P.R."
-								},
-								{
-									"type": "STRING",
-									"value": "P.V."
-								},
-								{
-									"type": "STRING",
-									"value": "I.N."
-								},
-								{
-									"type": "STRING",
-									"value": "INH."
-								},
-								{
-									"type": "STRING",
-									"value": "O.D."
-								},
-								{
-									"type": "STRING",
-									"value": "O.S."
-								},
-								{
-									"type": "STRING",
-									"value": "O.U."
-								},
-								{
-									"type": "STRING",
-									"value": "A.U.E."
-								},
-								{
-									"type": "STRING",
-									"value": "U.E."
-								},
-								{
-									"type": "STRING",
-									"value": "IV"
-								},
-								{
-									"type": "STRING",
-									"value": "IM"
-								},
-								{
-									"type": "STRING",
-									"value": "SC"
-								},
-								{
-									"type": "STRING",
-									"value": "SL"
-								},
-								{
-									"type": "STRING",
-									"value": "PO"
-								},
-								{
-									"type": "STRING",
-									"value": "d.s.p."
-								},
-								{
-									"type": "STRING",
-									"value": "d.c.p."
-								},
-								{
-									"type": "STRING",
-									"value": "d.i.m.m."
-								},
-								{
-									"type": "STRING",
-									"value": "u.c."
-								},
-								{
-									"type": "STRING",
-									"value": "z.n."
-								},
-								{
-									"type": "STRING",
-									"value": "CITO"
-								},
-								{
-									"type": "STRING",
-									"value": "cito"
-								},
-								{
-									"type": "STRING",
-									"value": "Cito"
-								},
-								{
-									"type": "STRING",
-									"value": "PIM"
-								},
-								{
-									"type": "STRING",
-									"value": "aq. pur."
-								},
-								{
-									"type": "STRING",
-									"value": "collut."
-								},
-								{
-									"type": "STRING",
-									"value": "lin."
-								},
-								{
-									"type": "STRING",
-									"value": "supp."
-								}
-							]
-						}
-					}
+					"type": "SYMBOL",
+					"name": "frequency_abbrev"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "timing_abbrev"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "route_abbrev"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "dispensing_abbrev"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "warning_abbrev"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "form_abbrev"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "compounding_abbrev"
+				},
+				{
+					"type": "SYMBOL",
+					"name": "conditional_abbrev"
+				}
+			]
+		},
+		"frequency_abbrev": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "b.d.d."
+				},
+				{
+					"type": "STRING",
+					"value": "t.d.d."
+				},
+				{
+					"type": "STRING",
+					"value": "q.i.d."
+				},
+				{
+					"type": "STRING",
+					"value": "s.d.d."
+				},
+				{
+					"type": "STRING",
+					"value": "d.d."
+				}
+			]
+		},
+		"timing_abbrev": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "a.c."
+				},
+				{
+					"type": "STRING",
+					"value": "p.c."
+				},
+				{
+					"type": "STRING",
+					"value": "a.n."
 				},
 				{
 					"type": "TOKEN",
@@ -444,11 +282,312 @@
 						"value": 3,
 						"content": {
 							"type": "PATTERN",
-							"value": "m\\.\\s+et\\s+v\\.|per\\s+os|per\\s+rectum|per\\s+vaginam|ad\\s+us\\.\\s+int\\.|ad\\s+us\\.\\s+ext\\.|Per\\s+os|Per\\s+rectum|Per\\s+vaginam|Ad\\s+us\\.\\s+int\\.|Ad\\s+us\\.\\s+ext\\.|d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\.|gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\.|si\\s+nec\\.\\s+sit"
+							"value": "m\\.\\s+et\\s+v\\."
 						}
 					}
 				}
 			]
+		},
+		"route_abbrev": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "i.m."
+				},
+				{
+					"type": "STRING",
+					"value": "i.v."
+				},
+				{
+					"type": "STRING",
+					"value": "s.c."
+				},
+				{
+					"type": "STRING",
+					"value": "s.l."
+				},
+				{
+					"type": "STRING",
+					"value": "subling."
+				},
+				{
+					"type": "STRING",
+					"value": "p.o."
+				},
+				{
+					"type": "STRING",
+					"value": "p.r."
+				},
+				{
+					"type": "STRING",
+					"value": "p.v."
+				},
+				{
+					"type": "STRING",
+					"value": "i.n."
+				},
+				{
+					"type": "STRING",
+					"value": "inh."
+				},
+				{
+					"type": "STRING",
+					"value": "o.d."
+				},
+				{
+					"type": "STRING",
+					"value": "o.s."
+				},
+				{
+					"type": "STRING",
+					"value": "o.u."
+				},
+				{
+					"type": "STRING",
+					"value": "a.u.e."
+				},
+				{
+					"type": "STRING",
+					"value": "u.e."
+				},
+				{
+					"type": "STRING",
+					"value": "I.M."
+				},
+				{
+					"type": "STRING",
+					"value": "I.V."
+				},
+				{
+					"type": "STRING",
+					"value": "S.C."
+				},
+				{
+					"type": "STRING",
+					"value": "S.L."
+				},
+				{
+					"type": "STRING",
+					"value": "SUBLING."
+				},
+				{
+					"type": "STRING",
+					"value": "P.O."
+				},
+				{
+					"type": "STRING",
+					"value": "P.R."
+				},
+				{
+					"type": "STRING",
+					"value": "P.V."
+				},
+				{
+					"type": "STRING",
+					"value": "I.N."
+				},
+				{
+					"type": "STRING",
+					"value": "INH."
+				},
+				{
+					"type": "STRING",
+					"value": "O.D."
+				},
+				{
+					"type": "STRING",
+					"value": "O.S."
+				},
+				{
+					"type": "STRING",
+					"value": "O.U."
+				},
+				{
+					"type": "STRING",
+					"value": "A.U.E."
+				},
+				{
+					"type": "STRING",
+					"value": "U.E."
+				},
+				{
+					"type": "STRING",
+					"value": "IV"
+				},
+				{
+					"type": "STRING",
+					"value": "IM"
+				},
+				{
+					"type": "STRING",
+					"value": "SC"
+				},
+				{
+					"type": "STRING",
+					"value": "SL"
+				},
+				{
+					"type": "STRING",
+					"value": "PO"
+				},
+				{
+					"type": "TOKEN",
+					"content": {
+						"type": "PREC",
+						"value": 3,
+						"content": {
+							"type": "PATTERN",
+							"value": "per\\s+os|per\\s+rectum|per\\s+vaginam|ad\\s+us\\.\\s+int\\.|ad\\s+us\\.\\s+ext\\.|Per\\s+os|Per\\s+rectum|Per\\s+vaginam|Ad\\s+us\\.\\s+int\\.|Ad\\s+us\\.\\s+ext\\."
+						}
+					}
+				}
+			]
+		},
+		"dispensing_abbrev": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "d.s.p."
+				},
+				{
+					"type": "STRING",
+					"value": "d.c.p."
+				},
+				{
+					"type": "STRING",
+					"value": "d.i.m.m."
+				},
+				{
+					"type": "STRING",
+					"value": "u.c."
+				},
+				{
+					"type": "STRING",
+					"value": "z.n."
+				},
+				{
+					"type": "TOKEN",
+					"content": {
+						"type": "PREC",
+						"value": 3,
+						"content": {
+							"type": "PATTERN",
+							"value": "d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\."
+						}
+					}
+				}
+			]
+		},
+		"warning_abbrev": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "CITO"
+				},
+				{
+					"type": "STRING",
+					"value": "cito"
+				},
+				{
+					"type": "STRING",
+					"value": "Cito"
+				},
+				{
+					"type": "STRING",
+					"value": "PIM"
+				}
+			]
+		},
+		"form_abbrev": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "aq. pur."
+				},
+				{
+					"type": "STRING",
+					"value": "collut."
+				},
+				{
+					"type": "STRING",
+					"value": "lin."
+				},
+				{
+					"type": "STRING",
+					"value": "supp."
+				},
+				{
+					"type": "STRING",
+					"value": "pulv."
+				},
+				{
+					"type": "STRING",
+					"value": "ungt."
+				},
+				{
+					"type": "STRING",
+					"value": "ung."
+				},
+				{
+					"type": "STRING",
+					"value": "emp."
+				},
+				{
+					"type": "TOKEN",
+					"content": {
+						"type": "PREC",
+						"value": 3,
+						"content": {
+							"type": "PATTERN",
+							"value": "gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\."
+						}
+					}
+				}
+			]
+		},
+		"compounding_abbrev": {
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "mf"
+				},
+				{
+					"type": "STRING",
+					"value": "m.f."
+				},
+				{
+					"type": "STRING",
+					"value": "aa"
+				},
+				{
+					"type": "STRING",
+					"value": "aa."
+				},
+				{
+					"type": "STRING",
+					"value": "q.s."
+				},
+				{
+					"type": "STRING",
+					"value": "f."
+				}
+			]
+		},
+		"conditional_abbrev": {
+			"type": "TOKEN",
+			"content": {
+				"type": "PREC",
+				"value": 3,
+				"content": {
+					"type": "PATTERN",
+					"value": "si\\s+nec\\.\\s+sit"
+				}
+			}
 		},
 		"frequency": {
 			"type": "TOKEN",
@@ -775,6 +914,8 @@
 	"precedences": [],
 	"externals": [],
 	"inline": [],
-	"supertypes": [],
+	"supertypes": [
+		"latin_abbrev"
+	],
 	"reserved": {}
 }

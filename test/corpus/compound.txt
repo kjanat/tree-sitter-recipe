@@ -21,7 +21,7 @@ S/ 1x daags dun aanbrengen
       (word)
       (fill_to (dose (number) (unit))))
     (ingredient_line
-      (word)
+      (compounding_abbrev)
       (word)
       (dtd_directive (number))))
   (dispense_section
