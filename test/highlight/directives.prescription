@@ -1,0 +1,22 @@
+R/ ibuprofen 400mg mf dtd no 30 PIM
+# <- keyword.directive
+#  ^ variable
+#            ^ number
+#               ^ type.builtin
+#                  ^ keyword.operator
+#                     ^ keyword.operator
+#                         ^ keyword.operator
+#                            ^ number
+#                               ^ keyword.error
+Da/ 30 caps
+# <- keyword.directive
+#   ^ number
+#      ^ type.builtin
+S/ 1 tabl. subling. si nec. sit, m. et v.
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#          ^ function.macro
+#                   ^ keyword.conditional
+#                              ^ punctuation.delimiter
+#                                ^ keyword

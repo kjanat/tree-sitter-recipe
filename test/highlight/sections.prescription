@@ -13,3 +13,8 @@ S/ 1 dd 1 tablet
 #    ^ keyword.repeat
 #       ^ number
 #         ^ type.builtin
+S/ take 1 tablet
+# <- keyword.directive
+#  ^ string
+#       ^ number
+#         ^ type.builtin

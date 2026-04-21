@@ -1,0 +1,6 @@
+# Line comment heading
+# <- comment
+#! Doc line comment heading
+# <- comment.documentation
+R/ aspirin 100mg
+# <- keyword.directive
