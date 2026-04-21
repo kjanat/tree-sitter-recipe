@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.13)
 project(tree-sitter-prescription
         VERSION "0.1.0"
         DESCRIPTION "Pharmacological prescription notation"
-        HOMEPAGE_URL "https://github.com/kjanat/tree-sitter-prescription.git"
+        HOMEPAGE_URL "https://github.com/kjanat/tree-sitter-prescription"
         LANGUAGES C)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)

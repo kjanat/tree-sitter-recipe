@@ -16,7 +16,7 @@ classifiers     = [
 
 [project.urls]
 Funding  = ""
-Homepage = "https://github.com/kjanat/tree-sitter-prescription.git"
+Homepage = "https://github.com/kjanat/tree-sitter-prescription"
 
 [project.optional-dependencies]
 core = ["tree-sitter~=0.24"]

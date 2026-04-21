@@ -11,7 +11,7 @@
 	<name>JTreeSitter Prescription</name>
 	<version>0.1.0</version>
 	<description>Pharmacological prescription notation</description>
-	<url>https://github.com/kjanat/tree-sitter-prescription.git</url>
+	<url>https://github.com/kjanat/tree-sitter-prescription</url>
 	<licenses>
 		<license>
 			<name>MIT</name>
@@ -26,9 +26,9 @@
 		</developer>
 	</developers>
 	<scm>
-		<url>https://github.com/kjanat/tree-sitter-prescription.git</url>
-		<connection>scm:git:git://github.com/kjanat/tree-sitter-prescription.git.git</connection>
-		<developerConnection>scm:git:ssh://github.com/kjanat/tree-sitter-prescription.git.git</developerConnection>
+		<url>https://github.com/kjanat/tree-sitter-prescription</url>
+		<connection>scm:git:git://github.com/kjanat/tree-sitter-prescription.git</connection>
+		<developerConnection>scm:git:ssh://github.com/kjanat/tree-sitter-prescription.git</developerConnection>
 	</scm>
 	<properties>
 		<maven.compiler.release>23</maven.compiler.release>

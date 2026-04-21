@@ -1,5 +1,5 @@
 LANGUAGE_NAME := tree-sitter-prescription
-HOMEPAGE_URL := https://github.com/kjanat/tree-sitter-prescription.git
+HOMEPAGE_URL := https://github.com/kjanat/tree-sitter-prescription
 VERSION := 0.1.0
 
 # repository

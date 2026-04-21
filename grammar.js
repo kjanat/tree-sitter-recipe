@@ -5,7 +5,6 @@
  */
 
 /// <reference types="tree-sitter-cli/dsl" />
-// @ts-check
 
 import {
 	COMPOUNDING,

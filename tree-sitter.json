@@ -34,7 +34,7 @@
 			}
 		],
 		"links": {
-			"repository": "https://github.com/kjanat/tree-sitter-prescription.git",
+			"repository": "https://github.com/kjanat/tree-sitter-prescription",
 			"funding": ""
 		}
 	},
