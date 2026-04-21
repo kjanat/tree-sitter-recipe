@@ -67,3 +67,94 @@ S/ CITO i.m. z.n.
       (latin_abbrev)
       (latin_abbrev)
       (latin_abbrev))))
+
+==================
+Uppercase and dotless route variants
+==================
+
+R/ ibuprofen 400mg
+S/ 3 dd 1 tablet PO p.c.
+S/ 1 IV stat
+S/ 2 dd 1 I.M.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit))
+      (latin_abbrev)
+      (latin_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (number)
+      (latin_abbrev)
+      (word)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (number)
+      (latin_abbrev))))
+
+==================
+Multi-word route with sentence-case
+==================
+
+R/ amoxicilline 500mg
+S/ 1 caps per os
+S/ Per rectum z.n.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (latin_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (latin_abbrev)
+      (latin_abbrev))))
+
+==================
+Cito casing variants
+==================
+
+R/ epinephrine 1mg
+S/ cito i.v.
+S/ Cito i.m.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (latin_abbrev)
+      (latin_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (latin_abbrev)
+      (latin_abbrev))))

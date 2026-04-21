@@ -15,7 +15,7 @@ import { CONDITIONAL_MULTIWORD } from "./conditional.js";
 import { DISPENSING, DISPENSING_MULTIWORD } from "./dispensing.js";
 import { FORMS, FORMS_MULTIWORD } from "./forms.js";
 import { FREQUENCY } from "./frequency.js";
-import { ROUTE } from "./route.js";
+import { ROUTE, ROUTE_MULTIWORD } from "./route.js";
 import { TIMING, TIMING_MULTIWORD } from "./timing.js";
 import { WARNING } from "./warning.js";
 
@@ -27,6 +27,7 @@ export {
 	FORMS_MULTIWORD,
 	FREQUENCY,
 	ROUTE,
+	ROUTE_MULTIWORD,
 	TIMING,
 	TIMING_MULTIWORD,
 	WARNING,
@@ -54,6 +55,7 @@ const toMultiwordPattern = s => s.replace(/\./g, "\\.").replace(/\s+/g, "\\s+");
 /** @type {readonly string[]} */
 export const MULTIWORD_ABBREVS = [
 	...TIMING_MULTIWORD,
+	...ROUTE_MULTIWORD,
 	...DISPENSING_MULTIWORD,
 	...FORMS_MULTIWORD,
 	...CONDITIONAL_MULTIWORD,
