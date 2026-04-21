@@ -1,0 +1,16 @@
+R/ hydrocortisone ung. ad 30 g
+# <- keyword.directive
+#  ^ variable
+#                 ^ type
+#                       ^ keyword.operator
+#                          ^ number
+#                            ^ type.builtin
+Da/ z.n.
+# <- keyword.directive
+#   ^ attribute
+S/ b.d.d. a.c. 1 tablet
+# <- keyword.directive
+#  ^ keyword.repeat
+#         ^ keyword
+#              ^ number
+#                ^ type.builtin

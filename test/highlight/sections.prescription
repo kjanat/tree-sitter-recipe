@@ -1,0 +1,15 @@
+R/ aspirin 500mg
+# <- keyword.directive
+#  ^ variable
+#          ^ number
+#             ^ type.builtin
+Da/ 30 tablets
+# <- keyword.directive
+#   ^ number
+#      ^ type.builtin
+S/ 1 dd 1 tablet
+# <- keyword.directive
+#  ^ keyword.repeat
+#    ^ keyword.repeat
+#       ^ number
+#         ^ type.builtin
