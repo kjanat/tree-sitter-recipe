@@ -1,435 +1,435 @@
 [
-	{
-		"type": "dispense_body",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "dose",
-					"named": true
-				},
-				{
-					"type": "dtd_directive",
-					"named": true
-				},
-				{
-					"type": "fill_to",
-					"named": true
-				},
-				{
-					"type": "frequency",
-					"named": true
-				},
-				{
-					"type": "latin_abbrev",
-					"named": true
-				},
-				{
-					"type": "number",
-					"named": true
-				},
-				{
-					"type": "punctuation",
-					"named": true
-				},
-				{
-					"type": "word",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "dispense_section",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "dispense_body",
-					"named": true
-				},
-				{
-					"type": "dispense_marker",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "dose",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "number",
-					"named": true
-				},
-				{
-					"type": "unit",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "dtd_directive",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": false,
-			"required": true,
-			"types": [
-				{
-					"type": "number",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "fill_to",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": false,
-			"required": true,
-			"types": [
-				{
-					"type": "dose",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "ingredient_line",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "dose",
-					"named": true
-				},
-				{
-					"type": "dtd_directive",
-					"named": true
-				},
-				{
-					"type": "fill_to",
-					"named": true
-				},
-				{
-					"type": "frequency",
-					"named": true
-				},
-				{
-					"type": "latin_abbrev",
-					"named": true
-				},
-				{
-					"type": "number",
-					"named": true
-				},
-				{
-					"type": "punctuation",
-					"named": true
-				},
-				{
-					"type": "word",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "latin_abbrev",
-		"named": true,
-		"fields": {}
-	},
-	{
-		"type": "recipe_section",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "ingredient_line",
-					"named": true
-				},
-				{
-					"type": "recipe_marker",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "signa_line",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "dose",
-					"named": true
-				},
-				{
-					"type": "dtd_directive",
-					"named": true
-				},
-				{
-					"type": "fill_to",
-					"named": true
-				},
-				{
-					"type": "frequency",
-					"named": true
-				},
-				{
-					"type": "latin_abbrev",
-					"named": true
-				},
-				{
-					"type": "number",
-					"named": true
-				},
-				{
-					"type": "punctuation",
-					"named": true
-				},
-				{
-					"type": "word",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "signa_section",
-		"named": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": true,
-			"types": [
-				{
-					"type": "signa_line",
-					"named": true
-				},
-				{
-					"type": "signa_marker",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "source_file",
-		"named": true,
-		"root": true,
-		"fields": {},
-		"children": {
-			"multiple": true,
-			"required": false,
-			"types": [
-				{
-					"type": "dispense_section",
-					"named": true
-				},
-				{
-					"type": "recipe_section",
-					"named": true
-				},
-				{
-					"type": "signa_section",
-					"named": true
-				}
-			]
-		}
-	},
-	{
-		"type": "unit",
-		"named": true,
-		"fields": {}
-	},
-	{
-		"type": "%",
-		"named": false
-	},
-	{
-		"type": "E",
-		"named": false
-	},
-	{
-		"type": "IU",
-		"named": false
-	},
-	{
-		"type": "L",
-		"named": false
-	},
-	{
-		"type": "block_comment",
-		"named": true,
-		"extra": true
-	},
-	{
-		"type": "cap",
-		"named": false
-	},
-	{
-		"type": "caps",
-		"named": false
-	},
-	{
-		"type": "caps.",
-		"named": false
-	},
-	{
-		"type": "capsule",
-		"named": false
-	},
-	{
-		"type": "capsules",
-		"named": false
-	},
-	{
-		"type": "dispense_marker",
-		"named": true
-	},
-	{
-		"type": "doc_comment_block",
-		"named": true,
-		"extra": true
-	},
-	{
-		"type": "doc_comment_line",
-		"named": true,
-		"extra": true
-	},
-	{
-		"type": "druppel",
-		"named": false
-	},
-	{
-		"type": "druppels",
-		"named": false
-	},
-	{
-		"type": "dtd_keyword",
-		"named": false
-	},
-	{
-		"type": "dtd_no",
-		"named": false
-	},
-	{
-		"type": "fill_marker",
-		"named": false
-	},
-	{
-		"type": "frequency",
-		"named": true
-	},
-	{
-		"type": "g",
-		"named": false
-	},
-	{
-		"type": "gtt.",
-		"named": false
-	},
-	{
-		"type": "kg",
-		"named": false
-	},
-	{
-		"type": "l",
-		"named": false
-	},
-	{
-		"type": "line_comment",
-		"named": true,
-		"extra": true
-	},
-	{
-		"type": "mL",
-		"named": false
-	},
-	{
-		"type": "mcg",
-		"named": false
-	},
-	{
-		"type": "mg",
-		"named": false
-	},
-	{
-		"type": "ml",
-		"named": false
-	},
-	{
-		"type": "number",
-		"named": true
-	},
-	{
-		"type": "punctuation",
-		"named": true
-	},
-	{
-		"type": "recipe_marker",
-		"named": true
-	},
-	{
-		"type": "signa_marker",
-		"named": true
-	},
-	{
-		"type": "stuk",
-		"named": false
-	},
-	{
-		"type": "stuks",
-		"named": false
-	},
-	{
-		"type": "tabl.",
-		"named": false
-	},
-	{
-		"type": "tablet",
-		"named": false
-	},
-	{
-		"type": "tablets",
-		"named": false
-	},
-	{
-		"type": "tbl.",
-		"named": false
-	},
-	{
-		"type": "word",
-		"named": true
-	},
-	{
-		"type": "µg",
-		"named": false
-	}
+  {
+    "type": "dispense_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dose",
+          "named": true
+        },
+        {
+          "type": "dtd_directive",
+          "named": true
+        },
+        {
+          "type": "fill_to",
+          "named": true
+        },
+        {
+          "type": "frequency",
+          "named": true
+        },
+        {
+          "type": "latin_abbrev",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dispense_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dispense_body",
+          "named": true
+        },
+        {
+          "type": "dispense_marker",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dose",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dtd_directive",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fill_to",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "dose",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ingredient_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dose",
+          "named": true
+        },
+        {
+          "type": "dtd_directive",
+          "named": true
+        },
+        {
+          "type": "fill_to",
+          "named": true
+        },
+        {
+          "type": "frequency",
+          "named": true
+        },
+        {
+          "type": "latin_abbrev",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "latin_abbrev",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "recipe_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ingredient_line",
+          "named": true
+        },
+        {
+          "type": "recipe_marker",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "signa_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dose",
+          "named": true
+        },
+        {
+          "type": "dtd_directive",
+          "named": true
+        },
+        {
+          "type": "fill_to",
+          "named": true
+        },
+        {
+          "type": "frequency",
+          "named": true
+        },
+        {
+          "type": "latin_abbrev",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "punctuation",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "signa_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "signa_line",
+          "named": true
+        },
+        {
+          "type": "signa_marker",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dispense_section",
+          "named": true
+        },
+        {
+          "type": "recipe_section",
+          "named": true
+        },
+        {
+          "type": "signa_section",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unit",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "E",
+    "named": false
+  },
+  {
+    "type": "IU",
+    "named": false
+  },
+  {
+    "type": "L",
+    "named": false
+  },
+  {
+    "type": "block_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "cap",
+    "named": false
+  },
+  {
+    "type": "caps",
+    "named": false
+  },
+  {
+    "type": "caps.",
+    "named": false
+  },
+  {
+    "type": "capsule",
+    "named": false
+  },
+  {
+    "type": "capsules",
+    "named": false
+  },
+  {
+    "type": "dispense_marker",
+    "named": true
+  },
+  {
+    "type": "doc_comment_block",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "doc_comment_line",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "druppel",
+    "named": false
+  },
+  {
+    "type": "druppels",
+    "named": false
+  },
+  {
+    "type": "dtd_keyword",
+    "named": false
+  },
+  {
+    "type": "dtd_no",
+    "named": false
+  },
+  {
+    "type": "fill_marker",
+    "named": false
+  },
+  {
+    "type": "frequency",
+    "named": true
+  },
+  {
+    "type": "g",
+    "named": false
+  },
+  {
+    "type": "gtt.",
+    "named": false
+  },
+  {
+    "type": "kg",
+    "named": false
+  },
+  {
+    "type": "l",
+    "named": false
+  },
+  {
+    "type": "line_comment",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "mL",
+    "named": false
+  },
+  {
+    "type": "mcg",
+    "named": false
+  },
+  {
+    "type": "mg",
+    "named": false
+  },
+  {
+    "type": "ml",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "punctuation",
+    "named": true
+  },
+  {
+    "type": "recipe_marker",
+    "named": true
+  },
+  {
+    "type": "signa_marker",
+    "named": true
+  },
+  {
+    "type": "stuk",
+    "named": false
+  },
+  {
+    "type": "stuks",
+    "named": false
+  },
+  {
+    "type": "tabl.",
+    "named": false
+  },
+  {
+    "type": "tablet",
+    "named": false
+  },
+  {
+    "type": "tablets",
+    "named": false
+  },
+  {
+    "type": "tbl.",
+    "named": false
+  },
+  {
+    "type": "word",
+    "named": true
+  },
+  {
+    "type": "µg",
+    "named": false
+  }
 ]
