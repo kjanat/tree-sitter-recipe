@@ -146,7 +146,12 @@ export default grammar({
 
 		number: $ => /\d+([.,]\d+)?/,
 		word: $ => /[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\-]*/,
-		punctuation: $ => /[,;:()]/,
+		// `.` is included — Dutch prescriptions often end prose with a full
+		// stop ("sachet à 4 g."). Safe despite dotted abbreviations: `b.d.d.`,
+		// `m.f.`, `gtt aur.` all tokenize as longer atomic tokens (prec 3) and
+		// beat a bare `.` by longest-match. `\d+([.,]\d+)?` in `number`
+		// consumes the decimal dot before `punctuation` sees it.
+		punctuation: $ => /[.,;:()]/,
 
 		// Layered comment system; all in extras so they appear in the AST as
 		// siblings but impose no structural constraint. Downstream tools

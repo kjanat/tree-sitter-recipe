@@ -110,3 +110,33 @@ Da/ 20 tablets
     (dispense_marker)
     (dispense_body
       (dose (number) (unit)))))
+
+==================
+Sentence-terminator period
+==================
+
+R/ Poeder voor drank 4 g; sachet à 4 g.
+S/ 1 dd 1 sachet p.c.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (word)
+      (word)
+      (dose (number) (unit))
+      (punctuation)
+      (word)
+      (word)
+      (dose (number) (unit))
+      (punctuation)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (number)
+      (word)
+      (timing_abbrev))))

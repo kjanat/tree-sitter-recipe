@@ -794,7 +794,7 @@
 		},
 		"punctuation": {
 			"type": "PATTERN",
-			"value": "[,;:()]"
+			"value": "[.,;:()]"
 		},
 		"line_comment": {
 			"type": "TOKEN",
