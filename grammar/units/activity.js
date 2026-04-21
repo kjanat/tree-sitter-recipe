@@ -7,6 +7,7 @@
 /** @type {readonly string[]} */
 export const ACTIVITY = [
 	"IU",
+	"IE", // internationale eenheden — Dutch IU
 	"E",
 	"%",
 ];

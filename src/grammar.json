@@ -618,6 +618,110 @@
 			"members": [
 				{
 					"type": "STRING",
+					"value": "mg/ml"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/dl"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/l"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/ml"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/ml"
+				},
+				{
+					"type": "STRING",
+					"value": "g/l"
+				},
+				{
+					"type": "STRING",
+					"value": "mmol/l"
+				},
+				{
+					"type": "STRING",
+					"value": "IE/ml"
+				},
+				{
+					"type": "STRING",
+					"value": "IU/ml"
+				},
+				{
+					"type": "STRING",
+					"value": "E/ml"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/kg"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/kg"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/kg"
+				},
+				{
+					"type": "STRING",
+					"value": "IE/kg"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/h"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/h"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/h"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/min"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/min"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/uur"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/uur"
+				},
+				{
+					"type": "STRING",
+					"value": "IE/uur"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/24h"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/dag"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/dag"
+				},
+				{
+					"type": "STRING",
+					"value": "IE/dag"
+				},
+				{
+					"type": "STRING",
 					"value": "mg"
 				},
 				{
@@ -655,6 +759,10 @@
 				{
 					"type": "STRING",
 					"value": "IU"
+				},
+				{
+					"type": "STRING",
+					"value": "IE"
 				},
 				{
 					"type": "STRING",
@@ -794,7 +902,7 @@
 		},
 		"punctuation": {
 			"type": "PATTERN",
-			"value": "[.,;:()]"
+			"value": "[-.,;:()]"
 		},
 		"line_comment": {
 			"type": "TOKEN",

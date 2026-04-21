@@ -146,12 +146,15 @@ export default grammar({
 
 		number: $ => /\d+([.,]\d+)?/,
 		word: $ => /[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\-]*/,
-		// `.` is included — Dutch prescriptions often end prose with a full
-		// stop ("sachet à 4 g."). Safe despite dotted abbreviations: `b.d.d.`,
-		// `m.f.`, `gtt aur.` all tokenize as longer atomic tokens (prec 3) and
-		// beat a bare `.` by longest-match. `\d+([.,]\d+)?` in `number`
-		// consumes the decimal dot before `punctuation` sees it.
-		punctuation: $ => /[.,;:()]/,
+		// `.` — Dutch sentence terminators ("sachet à 4 g.").
+		// `-` — dose ranges ("1-2 tabletten"). Inside drug names the dash is
+		// already absorbed by the `word` rule via its own character class, so
+		// `N-acetylcysteïne` still tokenizes as a single word (longer match).
+		// Safe despite dotted abbreviations: `b.d.d.`, `m.f.`, `gtt aur.` all
+		// tokenize as longer atomic tokens and beat a bare `.` by longest-
+		// match. `\d+([.,]\d+)?` in `number` consumes the decimal dot before
+		// `punctuation` sees it.
+		punctuation: $ => /[-.,;:()]/,
 
 		// Layered comment system; all in extras so they appear in the AST as
 		// siblings but impose no structural constraint. Downstream tools

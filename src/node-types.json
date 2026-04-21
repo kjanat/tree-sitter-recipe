@@ -357,6 +357,10 @@
 		"named": false
 	},
 	{
+		"type": "E/ml",
+		"named": false
+	},
+	{
 		"type": "I.M.",
 		"named": false
 	},
@@ -369,6 +373,26 @@
 		"named": false
 	},
 	{
+		"type": "IE",
+		"named": false
+	},
+	{
+		"type": "IE/dag",
+		"named": false
+	},
+	{
+		"type": "IE/kg",
+		"named": false
+	},
+	{
+		"type": "IE/ml",
+		"named": false
+	},
+	{
+		"type": "IE/uur",
+		"named": false
+	},
+	{
 		"type": "IM",
 		"named": false
 	},
@@ -378,6 +402,10 @@
 	},
 	{
 		"type": "IU",
+		"named": false
+	},
+	{
+		"type": "IU/ml",
 		"named": false
 	},
 	{
@@ -576,6 +604,10 @@
 		"named": false
 	},
 	{
+		"type": "g/l",
+		"named": false
+	},
+	{
 		"type": "gtt.",
 		"named": false
 	},
@@ -625,6 +657,18 @@
 		"named": false
 	},
 	{
+		"type": "mcg/h",
+		"named": false
+	},
+	{
+		"type": "mcg/kg",
+		"named": false
+	},
+	{
+		"type": "mcg/ml",
+		"named": false
+	},
+	{
 		"type": "mf",
 		"named": false
 	},
@@ -633,7 +677,47 @@
 		"named": false
 	},
 	{
+		"type": "mg/24h",
+		"named": false
+	},
+	{
+		"type": "mg/dag",
+		"named": false
+	},
+	{
+		"type": "mg/dl",
+		"named": false
+	},
+	{
+		"type": "mg/h",
+		"named": false
+	},
+	{
+		"type": "mg/kg",
+		"named": false
+	},
+	{
+		"type": "mg/l",
+		"named": false
+	},
+	{
+		"type": "mg/min",
+		"named": false
+	},
+	{
+		"type": "mg/ml",
+		"named": false
+	},
+	{
+		"type": "mg/uur",
+		"named": false
+	},
+	{
 		"type": "ml",
+		"named": false
+	},
+	{
+		"type": "mmol/l",
 		"named": false
 	},
 	{
@@ -766,6 +850,30 @@
 	},
 	{
 		"type": "µg",
+		"named": false
+	},
+	{
+		"type": "µg/dag",
+		"named": false
+	},
+	{
+		"type": "µg/h",
+		"named": false
+	},
+	{
+		"type": "µg/kg",
+		"named": false
+	},
+	{
+		"type": "µg/min",
+		"named": false
+	},
+	{
+		"type": "µg/ml",
+		"named": false
+	},
+	{
+		"type": "µg/uur",
 		"named": false
 	}
 ]

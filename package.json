@@ -35,6 +35,7 @@
 	],
 	"scripts": {
 		"generate": "tree-sitter generate; dprint fmt",
+		"highlight": "tree-sitter highlight",
 		"postinstall": "node-gyp-build",
 		"prestart": "tree-sitter build --wasm",
 		"start": "tree-sitter playground",

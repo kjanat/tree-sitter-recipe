@@ -1,0 +1,402 @@
+==================
+Dutch decimal dose
+==================
+
+R/ ibuprofen 0,5 g
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+International decimal dose
+==================
+
+R/ ibuprofen 2.5 ml
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Glued Dutch decimal
+==================
+
+R/ morfine 0,05mg
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Infusion rate unit glued
+==================
+
+R/ fentanyl 25µg/h
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Concentration rate unit spaced
+==================
+
+R/ insuline 100 IE/ml
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Body-weight rate unit
+==================
+
+R/ gentamicine 3 mg/kg
+S/ 1 dd IV
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (route_abbrev))))
+
+==================
+Daily-total rate unit
+==================
+
+R/ furosemide 40 mg/24h
+S/ IV continu
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (route_abbrev)
+      (word))))
+
+==================
+Dose range with hyphen
+==================
+
+S/ 1-2 tabletten daags p.c.
+
+---
+
+(source_file
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (number)
+      (punctuation)
+      (number)
+      (word)
+      (word)
+      (timing_abbrev))))
+
+==================
+Hyphenated unicode drug name
+==================
+
+R/ N-acetylcysteïne 600mg
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Percentage dose
+==================
+
+R/ triamcinolon 0,1%
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+IE unit with subcutaneous route
+==================
+
+R/ insuline 100 IE/ml
+Da/ 1 pen
+S/ 10 IE s.c. a.c.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (number)
+      (word)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (route_abbrev)
+      (timing_abbrev))))
+
+==================
+Parenthetical note with multi-word timing
+==================
+
+S/ 1 tablet (zo nodig) m. et v.
+
+---
+
+(source_file
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (punctuation)
+      (word)
+      (word)
+      (punctuation)
+      (timing_abbrev))))
+
+==================
+Multiple separate R/ sections
+==================
+
+R/ paracetamol 500mg
+R/ ibuprofen 400mg
+R/ omeprazol 20mg
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Dispense reappearing after signa
+==================
+
+R/ paracetamol 500mg
+Da/ 20 tabl.
+S/ 3 dd 1 tabl. p.c. PO
+Da/ 10 tabl.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit))
+      (timing_abbrev)
+      (route_abbrev)))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit)))))
+
+==================
+Line comment at end of file
+==================
+
+R/ drug 10mg
+S/ 4 dd 1 tabl.
+# pharmacist note
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit))))
+  (line_comment))
+
+==================
+Inline block comment mid-line
+==================
+
+R/ drug 10mg /* quick note */ 1 tablet
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))
+      (block_comment)
+      (dose (number) (unit)))))
+
+==================
+Doc block attaches to recipe
+==================
+
+/**
+ * Allergy: penicilline
+ */
+R/ cefuroxim 750mg
+
+---
+
+(source_file
+  (doc_comment_block)
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Sublingual route with capsule
+==================
+
+R/ clindamycine 300mg
+S/ 3 dd 1 caps subling.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit))
+      (route_abbrev))))
+
+==================
+Compound ointment with ungt. form
+==================
+
+R/ triamcinolon 0,1%
+vaseline alba ad 100 g
+mf ungt.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))
+    (ingredient_line
+      (word)
+      (word)
+      (fill_to (dose (number) (unit))))
+    (ingredient_line
+      (compounding_abbrev)
+      (form_abbrev))))
+
+==================
+Unicode accent and hyphen range combined
+==================
+
+R/ diazepam 5mg
+S/ 1-2 tabl. vóór de nacht
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (number)
+      (punctuation)
+      (dose (number) (unit))
+      (word)
+      (word)
+      (word))))

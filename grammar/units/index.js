@@ -11,12 +11,17 @@
 import { ACTIVITY } from "./activity.js";
 import { COUNTABLE } from "./countable.js";
 import { MASS } from "./mass.js";
+import { RATE } from "./rate.js";
 import { VOLUME } from "./volume.js";
 
-export { ACTIVITY, COUNTABLE, MASS, VOLUME };
+export { ACTIVITY, COUNTABLE, MASS, RATE, VOLUME };
 
+// `RATE` first so longest-match prefers `mg/ml` over bare `mg`. Tree-sitter's
+// lexer already picks the longest match regardless of order, but the ordering
+// makes the intent explicit and survives future edits.
 /** @type {readonly string[]} */
 export const UNITS = [
+	...RATE,
 	...MASS,
 	...VOLUME,
 	...ACTIVITY,
