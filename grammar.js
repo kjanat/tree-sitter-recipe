@@ -76,9 +76,9 @@ export default grammar({
 			),
 
 		// Case-insensitive markers: R/, r/, Da/, da/, D/, d/, S/, s/
-		recipe_marker: $ => token(prec(4, /[Rr]\//)),
-		dispense_marker: $ => token(prec(4, /[Dd][Aa]?\//)),
-		signa_marker: $ => token(prec(4, /[Ss]\//)),
+		recipe_marker: _ => token(prec(4, /[Rr]\//)),
+		dispense_marker: _ => token(prec(4, /[Dd][Aa]?\//)),
+		signa_marker: _ => token(prec(4, /[Ss]\//)),
 
 		ingredient_line: $ => repeat1($._atom),
 		dispense_body: $ => repeat1($._atom),
@@ -115,22 +115,22 @@ export default grammar({
 		// eat the first two letters of "aanbrengen". Multiword regex alts can't
 		// benefit from that and must still go through `token()`; they're
 		// combined with the literals via an outer choice where present.
-		frequency_abbrev: $ => choice(...FREQUENCY),
-		timing_abbrev: $ => choice(...TIMING, token(prec(3, TIMING_MULTIWORD_RE))),
-		route_abbrev: $ => choice(...ROUTE, token(prec(3, ROUTE_MULTIWORD_RE))),
-		dispensing_abbrev: $ => choice(...DISPENSING, token(prec(3, DISPENSING_MULTIWORD_RE))),
-		warning_abbrev: $ => choice(...WARNING),
-		form_abbrev: $ => choice(...FORMS, token(prec(3, FORMS_MULTIWORD_RE))),
-		compounding_abbrev: $ => choice(...COMPOUNDING),
-		conditional_abbrev: $ => token(prec(3, CONDITIONAL_MULTIWORD_RE)),
+		frequency_abbrev: _ => choice(...FREQUENCY),
+		timing_abbrev: _ => choice(...TIMING, token(prec(3, TIMING_MULTIWORD_RE))),
+		route_abbrev: _ => choice(...ROUTE, token(prec(3, ROUTE_MULTIWORD_RE))),
+		dispensing_abbrev: _ => choice(...DISPENSING, token(prec(3, DISPENSING_MULTIWORD_RE))),
+		warning_abbrev: _ => choice(...WARNING),
+		form_abbrev: _ => choice(...FORMS, token(prec(3, FORMS_MULTIWORD_RE))),
+		compounding_abbrev: _ => choice(...COMPOUNDING),
+		conditional_abbrev: _ => token(prec(3, CONDITIONAL_MULTIWORD_RE)),
 
 		// Compact modern frequency: "1 dd", "2 dd", "1dd" — caveman speak for dosing.
-		frequency: $ => token(prec(3, /[1-9]\s*dd/)),
+		frequency: _ => token(prec(3, /[1-9]\s*dd/)),
 
 		// Dose = number + unit. Extras swallow whitespace between, so
 		// "50mg", "50 mg", "0,1%", "100 g" all parse.
 		dose: $ => seq($.number, $.unit),
-		unit: $ => choice(...UNITS),
+		unit: _ => choice(...UNITS),
 
 		// "ad 100 g" — compound fill-to-total
 		fill_to: $ => seq(alias("ad", "fill_marker"), $.dose),
@@ -143,8 +143,8 @@ export default grammar({
 				$.number,
 			),
 
-		number: $ => /\d+([.,]\d+)?/,
-		word: $ => /[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\-]*/,
+		number: _ => /\d+([.,]\d+)?/,
+		word: _ => /[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\-]*/,
 		// `.` — Dutch sentence terminators ("sachet à 4 g.").
 		// `-` — dose ranges ("1-2 tabletten"). Inside drug names the dash is
 		// already absorbed by the `word` rule via its own character class, so
@@ -153,17 +153,17 @@ export default grammar({
 		// tokenize as longer atomic tokens and beat a bare `.` by longest-
 		// match. `\d+([.,]\d+)?` in `number` consumes the decimal dot before
 		// `punctuation` sees it.
-		punctuation: $ => /[-.,;:()]/,
+		punctuation: _ => /[-.,;:()]/,
 
 		// Layered comment system; all in extras so they appear in the AST as
 		// siblings but impose no structural constraint. Downstream tools
 		// (highlighter, LSP, doc-gen) associate doc variants with the next
 		// section via position.
-		line_comment: $ => token(seq("#", /[^\n]*/)),
-		doc_comment_line: $ => token(prec(1, seq("#!", /[^\n]*/))),
-		block_comment: $ => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
-		doc_comment_block: $ => token(prec(1, seq("/**", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))),
+		line_comment: _ => token(seq("#", /[^\n]*/)),
+		doc_comment_line: _ => token(prec(1, seq("#!", /[^\n]*/))),
+		block_comment: _ => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
+		doc_comment_block: _ => token(prec(1, seq("/**", /[^*]*\*+([^/*][^*]*\*+)*/, "/"))),
 
-		_newline: $ => /\r?\n/,
+		_newline: _ => /\r?\n/,
 	},
 });

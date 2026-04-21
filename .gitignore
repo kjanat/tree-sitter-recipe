@@ -47,3 +47,4 @@ zig-out/
 *.zip
 *.jar
 bun.lock
+tree-sitter/
