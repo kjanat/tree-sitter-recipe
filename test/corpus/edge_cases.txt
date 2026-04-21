@@ -1,0 +1,112 @@
+==================
+Case-insensitive markers
+==================
+
+r/ paracetamol 500mg
+da/ 30 tablets
+s/ 1 tablet z.n.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (latin_abbrev))))
+
+==================
+Comma decimal and percent
+==================
+
+R/ triamcinolonacetonide 0,1%
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Glued and spaced doses
+==================
+
+R/ ibuprofen 400mg ibuprofen 400 mg
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))
+      (word)
+      (dose (number) (unit)))))
+
+==================
+Layered comments attach via sibling position
+==================
+
+/**
+ * Patient memo
+ * chronic URTI
+ */
+R/ claritromycin 500mg
+#! acute treatment
+Da/ 14 tablets
+# dispenser notes
+S/ 2 dd 1 tablet
+
+---
+
+(source_file
+  (doc_comment_block)
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (doc_comment_line)
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (line_comment)
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit)))))
+
+==================
+Dispense-only without signa
+==================
+
+R/ paracetamol 500mg
+Da/ 20 tablets
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit)))))

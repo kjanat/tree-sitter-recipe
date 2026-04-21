@@ -1,0 +1,15 @@
+/**
+ * Patient: 45yo female, chronic URTI
+ * Allergies: none known
+ * Monitor: INR (pt on warfarin)
+ */
+R/ claritromycin tablet 500mg
+Da/ 14 tablets
+S/ b.d.d. 1 tablet p.c.
+
+#! empirical coverage for suspected CAP
+R/ amoxicilline 500mg
+Da/ 21 caps
+S/ 3 dd 1 caps
+
+# pharmacist: check interaction table before dispensing

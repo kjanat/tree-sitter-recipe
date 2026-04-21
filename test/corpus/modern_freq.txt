@@ -1,0 +1,65 @@
+==================
+Spaced modern frequency
+==================
+
+R/ paracetamol 500mg
+S/ 3 dd 1 tablet
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit)))))
+
+==================
+Glued modern frequency
+==================
+
+R/ paracetamol 500mg
+S/ 1dd 1 tablet
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit)))))
+
+==================
+Frequency with caps unit
+==================
+
+R/ omeprazol 20mg
+S/ 2 dd 1 caps voor het ontbijt
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit))
+      (word)
+      (word)
+      (word))))

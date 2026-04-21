@@ -1,0 +1,69 @@
+==================
+Single-token Latin abbreviations
+==================
+
+R/ amoxicilline 500mg
+S/ b.d.d. 1 caps p.c. gedurende 7 dagen
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (latin_abbrev)
+      (dose (number) (unit))
+      (latin_abbrev)
+      (word)
+      (number)
+      (word))))
+
+==================
+Multi-word Latin abbreviations
+==================
+
+R/ prednisolon 5mg
+S/ d.s. monit. 2 tablets q.i.d. a.c.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (latin_abbrev)
+      (dose (number) (unit))
+      (latin_abbrev)
+      (latin_abbrev))))
+
+==================
+Emergency and warning markers
+==================
+
+R/ adrenaline 1mg
+S/ CITO i.m. z.n.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (latin_abbrev)
+      (latin_abbrev)
+      (latin_abbrev))))

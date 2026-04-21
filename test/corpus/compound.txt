@@ -1,0 +1,67 @@
+==================
+Multi-line compound with ad and dtd
+==================
+
+R/ triamcinolonacetonide 0,1%
+vaseline alba ad 100 g
+mf caps dtd no 90
+Da/ 14 caps
+S/ 1x daags dun aanbrengen
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))
+    (ingredient_line
+      (word)
+      (word)
+      (fill_to (dose (number) (unit))))
+    (ingredient_line
+      (word)
+      (word)
+      (dtd_directive (number))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (number)
+      (word)
+      (word)
+      (word)
+      (word))))
+
+==================
+dtd with d.t.d. keyword variant
+==================
+
+R/ prednisolon 5mg
+d.t.d. no 30
+Da/ 30 tablets
+S/ 1 tablet daags
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))
+    (ingredient_line
+      (dtd_directive (number))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (word))))

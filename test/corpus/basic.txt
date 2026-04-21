@@ -1,0 +1,56 @@
+==================
+Claritromycin triplet
+==================
+
+R/ claritromycin tablet 500mg
+Da/ 14 tablets
+S/ take 1 tablet twice daily
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (word)
+      (dose (number) (unit))
+      (word)
+      (word))))
+
+==================
+Dutch signa with modern frequency
+==================
+
+R/ ibuprofen 400mg
+Da/ 20 tablets
+S/ 3 dd 1 tablet bij pijn
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency)
+      (dose (number) (unit))
+      (word)
+      (word))))

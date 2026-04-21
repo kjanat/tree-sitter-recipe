@@ -10,7 +10,16 @@
 				"prescription"
 			],
 			"injection-regex": "^prescription$",
-			"class-name": "TreeSitterPrescription"
+			"class-name": "TreeSitterPrescription",
+			"highlights": [
+				"queries/highlights.scm"
+			],
+			"injections": [
+				"queries/injections.scm"
+			],
+			"locals": [
+				"queries/locals.scm"
+			]
 		}
 	],
 	"metadata": {
