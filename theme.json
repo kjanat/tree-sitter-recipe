@@ -1,0 +1,21 @@
+{
+	"$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+	"theme": {
+		"keyword.error": { "color": 196, "bold": true, "underline": true },
+		"keyword.directive": { "color": 111, "bold": true },
+		"keyword.repeat": { "color": 114, "bold": true },
+		"keyword.operator": { "color": 209, "bold": true },
+		"keyword.conditional": { "color": 141, "italic": true },
+		"keyword": 180,
+		"function.macro": { "color": 105, "bold": true },
+		"attribute": { "color": 214, "italic": true },
+		"type": { "color": 73, "bold": true },
+		"type.builtin": 51,
+		"number": { "color": 215, "bold": true },
+		"variable": 252,
+		"string": { "color": 108, "italic": true },
+		"comment": { "color": 245, "italic": true },
+		"comment.documentation": { "color": 250, "italic": true, "bold": true },
+		"punctuation.delimiter": 240
+	}
+}
