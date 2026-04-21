@@ -243,14 +243,6 @@
                 },
                 {
                   "type": "STRING",
-                  "value": "a.u.e."
-                },
-                {
-                  "type": "STRING",
-                  "value": "u.e."
-                },
-                {
-                  "type": "STRING",
                   "value": "i.m."
                 },
                 {
@@ -272,6 +264,14 @@
                 {
                   "type": "STRING",
                   "value": "o.s."
+                },
+                {
+                  "type": "STRING",
+                  "value": "a.u.e."
+                },
+                {
+                  "type": "STRING",
+                  "value": "u.e."
                 },
                 {
                   "type": "STRING",
@@ -328,7 +328,7 @@
             "value": 3,
             "content": {
               "type": "PATTERN",
-              "value": "d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\.|si\\s+nec\\.\\s+sit|m\\.\\s+et\\s+v\\.|gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\."
+              "value": "m\\.\\s+et\\s+v\\.|d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\.|gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\.|si\\s+nec\\.\\s+sit"
             }
           }
         }

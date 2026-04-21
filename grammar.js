@@ -7,7 +7,7 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
-import { LATIN_ABBREVS, MULTIWORD_ABBREV_RE } from "./grammar/latin.js";
+import { LATIN_ABBREVS, MULTIWORD_ABBREV_RE } from "./grammar/latin/index.js";
 import { UNITS } from "./grammar/units.js";
 
 export default grammar({
