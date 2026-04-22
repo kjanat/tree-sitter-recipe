@@ -5,9 +5,10 @@
 
 /** @type {readonly string[]} */
 export const MASS = [
+	"ng", // nanogram
+	"mcg", // microgram (ASCII)
+	"µg", // microgram (Greek mu)
 	"mg",
-	"mcg",
-	"µg",
 	"g",
 	"kg",
 ];

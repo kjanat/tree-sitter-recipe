@@ -183,8 +183,7 @@ S/ 10 IE s.c. a.c.
   (dispense_section
     (dispense_marker)
     (dispense_body
-      (number)
-      (word)))
+      (dose (number) (unit))))
   (signa_section
     (signa_marker)
     (signa_line
@@ -206,8 +205,7 @@ S/ 1 tablet (zo nodig) m. et v.
     (signa_line
       (dose (number) (unit))
       (punctuation)
-      (word)
-      (word)
+      (conditional_abbrev)
       (punctuation)
       (timing_abbrev))))
 

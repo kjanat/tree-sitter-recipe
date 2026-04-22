@@ -7,20 +7,56 @@
 
 /** @type {readonly string[]} */
 export const COUNTABLE = [
-	// English
+	// English — tablets / capsules
 	"tablet",
 	"tablets",
 	"tabl.",
+	"tab",
+	"tabs",
 	"tbl.",
 	"capsule",
 	"capsules",
 	"cap",
 	"caps",
 	"caps.",
+	// Drops (clinical Latin + Dutch)
 	"gtt.",
-	// Dutch
+	"gtt",
 	"druppel",
 	"druppels",
+	// Packets / sachets
+	"zakje",
+	"zakjes",
+	"sachet",
+	"sachets",
+	// Ampules / vials / bottles
+	"ampul",
+	"ampullen",
+	"amp.",
+	"flac.", // flacon
+	"flacon",
+	"flacons",
+	"fl.",
+	"vial",
+	"vials",
+	// Syringes / pre-filled devices
+	"spuit",
+	"spuiten",
+	"pen",
+	"pennen",
+	// Puffs / doses (inhalers)
+	"pufje",
+	"pufjes",
+	"puff",
+	"puffs",
+	"dosis",
+	"doses",
+	// Generic discrete
 	"stuk",
 	"stuks",
+	"piece",
+	"pieces",
+	// Suppositories (as countable form, distinct from "supp." marker)
+	"zetpil",
+	"zetpillen",
 ];

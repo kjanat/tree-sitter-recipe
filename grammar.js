@@ -8,6 +8,8 @@
 
 import {
 	COMPOUNDING,
+	COMPOUNDING_MULTIWORD_RE,
+	CONDITIONAL,
 	CONDITIONAL_MULTIWORD_RE,
 	DISPENSING,
 	DISPENSING_MULTIWORD_RE,
@@ -121,8 +123,8 @@ export default grammar({
 		dispensing_abbrev: _ => choice(...DISPENSING, token(prec(3, DISPENSING_MULTIWORD_RE))),
 		warning_abbrev: _ => choice(...WARNING),
 		form_abbrev: _ => choice(...FORMS, token(prec(3, FORMS_MULTIWORD_RE))),
-		compounding_abbrev: _ => choice(...COMPOUNDING),
-		conditional_abbrev: _ => token(prec(3, CONDITIONAL_MULTIWORD_RE)),
+		compounding_abbrev: _ => choice(...COMPOUNDING, token(prec(3, COMPOUNDING_MULTIWORD_RE))),
+		conditional_abbrev: _ => choice(...CONDITIONAL, token(prec(3, CONDITIONAL_MULTIWORD_RE))),
 
 		// Compact modern frequency: "1 dd", "2 dd", "1dd" — caveman speak for dosing.
 		frequency: _ => token(prec(3, /[1-9]\s*dd/)),

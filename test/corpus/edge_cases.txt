@@ -137,6 +137,5 @@ S/ 1 dd 1 sachet p.c.
     (signa_marker)
     (signa_line
       (frequency)
-      (number)
-      (word)
+      (dose (number) (unit))
       (timing_abbrev))))

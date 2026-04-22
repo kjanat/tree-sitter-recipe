@@ -12,8 +12,8 @@
  * @license MIT
  */
 
-import { COMPOUNDING } from "./compounding.js";
-import { CONDITIONAL_MULTIWORD } from "./conditional.js";
+import { COMPOUNDING, COMPOUNDING_MULTIWORD } from "./compounding.js";
+import { CONDITIONAL, CONDITIONAL_MULTIWORD } from "./conditional.js";
 import { DISPENSING, DISPENSING_MULTIWORD } from "./dispensing.js";
 import { FORMS, FORMS_MULTIWORD } from "./forms.js";
 import { FREQUENCY } from "./frequency.js";
@@ -23,6 +23,8 @@ import { WARNING } from "./warning.js";
 
 export {
 	COMPOUNDING,
+	COMPOUNDING_MULTIWORD,
+	CONDITIONAL,
 	CONDITIONAL_MULTIWORD,
 	DISPENSING,
 	DISPENSING_MULTIWORD,
@@ -61,3 +63,5 @@ export const DISPENSING_MULTIWORD_RE = buildMultiwordRegex(DISPENSING_MULTIWORD)
 export const FORMS_MULTIWORD_RE = buildMultiwordRegex(FORMS_MULTIWORD);
 /** @type {RegExp} */
 export const CONDITIONAL_MULTIWORD_RE = buildMultiwordRegex(CONDITIONAL_MULTIWORD);
+/** @type {RegExp} */
+export const COMPOUNDING_MULTIWORD_RE = buildMultiwordRegex(COMPOUNDING_MULTIWORD);

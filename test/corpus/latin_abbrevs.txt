@@ -97,7 +97,7 @@ S/ 2 dd 1 I.M.
     (signa_line
       (number)
       (route_abbrev)
-      (word)))
+      (warning_abbrev)))
   (signa_section
     (signa_marker)
     (signa_line

@@ -1,0 +1,442 @@
+==================
+Q-series frequency abbreviations
+==================
+
+R/ warfarine 5mg
+S/ q.d. 1 tablet p.c.
+S/ q.4h. 1 tablet
+S/ q.a.m. 2 tablets
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency_abbrev)
+      (dose (number) (unit))
+      (timing_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency_abbrev)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency_abbrev)
+      (dose (number) (unit)))))
+
+==================
+Conditional single-word abbreviations
+==================
+
+R/ tramadol 50mg
+S/ 1 tablet s.o.s.
+S/ 1 tablet p.r.n.
+S/ 1 tablet PRN
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (conditional_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (conditional_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (conditional_abbrev))))
+
+==================
+New timing shorthand and written Latin
+==================
+
+R/ diazepam 5mg
+S/ 1 tablet h.s.
+S/ 2 tablets mane et nocte
+S/ 1 tablet inter cibos
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (timing_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (timing_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (timing_abbrev))))
+
+==================
+Expanded route coverage
+==================
+
+R/ hydrocortison 1%
+S/ top. 2 dd
+S/ 1 tablet rect.
+S/ 10 mg i.t.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (route_abbrev)
+      (frequency)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (route_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (route_abbrev))))
+
+==================
+Compounding multi-word directives
+==================
+
+R/ zinkoxide 20 g
+lanoline 30 g
+vaseline ad 100 g
+m.f. ungt.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))
+    (ingredient_line
+      (word)
+      (fill_to (dose (number) (unit))))
+    (ingredient_line
+      (compounding_abbrev))))
+
+==================
+Compounding ad lib
+==================
+
+R/ paracetamol 500mg
+S/ ad lib. p.c.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (compounding_abbrev)
+      (timing_abbrev))))
+
+==================
+Dispensing directives signetur and repeat
+==================
+
+R/ amoxicilline 500mg
+Da/ 14 caps sig. 3 dd 1
+S/ 1 caps rep. 2x
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))
+      (dispensing_abbrev)
+      (frequency)
+      (number)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (dispensing_abbrev)
+      (number)
+      (word))))
+
+==================
+Warning STAT and LASA
+==================
+
+R/ morfine 10mg
+S/ STAT i.v.
+S/ LASA beware
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (warning_abbrev)
+      (route_abbrev)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (warning_abbrev)
+      (word))))
+
+==================
+New pharmaceutical forms
+==================
+
+R/ paracetamol 500mg
+mf sol.
+R/ dextromethorphan 1 mg/ml syr.
+R/ salbutamol 100 mcg aeros.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit)))
+    (ingredient_line
+      (compounding_abbrev)
+      (form_abbrev)))
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))
+      (form_abbrev)))
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))
+      (form_abbrev))))
+
+==================
+New countable units
+==================
+
+R/ macrogol 13 g
+Da/ 20 sachets
+S/ 1 sachet d.d.
+
+R/ enoxaparine 40mg
+Da/ 14 spuiten
+S/ 1 spuit s.c.
+
+R/ salbutamol 100 mcg
+Da/ 1 inhalator
+S/ 2 pufjes b.d.d.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (frequency_abbrev)))
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (route_abbrev)))
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (number)
+      (word)))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (frequency_abbrev))))
+
+==================
+Nanogram and microliter units
+==================
+
+R/ fentanyl 100 ng
+R/ insuline 40 µl
+Da/ 5 ampullen
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (dispense_section
+    (dispense_marker)
+    (dispense_body
+      (dose (number) (unit)))))
+
+==================
+Oncology body-surface-area rate
+==================
+
+R/ methotrexaat 30 mg/m2
+S/ q.w. i.v.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency_abbrev)
+      (route_abbrev))))
+
+==================
+Weight-time compound rate
+==================
+
+R/ noradrenaline 0,1 mcg/kg/min
+S/ i.v.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (route_abbrev))))
+
+==================
+mEq electrolyte activity unit
+==================
+
+R/ KCl 20 mEq
+S/ p.o. q.d.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (route_abbrev)
+      (frequency_abbrev))))
+
+==================
+Per mille concentration
+==================
+
+R/ benzocaïne 5‰
+S/ top. z.n.
+
+---
+
+(source_file
+  (recipe_section
+    (recipe_marker)
+    (ingredient_line
+      (word)
+      (dose (number) (unit))))
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (route_abbrev)
+      (dispensing_abbrev))))

@@ -257,6 +257,66 @@
 				{
 					"type": "STRING",
 					"value": "d.d."
+				},
+				{
+					"type": "STRING",
+					"value": "q.h."
+				},
+				{
+					"type": "STRING",
+					"value": "q.2h."
+				},
+				{
+					"type": "STRING",
+					"value": "q.3h."
+				},
+				{
+					"type": "STRING",
+					"value": "q.4h."
+				},
+				{
+					"type": "STRING",
+					"value": "q.6h."
+				},
+				{
+					"type": "STRING",
+					"value": "q.8h."
+				},
+				{
+					"type": "STRING",
+					"value": "q.12h."
+				},
+				{
+					"type": "STRING",
+					"value": "q.d."
+				},
+				{
+					"type": "STRING",
+					"value": "q.a.d."
+				},
+				{
+					"type": "STRING",
+					"value": "q.a.m."
+				},
+				{
+					"type": "STRING",
+					"value": "q.p.m."
+				},
+				{
+					"type": "STRING",
+					"value": "q.o.d."
+				},
+				{
+					"type": "STRING",
+					"value": "q.w."
+				},
+				{
+					"type": "STRING",
+					"value": "b.i.w."
+				},
+				{
+					"type": "STRING",
+					"value": "t.i.w."
 				}
 			]
 		},
@@ -276,13 +336,37 @@
 					"value": "a.n."
 				},
 				{
+					"type": "STRING",
+					"value": "h.s."
+				},
+				{
+					"type": "STRING",
+					"value": "i.c."
+				},
+				{
+					"type": "STRING",
+					"value": "mane"
+				},
+				{
+					"type": "STRING",
+					"value": "nocte"
+				},
+				{
+					"type": "STRING",
+					"value": "vesp."
+				},
+				{
+					"type": "STRING",
+					"value": "matut."
+				},
+				{
 					"type": "TOKEN",
 					"content": {
 						"type": "PREC",
 						"value": 3,
 						"content": {
 							"type": "PATTERN",
-							"value": "m\\.\\s+et\\s+v\\."
+							"value": "m\\.\\s+et\\s+v\\.|mane\\s+et\\s+nocte|inter\\s+cibos|ante\\s+prandium|post\\s+prandium|hora\\s+somni|in\\s+ieiunio"
 						}
 					}
 				}
@@ -321,7 +405,15 @@
 				},
 				{
 					"type": "STRING",
+					"value": "rect."
+				},
+				{
+					"type": "STRING",
 					"value": "p.v."
+				},
+				{
+					"type": "STRING",
+					"value": "vag."
 				},
 				{
 					"type": "STRING",
@@ -329,7 +421,51 @@
 				},
 				{
 					"type": "STRING",
+					"value": "nas."
+				},
+				{
+					"type": "STRING",
 					"value": "inh."
+				},
+				{
+					"type": "STRING",
+					"value": "neb."
+				},
+				{
+					"type": "STRING",
+					"value": "top."
+				},
+				{
+					"type": "STRING",
+					"value": "buc."
+				},
+				{
+					"type": "STRING",
+					"value": "transd."
+				},
+				{
+					"type": "STRING",
+					"value": "i.a."
+				},
+				{
+					"type": "STRING",
+					"value": "i.d."
+				},
+				{
+					"type": "STRING",
+					"value": "i.t."
+				},
+				{
+					"type": "STRING",
+					"value": "i.o."
+				},
+				{
+					"type": "STRING",
+					"value": "i.p."
+				},
+				{
+					"type": "STRING",
+					"value": "epid."
 				},
 				{
 					"type": "STRING",
@@ -381,7 +517,15 @@
 				},
 				{
 					"type": "STRING",
+					"value": "RECT."
+				},
+				{
+					"type": "STRING",
 					"value": "P.V."
+				},
+				{
+					"type": "STRING",
+					"value": "VAG."
 				},
 				{
 					"type": "STRING",
@@ -389,7 +533,51 @@
 				},
 				{
 					"type": "STRING",
+					"value": "NAS."
+				},
+				{
+					"type": "STRING",
 					"value": "INH."
+				},
+				{
+					"type": "STRING",
+					"value": "NEB."
+				},
+				{
+					"type": "STRING",
+					"value": "TOP."
+				},
+				{
+					"type": "STRING",
+					"value": "BUC."
+				},
+				{
+					"type": "STRING",
+					"value": "TRANSD."
+				},
+				{
+					"type": "STRING",
+					"value": "I.A."
+				},
+				{
+					"type": "STRING",
+					"value": "I.D."
+				},
+				{
+					"type": "STRING",
+					"value": "I.T."
+				},
+				{
+					"type": "STRING",
+					"value": "I.O."
+				},
+				{
+					"type": "STRING",
+					"value": "I.P."
+				},
+				{
+					"type": "STRING",
+					"value": "EPID."
 				},
 				{
 					"type": "STRING",
@@ -432,13 +620,25 @@
 					"value": "PO"
 				},
 				{
+					"type": "STRING",
+					"value": "PR"
+				},
+				{
+					"type": "STRING",
+					"value": "PV"
+				},
+				{
+					"type": "STRING",
+					"value": "SQ"
+				},
+				{
 					"type": "TOKEN",
 					"content": {
 						"type": "PREC",
 						"value": 3,
 						"content": {
 							"type": "PATTERN",
-							"value": "per\\s+os|per\\s+rectum|per\\s+vaginam|ad\\s+us\\.\\s+int\\.|ad\\s+us\\.\\s+ext\\.|Per\\s+os|Per\\s+rectum|Per\\s+vaginam|Ad\\s+us\\.\\s+int\\.|Ad\\s+us\\.\\s+ext\\."
+							"value": "per\\s+os|per\\s+rectum|per\\s+vaginam|per\\s+inhalationem|ad\\s+us\\.\\s+int\\.|ad\\s+us\\.\\s+ext\\.|in\\s+ocul\\.|in\\s+aur\\.|in\\s+nar\\.|Per\\s+os|Per\\s+rectum|Per\\s+vaginam|Per\\s+inhalationem|Ad\\s+us\\.\\s+int\\.|Ad\\s+us\\.\\s+ext\\.|In\\s+ocul\\.|In\\s+aur\\.|In\\s+nar\\."
 						}
 					}
 				}
@@ -465,7 +665,35 @@
 				},
 				{
 					"type": "STRING",
+					"value": "u.d."
+				},
+				{
+					"type": "STRING",
+					"value": "m.d.u."
+				},
+				{
+					"type": "STRING",
 					"value": "z.n."
+				},
+				{
+					"type": "STRING",
+					"value": "sig."
+				},
+				{
+					"type": "STRING",
+					"value": "rep."
+				},
+				{
+					"type": "STRING",
+					"value": "n.r."
+				},
+				{
+					"type": "STRING",
+					"value": "disp."
+				},
+				{
+					"type": "STRING",
+					"value": "non rep."
 				},
 				{
 					"type": "TOKEN",
@@ -474,7 +702,7 @@
 						"value": 3,
 						"content": {
 							"type": "PATTERN",
-							"value": "d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\."
+							"value": "d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\.|sec\\.\\s+art\\.|m\\.\\s+dict\\.|ut\\s+dict\\."
 						}
 					}
 				}
@@ -497,7 +725,55 @@
 				},
 				{
 					"type": "STRING",
+					"value": "STAT"
+				},
+				{
+					"type": "STRING",
+					"value": "stat"
+				},
+				{
+					"type": "STRING",
+					"value": "Stat"
+				},
+				{
+					"type": "STRING",
+					"value": "URGENT"
+				},
+				{
+					"type": "STRING",
+					"value": "urgent"
+				},
+				{
+					"type": "STRING",
+					"value": "Urgent"
+				},
+				{
+					"type": "STRING",
 					"value": "PIM"
+				},
+				{
+					"type": "STRING",
+					"value": "LASA"
+				},
+				{
+					"type": "STRING",
+					"value": "REMS"
+				},
+				{
+					"type": "STRING",
+					"value": "BLACKBOX"
+				},
+				{
+					"type": "STRING",
+					"value": "TERATOGEN"
+				},
+				{
+					"type": "STRING",
+					"value": "NIEUW"
+				},
+				{
+					"type": "STRING",
+					"value": "NEW"
 				}
 			]
 		},
@@ -507,6 +783,10 @@
 				{
 					"type": "STRING",
 					"value": "aq. pur."
+				},
+				{
+					"type": "STRING",
+					"value": "aq. dest."
 				},
 				{
 					"type": "STRING",
@@ -537,13 +817,73 @@
 					"value": "emp."
 				},
 				{
+					"type": "STRING",
+					"value": "sol."
+				},
+				{
+					"type": "STRING",
+					"value": "susp."
+				},
+				{
+					"type": "STRING",
+					"value": "syr."
+				},
+				{
+					"type": "STRING",
+					"value": "inj."
+				},
+				{
+					"type": "STRING",
+					"value": "crm."
+				},
+				{
+					"type": "STRING",
+					"value": "tinct."
+				},
+				{
+					"type": "STRING",
+					"value": "mixt."
+				},
+				{
+					"type": "STRING",
+					"value": "elix."
+				},
+				{
+					"type": "STRING",
+					"value": "troch."
+				},
+				{
+					"type": "STRING",
+					"value": "past."
+				},
+				{
+					"type": "STRING",
+					"value": "aeros."
+				},
+				{
+					"type": "STRING",
+					"value": "gel."
+				},
+				{
+					"type": "STRING",
+					"value": "spray"
+				},
+				{
+					"type": "STRING",
+					"value": "patch"
+				},
+				{
+					"type": "STRING",
+					"value": "pasta"
+				},
+				{
 					"type": "TOKEN",
 					"content": {
 						"type": "PREC",
 						"value": 3,
 						"content": {
 							"type": "PATTERN",
-							"value": "gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\."
+							"value": "gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\.|aq\\.\\s+pro\\s+inj\\.|pulv\\.\\s+adsp\\.|sol\\.\\s+inj\\.|unguent\\.\\s+opht\\."
 						}
 					}
 				}
@@ -574,20 +914,76 @@
 				},
 				{
 					"type": "STRING",
+					"value": "q.p."
+				},
+				{
+					"type": "STRING",
+					"value": "c.s."
+				},
+				{
+					"type": "STRING",
 					"value": "f."
+				},
+				{
+					"type": "STRING",
+					"value": "ft."
+				},
+				{
+					"type": "STRING",
+					"value": "div."
+				},
+				{
+					"type": "STRING",
+					"value": "solve"
+				},
+				{
+					"type": "STRING",
+					"value": "coq."
+				},
+				{
+					"type": "TOKEN",
+					"content": {
+						"type": "PREC",
+						"value": 3,
+						"content": {
+							"type": "PATTERN",
+							"value": "m\\.f\\.\\s+pulv\\.|m\\.f\\.\\s+caps\\.|m\\.f\\.\\s+ungt\\.|m\\.f\\.\\s+sol\\.|m\\.f\\.\\s+susp\\.|m\\.\\s+et\\s+ft\\.|ad\\s+lib\\.|div\\.\\s+in\\s+p\\.\\s+aeq\\.|div\\.\\s+in\\s+d\\."
+						}
+					}
 				}
 			]
 		},
 		"conditional_abbrev": {
-			"type": "TOKEN",
-			"content": {
-				"type": "PREC",
-				"value": 3,
-				"content": {
-					"type": "PATTERN",
-					"value": "si\\s+nec\\.\\s+sit"
+			"type": "CHOICE",
+			"members": [
+				{
+					"type": "STRING",
+					"value": "s.o.s."
+				},
+				{
+					"type": "STRING",
+					"value": "p.r.n."
+				},
+				{
+					"type": "STRING",
+					"value": "prn"
+				},
+				{
+					"type": "STRING",
+					"value": "PRN"
+				},
+				{
+					"type": "TOKEN",
+					"content": {
+						"type": "PREC",
+						"value": 3,
+						"content": {
+							"type": "PATTERN",
+							"value": "si\\s+nec\\.\\s+sit|si\\s+opus|zo\\s+nodig|bij\\s+pijn|bij\\s+koorts|bij\\s+nood|in\\s+geval\\s+van"
+						}
+					}
 				}
-			}
+			]
 		},
 		"frequency": {
 			"type": "TOKEN",
@@ -618,6 +1014,54 @@
 			"members": [
 				{
 					"type": "STRING",
+					"value": "mg/kg/dag"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/kg/dag."
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/kg/min"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/kg/min"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/kg/u"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/kg/h"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/kg/h"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/kg/h"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/pufje"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/pufje"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/puff"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/puff"
+				},
+				{
+					"type": "STRING",
 					"value": "mg/ml"
 				},
 				{
@@ -638,11 +1082,27 @@
 				},
 				{
 					"type": "STRING",
+					"value": "ng/ml"
+				},
+				{
+					"type": "STRING",
 					"value": "g/l"
 				},
 				{
 					"type": "STRING",
+					"value": "g/dl"
+				},
+				{
+					"type": "STRING",
 					"value": "mmol/l"
+				},
+				{
+					"type": "STRING",
+					"value": "mol/l"
+				},
+				{
+					"type": "STRING",
+					"value": "mEq/l"
 				},
 				{
 					"type": "STRING",
@@ -670,7 +1130,19 @@
 				},
 				{
 					"type": "STRING",
+					"value": "ng/kg"
+				},
+				{
+					"type": "STRING",
 					"value": "IE/kg"
+				},
+				{
+					"type": "STRING",
+					"value": "IU/kg"
+				},
+				{
+					"type": "STRING",
+					"value": "ml/kg"
 				},
 				{
 					"type": "STRING",
@@ -686,6 +1158,10 @@
 				},
 				{
 					"type": "STRING",
+					"value": "ml/h"
+				},
+				{
+					"type": "STRING",
 					"value": "mg/min"
 				},
 				{
@@ -694,11 +1170,19 @@
 				},
 				{
 					"type": "STRING",
+					"value": "ml/min"
+				},
+				{
+					"type": "STRING",
 					"value": "mg/uur"
 				},
 				{
 					"type": "STRING",
 					"value": "µg/uur"
+				},
+				{
+					"type": "STRING",
+					"value": "ml/uur"
 				},
 				{
 					"type": "STRING",
@@ -718,11 +1202,39 @@
 				},
 				{
 					"type": "STRING",
+					"value": "mcg/dag"
+				},
+				{
+					"type": "STRING",
 					"value": "IE/dag"
 				},
 				{
 					"type": "STRING",
-					"value": "mg"
+					"value": "IU/dag"
+				},
+				{
+					"type": "STRING",
+					"value": "ml/dag"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/m2"
+				},
+				{
+					"type": "STRING",
+					"value": "mg/m²"
+				},
+				{
+					"type": "STRING",
+					"value": "mcg/m2"
+				},
+				{
+					"type": "STRING",
+					"value": "µg/m²"
+				},
+				{
+					"type": "STRING",
+					"value": "ng"
 				},
 				{
 					"type": "STRING",
@@ -734,6 +1246,10 @@
 				},
 				{
 					"type": "STRING",
+					"value": "mg"
+				},
+				{
+					"type": "STRING",
 					"value": "g"
 				},
 				{
@@ -742,11 +1258,43 @@
 				},
 				{
 					"type": "STRING",
+					"value": "µl"
+				},
+				{
+					"type": "STRING",
+					"value": "ul"
+				},
+				{
+					"type": "STRING",
+					"value": "µL"
+				},
+				{
+					"type": "STRING",
+					"value": "uL"
+				},
+				{
+					"type": "STRING",
 					"value": "ml"
 				},
 				{
 					"type": "STRING",
 					"value": "mL"
+				},
+				{
+					"type": "STRING",
+					"value": "cl"
+				},
+				{
+					"type": "STRING",
+					"value": "cL"
+				},
+				{
+					"type": "STRING",
+					"value": "dl"
+				},
+				{
+					"type": "STRING",
+					"value": "dL"
 				},
 				{
 					"type": "STRING",
@@ -774,6 +1322,22 @@
 				},
 				{
 					"type": "STRING",
+					"value": "‰"
+				},
+				{
+					"type": "STRING",
+					"value": "ppm"
+				},
+				{
+					"type": "STRING",
+					"value": "mEq"
+				},
+				{
+					"type": "STRING",
+					"value": "mOsm"
+				},
+				{
+					"type": "STRING",
 					"value": "tablet"
 				},
 				{
@@ -783,6 +1347,14 @@
 				{
 					"type": "STRING",
 					"value": "tabl."
+				},
+				{
+					"type": "STRING",
+					"value": "tab"
+				},
+				{
+					"type": "STRING",
+					"value": "tabs"
 				},
 				{
 					"type": "STRING",
@@ -814,6 +1386,10 @@
 				},
 				{
 					"type": "STRING",
+					"value": "gtt"
+				},
+				{
+					"type": "STRING",
 					"value": "druppel"
 				},
 				{
@@ -822,11 +1398,119 @@
 				},
 				{
 					"type": "STRING",
+					"value": "zakje"
+				},
+				{
+					"type": "STRING",
+					"value": "zakjes"
+				},
+				{
+					"type": "STRING",
+					"value": "sachet"
+				},
+				{
+					"type": "STRING",
+					"value": "sachets"
+				},
+				{
+					"type": "STRING",
+					"value": "ampul"
+				},
+				{
+					"type": "STRING",
+					"value": "ampullen"
+				},
+				{
+					"type": "STRING",
+					"value": "amp."
+				},
+				{
+					"type": "STRING",
+					"value": "flac."
+				},
+				{
+					"type": "STRING",
+					"value": "flacon"
+				},
+				{
+					"type": "STRING",
+					"value": "flacons"
+				},
+				{
+					"type": "STRING",
+					"value": "fl."
+				},
+				{
+					"type": "STRING",
+					"value": "vial"
+				},
+				{
+					"type": "STRING",
+					"value": "vials"
+				},
+				{
+					"type": "STRING",
+					"value": "spuit"
+				},
+				{
+					"type": "STRING",
+					"value": "spuiten"
+				},
+				{
+					"type": "STRING",
+					"value": "pen"
+				},
+				{
+					"type": "STRING",
+					"value": "pennen"
+				},
+				{
+					"type": "STRING",
+					"value": "pufje"
+				},
+				{
+					"type": "STRING",
+					"value": "pufjes"
+				},
+				{
+					"type": "STRING",
+					"value": "puff"
+				},
+				{
+					"type": "STRING",
+					"value": "puffs"
+				},
+				{
+					"type": "STRING",
+					"value": "dosis"
+				},
+				{
+					"type": "STRING",
+					"value": "doses"
+				},
+				{
+					"type": "STRING",
 					"value": "stuk"
 				},
 				{
 					"type": "STRING",
 					"value": "stuks"
+				},
+				{
+					"type": "STRING",
+					"value": "piece"
+				},
+				{
+					"type": "STRING",
+					"value": "pieces"
+				},
+				{
+					"type": "STRING",
+					"value": "zetpil"
+				},
+				{
+					"type": "STRING",
+					"value": "zetpillen"
 				}
 			]
 		},

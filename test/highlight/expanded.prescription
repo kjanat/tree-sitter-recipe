@@ -1,0 +1,125 @@
+R/ amoxicilline 500mg
+# <- keyword.directive
+#  ^ variable
+#               ^ number
+#                  ^ type.builtin
+S/ q.d. 1 tablet p.c.
+# <- keyword.directive
+#  ^ keyword.repeat
+#       ^ number
+#         ^ type.builtin
+#                ^ keyword
+S/ q.4h. 1 tablet
+# <- keyword.directive
+#  ^ keyword.repeat
+#        ^ number
+#          ^ type.builtin
+S/ q.a.m. 2 tablets
+# <- keyword.directive
+#  ^ keyword.repeat
+#         ^ number
+#           ^ type.builtin
+R/ tramadol 50mg
+# <- keyword.directive
+#  ^ variable
+#           ^ number
+#             ^ type.builtin
+S/ 1 tablet s.o.s.
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ keyword.conditional
+S/ 1 tablet p.r.n.
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ keyword.conditional
+S/ 1 tablet PRN
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ keyword.conditional
+R/ morfine 10 mg
+# <- keyword.directive
+#  ^ variable
+#          ^ number
+#             ^ type.builtin
+S/ STAT i.v.
+# <- keyword.directive
+#  ^ keyword.error
+#       ^ function.macro
+S/ LASA 1 tablet
+# <- keyword.directive
+#  ^ keyword.error
+#       ^ number
+#         ^ type.builtin
+S/ URGENT i.m.
+# <- keyword.directive
+#  ^ keyword.error
+#         ^ function.macro
+R/ zopiclon 7,5 mg
+# <- keyword.directive
+#  ^ variable
+#           ^ number
+#               ^ type.builtin
+S/ 1 tablet h.s.
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ keyword
+S/ 1 tablet inter cibos
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ keyword
+S/ 1 tablet mane et nocte
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ keyword
+R/ hydrocortison 1%
+# <- keyword.directive
+#  ^ variable
+#                ^ number
+#                 ^ type.builtin
+S/ 1 tablet rect.
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ function.macro
+S/ top. 2 dd
+# <- keyword.directive
+#  ^ function.macro
+#       ^ keyword.repeat
+S/ 10 mg i.t.
+# <- keyword.directive
+#  ^ number
+#     ^ type.builtin
+#        ^ function.macro
+R/ dextromethorphan 1 mg/ml syr.
+# <- keyword.directive
+#  ^ variable
+#                   ^ number
+#                     ^ type.builtin
+#                           ^ type
+Da/ 14 caps sig. 3 dd 1
+# <- keyword.directive
+#   ^ number
+#      ^ type.builtin
+#           ^ attribute
+#                ^ keyword.repeat
+#                      ^ number
+S/ 1 tablet m.d.u.
+# <- keyword.directive
+#  ^ number
+#    ^ type.builtin
+#           ^ attribute
+Da/ 10 caps m.f. pulv.
+# <- keyword.directive
+#   ^ number
+#      ^ type.builtin
+#           ^ keyword.operator
+S/ ad lib. p.c.
+# <- keyword.directive
+#  ^ keyword.operator
+#          ^ keyword

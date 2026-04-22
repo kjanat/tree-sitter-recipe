@@ -43,6 +43,11 @@
 		"fields": {}
 	},
 	{
+		"type": "conditional_abbrev",
+		"named": true,
+		"fields": {}
+	},
+	{
 		"type": "dispense_body",
 		"named": true,
 		"fields": {},
@@ -345,6 +350,14 @@
 		"named": false
 	},
 	{
+		"type": "BLACKBOX",
+		"named": false
+	},
+	{
+		"type": "BUC.",
+		"named": false
+	},
+	{
 		"type": "CITO",
 		"named": false
 	},
@@ -361,11 +374,35 @@
 		"named": false
 	},
 	{
+		"type": "EPID.",
+		"named": false
+	},
+	{
+		"type": "I.A.",
+		"named": false
+	},
+	{
+		"type": "I.D.",
+		"named": false
+	},
+	{
 		"type": "I.M.",
 		"named": false
 	},
 	{
 		"type": "I.N.",
+		"named": false
+	},
+	{
+		"type": "I.O.",
+		"named": false
+	},
+	{
+		"type": "I.P.",
+		"named": false
+	},
+	{
+		"type": "I.T.",
 		"named": false
 	},
 	{
@@ -405,6 +442,14 @@
 		"named": false
 	},
 	{
+		"type": "IU/dag",
+		"named": false
+	},
+	{
+		"type": "IU/kg",
+		"named": false
+	},
+	{
 		"type": "IU/ml",
 		"named": false
 	},
@@ -414,6 +459,26 @@
 	},
 	{
 		"type": "L",
+		"named": false
+	},
+	{
+		"type": "LASA",
+		"named": false
+	},
+	{
+		"type": "NAS.",
+		"named": false
+	},
+	{
+		"type": "NEB.",
+		"named": false
+	},
+	{
+		"type": "NEW",
+		"named": false
+	},
+	{
+		"type": "NIEUW",
 		"named": false
 	},
 	{
@@ -449,6 +514,26 @@
 		"named": false
 	},
 	{
+		"type": "PR",
+		"named": false
+	},
+	{
+		"type": "PRN",
+		"named": false
+	},
+	{
+		"type": "PV",
+		"named": false
+	},
+	{
+		"type": "RECT.",
+		"named": false
+	},
+	{
+		"type": "REMS",
+		"named": false
+	},
+	{
 		"type": "S.C.",
 		"named": false
 	},
@@ -465,11 +550,47 @@
 		"named": false
 	},
 	{
+		"type": "SQ",
+		"named": false
+	},
+	{
+		"type": "STAT",
+		"named": false
+	},
+	{
 		"type": "SUBLING.",
 		"named": false
 	},
 	{
+		"type": "Stat",
+		"named": false
+	},
+	{
+		"type": "TERATOGEN",
+		"named": false
+	},
+	{
+		"type": "TOP.",
+		"named": false
+	},
+	{
+		"type": "TRANSD.",
+		"named": false
+	},
+	{
 		"type": "U.E.",
+		"named": false
+	},
+	{
+		"type": "URGENT",
+		"named": false
+	},
+	{
+		"type": "Urgent",
+		"named": false
+	},
+	{
+		"type": "VAG.",
 		"named": false
 	},
 	{
@@ -493,6 +614,26 @@
 		"named": false
 	},
 	{
+		"type": "aeros.",
+		"named": false
+	},
+	{
+		"type": "amp.",
+		"named": false
+	},
+	{
+		"type": "ampul",
+		"named": false
+	},
+	{
+		"type": "ampullen",
+		"named": false
+	},
+	{
+		"type": "aq. dest.",
+		"named": false
+	},
+	{
 		"type": "aq. pur.",
 		"named": false
 	},
@@ -501,9 +642,25 @@
 		"named": false
 	},
 	{
+		"type": "b.i.w.",
+		"named": false
+	},
+	{
 		"type": "block_comment",
 		"named": true,
 		"extra": true
+	},
+	{
+		"type": "buc.",
+		"named": false
+	},
+	{
+		"type": "c.s.",
+		"named": false
+	},
+	{
+		"type": "cL",
+		"named": false
 	},
 	{
 		"type": "cap",
@@ -530,12 +687,20 @@
 		"named": false
 	},
 	{
+		"type": "cl",
+		"named": false
+	},
+	{
 		"type": "collut.",
 		"named": false
 	},
 	{
-		"type": "conditional_abbrev",
-		"named": true
+		"type": "coq.",
+		"named": false
+	},
+	{
+		"type": "crm.",
+		"named": false
 	},
 	{
 		"type": "d.c.p.",
@@ -554,8 +719,24 @@
 		"named": false
 	},
 	{
+		"type": "dL",
+		"named": false
+	},
+	{
+		"type": "disp.",
+		"named": false
+	},
+	{
 		"type": "dispense_marker",
 		"named": true
+	},
+	{
+		"type": "div.",
+		"named": false
+	},
+	{
+		"type": "dl",
+		"named": false
 	},
 	{
 		"type": "doc_comment_block",
@@ -566,6 +747,14 @@
 		"type": "doc_comment_line",
 		"named": true,
 		"extra": true
+	},
+	{
+		"type": "doses",
+		"named": false
+	},
+	{
+		"type": "dosis",
+		"named": false
 	},
 	{
 		"type": "druppel",
@@ -584,7 +773,15 @@
 		"named": false
 	},
 	{
+		"type": "elix.",
+		"named": false
+	},
+	{
 		"type": "emp.",
+		"named": false
+	},
+	{
+		"type": "epid.",
 		"named": false
 	},
 	{
@@ -596,11 +793,35 @@
 		"named": false
 	},
 	{
+		"type": "fl.",
+		"named": false
+	},
+	{
+		"type": "flac.",
+		"named": false
+	},
+	{
+		"type": "flacon",
+		"named": false
+	},
+	{
+		"type": "flacons",
+		"named": false
+	},
+	{
 		"type": "frequency",
 		"named": true
 	},
 	{
+		"type": "ft.",
+		"named": false
+	},
+	{
 		"type": "g",
+		"named": false
+	},
+	{
+		"type": "g/dl",
 		"named": false
 	},
 	{
@@ -608,7 +829,31 @@
 		"named": false
 	},
 	{
+		"type": "gel.",
+		"named": false
+	},
+	{
+		"type": "gtt",
+		"named": false
+	},
+	{
 		"type": "gtt.",
+		"named": false
+	},
+	{
+		"type": "h.s.",
+		"named": false
+	},
+	{
+		"type": "i.a.",
+		"named": false
+	},
+	{
+		"type": "i.c.",
+		"named": false
+	},
+	{
+		"type": "i.d.",
 		"named": false
 	},
 	{
@@ -620,11 +865,27 @@
 		"named": false
 	},
 	{
+		"type": "i.o.",
+		"named": false
+	},
+	{
+		"type": "i.p.",
+		"named": false
+	},
+	{
+		"type": "i.t.",
+		"named": false
+	},
+	{
 		"type": "i.v.",
 		"named": false
 	},
 	{
 		"type": "inh.",
+		"named": false
+	},
+	{
+		"type": "inj.",
 		"named": false
 	},
 	{
@@ -645,7 +906,19 @@
 		"extra": true
 	},
 	{
+		"type": "m.d.u.",
+		"named": false
+	},
+	{
 		"type": "m.f.",
+		"named": false
+	},
+	{
+		"type": "mEq",
+		"named": false
+	},
+	{
+		"type": "mEq/l",
 		"named": false
 	},
 	{
@@ -653,7 +926,23 @@
 		"named": false
 	},
 	{
+		"type": "mOsm",
+		"named": false
+	},
+	{
+		"type": "mane",
+		"named": false
+	},
+	{
+		"type": "matut.",
+		"named": false
+	},
+	{
 		"type": "mcg",
+		"named": false
+	},
+	{
+		"type": "mcg/dag",
 		"named": false
 	},
 	{
@@ -665,7 +954,27 @@
 		"named": false
 	},
 	{
+		"type": "mcg/kg/h",
+		"named": false
+	},
+	{
+		"type": "mcg/kg/min",
+		"named": false
+	},
+	{
+		"type": "mcg/m2",
+		"named": false
+	},
+	{
 		"type": "mcg/ml",
+		"named": false
+	},
+	{
+		"type": "mcg/puff",
+		"named": false
+	},
+	{
+		"type": "mcg/pufje",
 		"named": false
 	},
 	{
@@ -697,7 +1006,27 @@
 		"named": false
 	},
 	{
+		"type": "mg/kg/dag",
+		"named": false
+	},
+	{
+		"type": "mg/kg/dag.",
+		"named": false
+	},
+	{
+		"type": "mg/kg/h",
+		"named": false
+	},
+	{
+		"type": "mg/kg/u",
+		"named": false
+	},
+	{
 		"type": "mg/l",
+		"named": false
+	},
+	{
+		"type": "mg/m2",
 		"named": false
 	},
 	{
@@ -709,7 +1038,15 @@
 		"named": false
 	},
 	{
+		"type": "mg/m²",
+		"named": false
+	},
+	{
 		"type": "mg/uur",
+		"named": false
+	},
+	{
+		"type": "mixt.",
 		"named": false
 	},
 	{
@@ -717,7 +1054,63 @@
 		"named": false
 	},
 	{
+		"type": "ml/dag",
+		"named": false
+	},
+	{
+		"type": "ml/h",
+		"named": false
+	},
+	{
+		"type": "ml/kg",
+		"named": false
+	},
+	{
+		"type": "ml/min",
+		"named": false
+	},
+	{
+		"type": "ml/uur",
+		"named": false
+	},
+	{
 		"type": "mmol/l",
+		"named": false
+	},
+	{
+		"type": "mol/l",
+		"named": false
+	},
+	{
+		"type": "n.r.",
+		"named": false
+	},
+	{
+		"type": "nas.",
+		"named": false
+	},
+	{
+		"type": "neb.",
+		"named": false
+	},
+	{
+		"type": "ng",
+		"named": false
+	},
+	{
+		"type": "ng/kg",
+		"named": false
+	},
+	{
+		"type": "ng/ml",
+		"named": false
+	},
+	{
+		"type": "nocte",
+		"named": false
+	},
+	{
+		"type": "non rep.",
 		"named": false
 	},
 	{
@@ -749,7 +1142,63 @@
 		"named": false
 	},
 	{
+		"type": "p.r.n.",
+		"named": false
+	},
+	{
 		"type": "p.v.",
+		"named": false
+	},
+	{
+		"type": "past.",
+		"named": false
+	},
+	{
+		"type": "pasta",
+		"named": false
+	},
+	{
+		"type": "patch",
+		"named": false
+	},
+	{
+		"type": "pen",
+		"named": false
+	},
+	{
+		"type": "pennen",
+		"named": false
+	},
+	{
+		"type": "piece",
+		"named": false
+	},
+	{
+		"type": "pieces",
+		"named": false
+	},
+	{
+		"type": "ppm",
+		"named": false
+	},
+	{
+		"type": "prn",
+		"named": false
+	},
+	{
+		"type": "puff",
+		"named": false
+	},
+	{
+		"type": "puffs",
+		"named": false
+	},
+	{
+		"type": "pufje",
+		"named": false
+	},
+	{
+		"type": "pufjes",
 		"named": false
 	},
 	{
@@ -761,7 +1210,59 @@
 		"named": true
 	},
 	{
+		"type": "q.12h.",
+		"named": false
+	},
+	{
+		"type": "q.2h.",
+		"named": false
+	},
+	{
+		"type": "q.3h.",
+		"named": false
+	},
+	{
+		"type": "q.4h.",
+		"named": false
+	},
+	{
+		"type": "q.6h.",
+		"named": false
+	},
+	{
+		"type": "q.8h.",
+		"named": false
+	},
+	{
+		"type": "q.a.d.",
+		"named": false
+	},
+	{
+		"type": "q.a.m.",
+		"named": false
+	},
+	{
+		"type": "q.d.",
+		"named": false
+	},
+	{
+		"type": "q.h.",
+		"named": false
+	},
+	{
 		"type": "q.i.d.",
+		"named": false
+	},
+	{
+		"type": "q.o.d.",
+		"named": false
+	},
+	{
+		"type": "q.p.",
+		"named": false
+	},
+	{
+		"type": "q.p.m.",
 		"named": false
 	},
 	{
@@ -769,8 +1270,20 @@
 		"named": false
 	},
 	{
+		"type": "q.w.",
+		"named": false
+	},
+	{
 		"type": "recipe_marker",
 		"named": true
+	},
+	{
+		"type": "rect.",
+		"named": false
+	},
+	{
+		"type": "rep.",
+		"named": false
 	},
 	{
 		"type": "s.c.",
@@ -785,8 +1298,48 @@
 		"named": false
 	},
 	{
+		"type": "s.o.s.",
+		"named": false
+	},
+	{
+		"type": "sachet",
+		"named": false
+	},
+	{
+		"type": "sachets",
+		"named": false
+	},
+	{
+		"type": "sig.",
+		"named": false
+	},
+	{
 		"type": "signa_marker",
 		"named": true
+	},
+	{
+		"type": "sol.",
+		"named": false
+	},
+	{
+		"type": "solve",
+		"named": false
+	},
+	{
+		"type": "spray",
+		"named": false
+	},
+	{
+		"type": "spuit",
+		"named": false
+	},
+	{
+		"type": "spuiten",
+		"named": false
+	},
+	{
+		"type": "stat",
+		"named": false
 	},
 	{
 		"type": "stuk",
@@ -805,7 +1358,23 @@
 		"named": false
 	},
 	{
+		"type": "susp.",
+		"named": false
+	},
+	{
+		"type": "syr.",
+		"named": false
+	},
+	{
 		"type": "t.d.d.",
+		"named": false
+	},
+	{
+		"type": "t.i.w.",
+		"named": false
+	},
+	{
+		"type": "tab",
 		"named": false
 	},
 	{
@@ -821,7 +1390,27 @@
 		"named": false
 	},
 	{
+		"type": "tabs",
+		"named": false
+	},
+	{
 		"type": "tbl.",
+		"named": false
+	},
+	{
+		"type": "tinct.",
+		"named": false
+	},
+	{
+		"type": "top.",
+		"named": false
+	},
+	{
+		"type": "transd.",
+		"named": false
+	},
+	{
+		"type": "troch.",
 		"named": false
 	},
 	{
@@ -829,7 +1418,19 @@
 		"named": false
 	},
 	{
+		"type": "u.d.",
+		"named": false
+	},
+	{
 		"type": "u.e.",
+		"named": false
+	},
+	{
+		"type": "uL",
+		"named": false
+	},
+	{
+		"type": "ul",
 		"named": false
 	},
 	{
@@ -841,11 +1442,51 @@
 		"named": false
 	},
 	{
+		"type": "urgent",
+		"named": false
+	},
+	{
+		"type": "vag.",
+		"named": false
+	},
+	{
+		"type": "vesp.",
+		"named": false
+	},
+	{
+		"type": "vial",
+		"named": false
+	},
+	{
+		"type": "vials",
+		"named": false
+	},
+	{
 		"type": "word",
 		"named": true
 	},
 	{
 		"type": "z.n.",
+		"named": false
+	},
+	{
+		"type": "zakje",
+		"named": false
+	},
+	{
+		"type": "zakjes",
+		"named": false
+	},
+	{
+		"type": "zetpil",
+		"named": false
+	},
+	{
+		"type": "zetpillen",
+		"named": false
+	},
+	{
+		"type": "µL",
 		"named": false
 	},
 	{
@@ -865,6 +1506,14 @@
 		"named": false
 	},
 	{
+		"type": "µg/kg/h",
+		"named": false
+	},
+	{
+		"type": "µg/kg/min",
+		"named": false
+	},
+	{
 		"type": "µg/min",
 		"named": false
 	},
@@ -873,7 +1522,27 @@
 		"named": false
 	},
 	{
+		"type": "µg/m²",
+		"named": false
+	},
+	{
+		"type": "µg/puff",
+		"named": false
+	},
+	{
+		"type": "µg/pufje",
+		"named": false
+	},
+	{
 		"type": "µg/uur",
+		"named": false
+	},
+	{
+		"type": "µl",
+		"named": false
+	},
+	{
+		"type": "‰",
 		"named": false
 	}
 ]
