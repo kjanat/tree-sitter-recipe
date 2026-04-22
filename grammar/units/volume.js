@@ -5,7 +5,7 @@
  */
 
 /** @type {readonly string[]} */
-export const VOLUME = [
+const VOLUME = [
 	"µl", // microliter (Greek mu)
 	"ul", // microliter (ASCII fallback)
 	"µL",
@@ -19,3 +19,5 @@ export const VOLUME = [
 	"l",
 	"L",
 ];
+
+export { VOLUME, VOLUME as default };

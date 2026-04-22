@@ -47,7 +47,7 @@ const DOTTED_CANONICAL = [
 ];
 
 /** @type {readonly string[]} */
-export const ROUTE = [
+const ROUTE = [
 	...DOTTED_CANONICAL,
 	...DOTTED_CANONICAL.map(s => s.toUpperCase()),
 	// Dotless clinical shorthand — letters unambiguous with common words.
@@ -75,8 +75,10 @@ const ROUTE_MULTIWORD_CANONICAL = [
 ];
 
 /** @type {readonly string[]} */
-export const ROUTE_MULTIWORD = [
+const ROUTE_MULTIWORD = [
 	...ROUTE_MULTIWORD_CANONICAL,
 	// Sentence-case — signa lines occasionally start with the route.
 	...ROUTE_MULTIWORD_CANONICAL.map(s => s.charAt(0).toUpperCase() + s.slice(1)),
 ];
+
+export { ROUTE, ROUTE_MULTIWORD };

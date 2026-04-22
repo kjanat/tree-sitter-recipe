@@ -8,11 +8,11 @@
  * @license MIT
  */
 
-import { ACTIVITY } from "./activity.js";
-import { COUNTABLE } from "./countable.js";
-import { MASS } from "./mass.js";
-import { RATE } from "./rate.js";
-import { VOLUME } from "./volume.js";
+import { default as ACTIVITY } from "./activity.js";
+import { default as COUNTABLE } from "./countable.js";
+import { default as MASS } from "./mass.js";
+import { default as RATE } from "./rate.js";
+import { default as VOLUME } from "./volume.js";
 
 export { ACTIVITY, COUNTABLE, MASS, RATE, VOLUME };
 

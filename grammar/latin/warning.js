@@ -4,7 +4,7 @@
  */
 
 /** @type {readonly string[]} */
-export const WARNING = [
+const WARNING = [
 	// CITO — classical Latin for "quickly"
 	"CITO",
 	"cito",
@@ -26,3 +26,5 @@ export const WARNING = [
 	"NIEUW", // Dutch — new prescription flag
 	"NEW", // english equivalent
 ];
+
+export { WARNING };

@@ -8,7 +8,7 @@
  */
 
 /** @type {readonly string[]} */
-export const CONDITIONAL = [
+const CONDITIONAL = [
 	"s.o.s.", // si opus sit — if there is need
 	"p.r.n.", // pro re nata — as the occasion arises
 	"prn", // dotless modern clinical shorthand
@@ -16,7 +16,7 @@ export const CONDITIONAL = [
 ];
 
 /** @type {readonly string[]} */
-export const CONDITIONAL_MULTIWORD = [
+const CONDITIONAL_MULTIWORD = [
 	"si nec. sit", // si necesse sit — if necessary
 	"si opus", // si opus sit (abbreviated tail)
 	"zo nodig", // Dutch — as needed
@@ -25,3 +25,5 @@ export const CONDITIONAL_MULTIWORD = [
 	"bij nood", // Dutch — in case of emergency
 	"in geval van", // Dutch — in case of
 ];
+
+export { CONDITIONAL, CONDITIONAL_MULTIWORD };

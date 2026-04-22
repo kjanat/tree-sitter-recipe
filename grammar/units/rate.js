@@ -13,8 +13,8 @@
  * @license MIT
  */
 
-/** @type {readonly string[]} */
-export const RATE = [
+/** Units of rate or concentration. @type {readonly string[]} */
+const RATE = [
 	// Weight-volume-time compound rates (longest first for clarity)
 	"mg/kg/dag", // Dutch — mg per kg per day
 	"mg/kg/dag.", // dotted variant seen in Rx
@@ -77,3 +77,5 @@ export const RATE = [
 	"mcg/m2",
 	"µg/m²",
 ];
+
+export { RATE, RATE as default };

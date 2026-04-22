@@ -44,24 +44,33 @@ export {
  * @param {string} s
  * @returns {string}
  */
-const toMultiwordPattern = s => s.replace(/\./g, "\\.").replace(/\s+/g, "\\s+");
+const toMultiwordPattern = (s) => s.replace(/\./g, "\\.").replace(/\s+/g, "\\s+");
 
 /**
  * Compile a multiword-abbreviation list into a single alternation regex.
  * @param {readonly string[]} tokens
  * @returns {RegExp}
  */
-const buildMultiwordRegex = tokens => new RegExp(tokens.map(toMultiwordPattern).join("|"));
+const buildMultiwordRegex = (tokens) => new RegExp(tokens.map(toMultiwordPattern).join("|"));
 
 /** @type {RegExp} */
-export const TIMING_MULTIWORD_RE = buildMultiwordRegex(TIMING_MULTIWORD);
+const TIMING_MULTIWORD_RE = buildMultiwordRegex(TIMING_MULTIWORD);
 /** @type {RegExp} */
-export const ROUTE_MULTIWORD_RE = buildMultiwordRegex(ROUTE_MULTIWORD);
+const ROUTE_MULTIWORD_RE = buildMultiwordRegex(ROUTE_MULTIWORD);
 /** @type {RegExp} */
-export const DISPENSING_MULTIWORD_RE = buildMultiwordRegex(DISPENSING_MULTIWORD);
+const DISPENSING_MULTIWORD_RE = buildMultiwordRegex(DISPENSING_MULTIWORD);
 /** @type {RegExp} */
-export const FORMS_MULTIWORD_RE = buildMultiwordRegex(FORMS_MULTIWORD);
+const FORMS_MULTIWORD_RE = buildMultiwordRegex(FORMS_MULTIWORD);
 /** @type {RegExp} */
-export const CONDITIONAL_MULTIWORD_RE = buildMultiwordRegex(CONDITIONAL_MULTIWORD);
+const CONDITIONAL_MULTIWORD_RE = buildMultiwordRegex(CONDITIONAL_MULTIWORD);
 /** @type {RegExp} */
-export const COMPOUNDING_MULTIWORD_RE = buildMultiwordRegex(COMPOUNDING_MULTIWORD);
+const COMPOUNDING_MULTIWORD_RE = buildMultiwordRegex(COMPOUNDING_MULTIWORD);
+
+export {
+	COMPOUNDING_MULTIWORD_RE,
+	CONDITIONAL_MULTIWORD_RE,
+	DISPENSING_MULTIWORD_RE,
+	FORMS_MULTIWORD_RE,
+	ROUTE_MULTIWORD_RE,
+	TIMING_MULTIWORD_RE,
+};

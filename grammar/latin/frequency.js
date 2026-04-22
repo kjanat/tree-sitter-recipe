@@ -5,7 +5,7 @@
  */
 
 /** @type {readonly string[]} */
-export const FREQUENCY = [
+const FREQUENCY = [
 	// Classical "de die" forms — number-per-day vocabulary
 	"b.d.d.", // bis de die — twice daily
 	"t.d.d.", // ter de die — three times daily
@@ -30,3 +30,5 @@ export const FREQUENCY = [
 	"b.i.w.", // twice weekly
 	"t.i.w.", // three times weekly
 ];
+
+export { FREQUENCY };

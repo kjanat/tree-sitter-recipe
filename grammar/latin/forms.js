@@ -4,7 +4,7 @@
  */
 
 /** @type {readonly string[]} */
-export const FORMS = [
+const FORMS = [
 	"aq. pur.", // aqua purificata — purified water
 	"aq. dest.", // aqua destillata — distilled water
 	"collut.", // collutorium — mouthwash
@@ -32,7 +32,7 @@ export const FORMS = [
 ];
 
 /** @type {readonly string[]} */
-export const FORMS_MULTIWORD = [
+const FORMS_MULTIWORD = [
 	"gtt aur.", // guttae auriculares — ear drops
 	"gtt nas.", // guttae nasales — nose drops
 	"gtt ophth.", // guttae ophthalmicae — eye drops
@@ -41,3 +41,5 @@ export const FORMS_MULTIWORD = [
 	"sol. inj.", // solutio iniectabilis — injectable solution
 	"unguent. opht.", // ophthalmic ointment
 ];
+
+export { FORMS, FORMS_MULTIWORD };

@@ -3,12 +3,16 @@
  * @license MIT
  */
 
-/** @type {readonly string[]} */
-export const MASS = [
+/** Units of mass. @type {readonly string[]} */
+const MASS = [
 	"ng", // nanogram
 	"mcg", // microgram (ASCII)
 	"µg", // microgram (Greek mu)
-	"mg",
-	"g",
-	"kg",
+	"mg", // milligram
+	"g", // gram
+	"kg", // kilogram
+	"lb", // pound
+	"oz", // ounce
 ];
+
+export { MASS, MASS as default };

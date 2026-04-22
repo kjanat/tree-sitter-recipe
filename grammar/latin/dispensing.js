@@ -4,7 +4,7 @@
  */
 
 /** @type {readonly string[]} */
-export const DISPENSING = [
+const DISPENSING = /** @type {const} */ [
 	"d.s.p.", // detur sine prescriptione — dispense without prescription label
 	"d.c.p.", // detur cum prescriptione — dispense with prescription label
 	"d.i.m.m.", // detur in manu medici — dispense to physician
@@ -20,10 +20,12 @@ export const DISPENSING = [
 ];
 
 /** @type {readonly string[]} */
-export const DISPENSING_MULTIWORD = [
+const DISPENSING_MULTIWORD = /** @type {const} */ [
 	"d.c. prohib.", // dispensing repeat prohibited
 	"d.s. monit.", // dispense with monitoring label
 	"sec. art.", // secundum artem — according to the art (pharmacist judgment)
 	"m. dict.", // more dicto — as directed (alt form)
 	"ut dict.", // ut dictum (space-dot variant)
 ];
+
+export { DISPENSING, DISPENSING_MULTIWORD };

@@ -4,7 +4,7 @@
  */
 
 /** @type {readonly string[]} */
-export const TIMING = [
+const TIMING = [
 	"a.c.", // ante cibum — before meals
 	"p.c.", // post cibum — after meals
 	"a.n.", // ante noctem — before bed
@@ -17,7 +17,7 @@ export const TIMING = [
 ];
 
 /** @type {readonly string[]} */
-export const TIMING_MULTIWORD = [
+const TIMING_MULTIWORD = [
 	"m. et v.", // mane et vespere — morning and evening
 	"mane et nocte", // morning and night (written)
 	"inter cibos", // between meals (written)
@@ -26,3 +26,5 @@ export const TIMING_MULTIWORD = [
 	"hora somni", // at the hour of sleep (written)
 	"in ieiunio", // on an empty stomach
 ];
+
+export { TIMING, TIMING_MULTIWORD };
