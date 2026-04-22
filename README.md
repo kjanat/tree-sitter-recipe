@@ -96,4 +96,6 @@ to associate them with the next section by source position.
 
 ## License
 
-MIT
+[MIT][License] © Kaj Kowalski
+
+[License]: LICENSE

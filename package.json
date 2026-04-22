@@ -12,7 +12,7 @@
 		"type": "git",
 		"url": "git+https://github.com/kjanat/tree-sitter-recipe.git"
 	},
-	"funding": "",
+	"funding": "https://none",
 	"license": "MIT",
 	"author": {
 		"name": "Kaj Kowalski",
@@ -20,7 +20,20 @@
 		"url": "https://github.com/kjanat"
 	},
 	"type": "module",
+	"exports": {
+		".": {
+			"default": "./bindings/node"
+		},
+		"./grammar.js": "./grammar.js",
+		"./grammar/*": "./grammar/*",
+		"./queries/*": "./queries/*",
+		"./test/fixtures/*": "./test/fixtures/*",
+		"./test/highlight/*": "./test/highlight/*",
+		"./package.json": "./package.json",
+		"./binding.gyp": "./binding.gyp"
+	},
 	"main": "bindings/node",
+	"module": "bindings/node",
 	"types": "bindings/node",
 	"files": [
 		"grammar.js",
@@ -31,6 +44,8 @@
 		"bindings/node/*",
 		"queries/*",
 		"src/**",
+		"test/fixtures/**",
+		"test/highlight/**",
 		"*.wasm"
 	],
 	"scripts": {
