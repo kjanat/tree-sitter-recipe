@@ -1,18 +1,25 @@
 {
 	"compilerOptions": {
 		// Environment setup & latest features
-		"lib": [
-			"ESNext"
-		],
+		"lib": ["ESNext"],
 		"target": "ESNext",
 		"module": "Preserve",
 		"moduleDetection": "force",
+		"allowJs": true,
 		"checkJs": true,
 		// Bundler mode
 		"moduleResolution": "bundler",
-		"allowImportingTsExtensions": true,
+		"allowImportingTsExtensions": false,
 		"verbatimModuleSyntax": true,
-		"noEmit": true,
+
+		"rootDir": ".",
+		"outDir": "./dist",
+		"declaration": true,
+		"declarationMap": true,
+		"emitDeclarationOnly": true,
+
+		"composite": true,
+		"tsBuildInfoFile": "node_modules/.cache/tsbuildinfo",
 		// Best practices
 		"strict": true,
 		"skipLibCheck": true,
@@ -24,11 +31,8 @@
 		"noUnusedParameters": true,
 		"noPropertyAccessFromIndexSignature": false,
 		// Types
-		"types": [
-			"bun"
-		]
+		"types": ["bun"]
 	},
-	"exclude": [
-		"**/node_modules"
-	]
+	"include": ["grammar.js", "grammar/**/*.js"],
+	"exclude": ["**/node_modules", "bindings/node", "dist"]
 }

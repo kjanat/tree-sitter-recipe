@@ -22,14 +22,22 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"default": "./bindings/node"
+			"types": "./bindings/node/index.d.ts",
+			"default": "./bindings/node/index.js"
 		},
-		"./grammar.js": "./grammar.js",
-		"./grammar/*": "./grammar/*",
+		"./grammar.js": {
+			"types": "./dist/grammar.d.ts",
+			"default": "./grammar.js"
+		},
+		"./grammar/*.js": {
+			"types": "./dist/grammar/*.d.ts",
+			"default": "./grammar/*.js"
+		},
 		"./queries/*": "./queries/*",
 		"./test/fixtures/*": "./test/fixtures/*",
 		"./test/highlight/*": "./test/highlight/*",
 		"./package.json": "./package.json",
+		"./tree-sitter.json": "./tree-sitter.json",
 		"./binding.gyp": "./binding.gyp"
 	},
 	"main": "bindings/node",
@@ -38,6 +46,8 @@
 	"files": [
 		"grammar.js",
 		"grammar/**",
+		"dist/**/*.d.ts",
+		"dist/**/*.d.ts.map",
 		"tree-sitter.json",
 		"binding.gyp",
 		"prebuilds/**",
@@ -49,9 +59,11 @@
 		"*.wasm"
 	],
 	"scripts": {
+		"build:types": "tsc",
 		"generate": "tree-sitter generate; dprint fmt",
 		"highlight": "tree-sitter highlight",
 		"postinstall": "node-gyp-build",
+		"prepack": "bun run build:types",
 		"prestart": "tree-sitter build --wasm",
 		"start": "tree-sitter playground",
 		"test": "node --test bindings/node/*_test.js"

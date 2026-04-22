@@ -17,6 +17,7 @@ _obj/
 dist/
 *.egg-info
 *.whl
+.*_cache/
 
 # C artifacts
 *.a
@@ -48,3 +49,4 @@ zig-out/
 *.jar
 bun.lock
 tree-sitter/
+/.settings/
