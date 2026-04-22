@@ -1,4 +1,4 @@
-; Syntax highlighting for .prescription files.
+; Syntax highlighting for .recipe files.
 ;
 ; Captures use the Neovim/Helix standard capture vocabulary:
 ;   https://docs.helix-editor.com/themes.html#syntax-highlighting
@@ -11,7 +11,7 @@
 ; say, not the same way at all.
 
 ; ── Section markers — structural backbone: R/, Da/, D/, S/ ───────
-(recipe_marker)   @keyword.directive
+(rx_marker)       @keyword.directive
 (dispense_marker) @keyword.directive
 (signa_marker)    @keyword.directive
 

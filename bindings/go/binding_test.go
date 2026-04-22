@@ -1,15 +1,15 @@
-package tree_sitter_prescription_test
+package tree_sitter_recipe_test
 
 import (
 	"testing"
 
 	tree_sitter "github.com/tree-sitter/go-tree-sitter"
-	tree_sitter_prescription "github.com/kjanat/tree-sitter-prescription/bindings/go"
+	tree_sitter_recipe "github.com/kjanat/tree-sitter-recipe/bindings/go"
 )
 
 func TestCanLoadGrammar(t *testing.T) {
-	language := tree_sitter.NewLanguage(tree_sitter_prescription.Language())
+	language := tree_sitter.NewLanguage(tree_sitter_recipe.Language())
 	if language == nil {
-		t.Errorf("Error loading Prescription grammar")
+		t.Errorf("Error loading Recipe grammar")
 	}
 }

@@ -1,18 +1,18 @@
-package io.github.treesitter.jtreesitter.prescription;
+package io.github.treesitter.jtreesitter.recipe;
 
 import java.lang.foreign.*;
 
-public final class TreeSitterPrescription {
+public final class TreeSitterRecipe {
     private static final ValueLayout VOID_PTR =
             ValueLayout.ADDRESS.withTargetLayout(MemoryLayout.sequenceLayout(Long.MAX_VALUE, ValueLayout.JAVA_BYTE));
     private static final FunctionDescriptor FUNC_DESC = FunctionDescriptor.of(VOID_PTR);
     private static final Linker LINKER = Linker.nativeLinker();
-    private static final TreeSitterPrescription INSTANCE = new TreeSitterPrescription();
+    private static final TreeSitterRecipe INSTANCE = new TreeSitterRecipe();
 
     private final Arena arena = Arena.ofAuto();
     private volatile SymbolLookup lookup = null;
 
-    private TreeSitterPrescription() {}
+    private TreeSitterRecipe() {}
 
     /**
      * Get the tree-sitter language for this grammar.
@@ -30,16 +30,16 @@ public final class TreeSitterPrescription {
      * must not be closed while the language is being used.</strong>
      */
     public static MemorySegment language(SymbolLookup lookup) {
-        return call(lookup, "tree_sitter_prescription");
+        return call(lookup, "tree_sitter_recipe");
     }
 
     private SymbolLookup findLibrary() {
         try {
-            var library = System.mapLibraryName("tree-sitter-prescription");
+            var library = System.mapLibraryName("tree-sitter-recipe");
             return SymbolLookup.libraryLookup(library, arena);
         } catch (IllegalArgumentException ex1) {
             try {
-                System.loadLibrary("tree-sitter-prescription");
+                System.loadLibrary("tree-sitter-recipe");
                 return SymbolLookup.loaderLookup();
             } catch (UnsatisfiedLinkError ex2) {
                 ex1.addSuppressed(ex2);

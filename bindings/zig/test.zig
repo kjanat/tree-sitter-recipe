@@ -1,7 +1,7 @@
 const testing = @import("std").testing;
 
 const ts = @import("tree-sitter");
-const root = @import("tree-sitter-prescription");
+const root = @import("tree-sitter-recipe");
 const Language = ts.Language;
 const Parser = ts.Parser;
 

@@ -11,8 +11,8 @@ S/ 1x daags dun aanbrengen
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))
@@ -49,8 +49,8 @@ S/ 1 tablet daags
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))

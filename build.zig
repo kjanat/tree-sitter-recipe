@@ -7,7 +7,7 @@ pub fn build(b: *std.Build) !void {
     const shared = b.option(bool, "build-shared", "Build a shared library") orelse true;
     const reuse_alloc = b.option(bool, "reuse-allocator", "Reuse the library allocator") orelse false;
 
-    const library_name = "tree-sitter-prescription";
+    const library_name = "tree-sitter-recipe";
 
     const lib: *std.Build.Step.Compile = b.addLibrary(.{
         .name = library_name,

@@ -8,8 +8,8 @@ S/ 3 dd 1 tablet
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -29,8 +29,8 @@ S/ 1dd 1 tablet
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -50,8 +50,8 @@ S/ 2 dd 1 caps voor het ontbijt
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))

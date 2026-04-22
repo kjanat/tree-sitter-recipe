@@ -1,16 +1,16 @@
 {
-	"name": "tree-sitter-prescription",
+	"name": "tree-sitter-recipe",
 	"version": "0.1.0",
-	"description": "Pharmacological prescription notation",
+	"description": "Pharmacological recipe notation",
 	"keywords": [
 		"incremental",
 		"parsing",
 		"tree-sitter",
-		"prescription"
+		"recipe"
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/kjanat/tree-sitter-prescription.git"
+		"url": "git+https://github.com/kjanat/tree-sitter-recipe.git"
 	},
 	"funding": "",
 	"license": "MIT",

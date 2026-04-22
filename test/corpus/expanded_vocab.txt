@@ -10,8 +10,8 @@ S/ q.a.m. 2 tablets
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -44,8 +44,8 @@ S/ 1 tablet PRN
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -77,8 +77,8 @@ S/ 1 tablet inter cibos
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -110,8 +110,8 @@ S/ 10 mg i.t.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -143,8 +143,8 @@ m.f. ungt.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))
@@ -167,8 +167,8 @@ S/ ad lib. p.c.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -189,8 +189,8 @@ S/ 1 caps rep. 2x
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -220,8 +220,8 @@ S/ LASA beware
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -248,22 +248,22 @@ R/ salbutamol 100 mcg aeros.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))
     (ingredient_line
       (compounding_abbrev)
       (form_abbrev)))
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))
       (form_abbrev)))
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))
@@ -288,8 +288,8 @@ S/ 2 pufjes b.d.d.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -302,8 +302,8 @@ S/ 2 pufjes b.d.d.
     (signa_line
       (dose (number) (unit))
       (frequency_abbrev)))
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -316,8 +316,8 @@ S/ 2 pufjes b.d.d.
     (signa_line
       (dose (number) (unit))
       (route_abbrev)))
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -343,13 +343,13 @@ Da/ 5 ampullen
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -368,8 +368,8 @@ S/ q.w. i.v.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -389,8 +389,8 @@ S/ i.v.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -409,8 +409,8 @@ S/ p.o. q.d.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -430,8 +430,8 @@ S/ top. z.n.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))

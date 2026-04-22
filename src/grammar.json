@@ -1,6 +1,6 @@
 {
 	"$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
-	"name": "prescription",
+	"name": "recipe",
 	"word": "word",
 	"rules": {
 		"source_file": {
@@ -24,7 +24,7 @@
 			"members": [
 				{
 					"type": "SYMBOL",
-					"name": "recipe_section"
+					"name": "rx_section"
 				},
 				{
 					"type": "SYMBOL",
@@ -36,12 +36,12 @@
 				}
 			]
 		},
-		"recipe_section": {
+		"rx_section": {
 			"type": "SEQ",
 			"members": [
 				{
 					"type": "SYMBOL",
-					"name": "recipe_marker"
+					"name": "rx_marker"
 				},
 				{
 					"type": "SYMBOL",
@@ -107,7 +107,7 @@
 				}
 			]
 		},
-		"recipe_marker": {
+		"rx_marker": {
 			"type": "TOKEN",
 			"content": {
 				"type": "PREC",
@@ -1697,7 +1697,7 @@
 	],
 	"conflicts": [
 		[
-			"recipe_section"
+			"rx_section"
 		],
 		[
 			"signa_section"

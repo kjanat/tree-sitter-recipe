@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(tree-sitter-prescription
+project(tree-sitter-recipe
         VERSION "0.1.0"
-        DESCRIPTION "Pharmacological prescription notation"
-        HOMEPAGE_URL "https://github.com/kjanat/tree-sitter-prescription"
+        DESCRIPTION "Pharmacological recipe notation"
+        HOMEPAGE_URL "https://github.com/kjanat/tree-sitter-recipe"
         LANGUAGES C)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
@@ -36,40 +36,40 @@ add_custom_command(OUTPUT "${CMAKE_CURRENT_SOURCE_DIR}/src/parser.c"
                    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
                    COMMENT "Generating parser.c")
 
-add_library(tree-sitter-prescription src/parser.c)
+add_library(tree-sitter-recipe src/parser.c)
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/src/scanner.c)
-  target_sources(tree-sitter-prescription PRIVATE src/scanner.c)
+  target_sources(tree-sitter-recipe PRIVATE src/scanner.c)
 endif()
-target_include_directories(tree-sitter-prescription
+target_include_directories(tree-sitter-recipe
                            PRIVATE src
                            INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/bindings/c>
                                      $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-target_compile_definitions(tree-sitter-prescription PRIVATE
+target_compile_definitions(tree-sitter-recipe PRIVATE
                            $<$<BOOL:${TREE_SITTER_REUSE_ALLOCATOR}>:TREE_SITTER_REUSE_ALLOCATOR>
                            $<$<CONFIG:Debug>:TREE_SITTER_DEBUG>)
 
-set_target_properties(tree-sitter-prescription
+set_target_properties(tree-sitter-recipe
                       PROPERTIES
                       C_STANDARD 11
                       POSITION_INDEPENDENT_CODE ON
                       SOVERSION "${TREE_SITTER_ABI_VERSION}.${PROJECT_VERSION_MAJOR}"
                       DEFINE_SYMBOL "")
 
-configure_file(bindings/c/tree-sitter-prescription.pc.in
-               "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-prescription.pc" @ONLY)
+configure_file(bindings/c/tree-sitter-recipe.pc.in
+               "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-recipe.pc" @ONLY)
 
 install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bindings/c/tree_sitter"
         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
         FILES_MATCHING PATTERN "*.h")
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-prescription.pc"
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/tree-sitter-recipe.pc"
         DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
-install(TARGETS tree-sitter-prescription
+install(TARGETS tree-sitter-recipe
         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 
 file(GLOB QUERIES queries/*.scm)
 install(FILES ${QUERIES}
-        DESTINATION "${CMAKE_INSTALL_DATADIR}/tree-sitter/queries/prescription")
+        DESTINATION "${CMAKE_INSTALL_DATADIR}/tree-sitter/queries/recipe")
 
 add_custom_target(ts-test "${TREE_SITTER_CLI}" test
                   WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"

@@ -217,7 +217,12 @@
 		}
 	},
 	{
-		"type": "recipe_section",
+		"type": "route_abbrev",
+		"named": true,
+		"fields": {}
+	},
+	{
+		"type": "rx_section",
 		"named": true,
 		"fields": {},
 		"children": {
@@ -229,16 +234,11 @@
 					"named": true
 				},
 				{
-					"type": "recipe_marker",
+					"type": "rx_marker",
 					"named": true
 				}
 			]
 		}
-	},
-	{
-		"type": "route_abbrev",
-		"named": true,
-		"fields": {}
 	},
 	{
 		"type": "signa_line",
@@ -316,7 +316,7 @@
 					"named": true
 				},
 				{
-					"type": "recipe_section",
+					"type": "rx_section",
 					"named": true
 				},
 				{
@@ -1274,16 +1274,16 @@
 		"named": false
 	},
 	{
-		"type": "recipe_marker",
-		"named": true
-	},
-	{
 		"type": "rect.",
 		"named": false
 	},
 	{
 		"type": "rep.",
 		"named": false
+	},
+	{
+		"type": "rx_marker",
+		"named": true
 	},
 	{
 		"type": "s.c.",

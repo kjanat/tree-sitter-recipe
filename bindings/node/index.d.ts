@@ -25,10 +25,10 @@ type NodeInfo =
  *
  * @example
  * import Parser from "tree-sitter";
- * import Prescription from "tree-sitter-prescription";
+ * import Recipe from "tree-sitter-recipe";
  *
  * const parser = new Parser();
- * parser.setLanguage(Prescription);
+ * parser.setLanguage(Recipe);
  */
 declare const binding: {
 	/**

@@ -1,4 +1,4 @@
-"""Pharmacological prescription notation"""
+"""Pharmacological recipe notation"""
 
 from importlib.resources import files as _files
 

@@ -2,15 +2,15 @@
 	"$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
 	"grammars": [
 		{
-			"name": "prescription",
-			"camelcase": "Prescription",
-			"title": "Prescription",
-			"scope": "source.prescription",
+			"name": "recipe",
+			"camelcase": "Recipe",
+			"title": "Recipe",
+			"scope": "source.recipe",
 			"file-types": [
-				"prescription"
+				"recipe"
 			],
-			"injection-regex": "^prescription$",
-			"class-name": "TreeSitterPrescription",
+			"injection-regex": "^recipe$",
+			"class-name": "TreeSitterRecipe",
 			"highlights": [
 				"queries/highlights.scm"
 			],
@@ -25,7 +25,7 @@
 	"metadata": {
 		"version": "0.1.0",
 		"license": "MIT",
-		"description": "Pharmacological prescription notation",
+		"description": "Pharmacological recipe notation",
 		"authors": [
 			{
 				"name": "Kaj Kowalski",
@@ -34,7 +34,7 @@
 			}
 		],
 		"links": {
-			"repository": "https://github.com/kjanat/tree-sitter-prescription",
+			"repository": "https://github.com/kjanat/tree-sitter-recipe",
 			"funding": ""
 		}
 	},

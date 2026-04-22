@@ -7,8 +7,8 @@ R/ ibuprofen 0,5 g
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -22,8 +22,8 @@ R/ ibuprofen 2.5 ml
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -37,8 +37,8 @@ R/ morfine 0,05mg
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -52,8 +52,8 @@ R/ fentanyl 25µg/h
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -67,8 +67,8 @@ R/ insuline 100 IE/ml
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -83,8 +83,8 @@ S/ 1 dd IV
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -104,8 +104,8 @@ S/ IV continu
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -143,8 +143,8 @@ R/ N-acetylcysteïne 600mg
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -158,8 +158,8 @@ R/ triamcinolon 0,1%
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -175,8 +175,8 @@ S/ 10 IE s.c. a.c.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -220,18 +220,18 @@ R/ omeprazol 20mg
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -248,8 +248,8 @@ Da/ 10 tabl.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -280,8 +280,8 @@ S/ 4 dd 1 tabl.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -301,8 +301,8 @@ R/ drug 10mg /* quick note */ 1 tablet
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))
@@ -322,8 +322,8 @@ R/ cefuroxim 750mg
 
 (source_file
   (doc_comment_block)
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))))
@@ -338,8 +338,8 @@ S/ 3 dd 1 caps subling.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))
@@ -361,8 +361,8 @@ mf ungt.
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit)))
@@ -384,8 +384,8 @@ S/ 1-2 tabl. vóór de nacht
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))

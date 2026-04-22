@@ -1,13 +1,13 @@
 [package]
-name         = "tree-sitter-prescription"
-description  = "Pharmacological prescription notation"
+name         = "tree-sitter-recipe"
+description  = "Pharmacological recipe notation"
 version      = "0.1.0"
 authors      = ["Kaj Kowalski <info@kajkowalski.nl>"]
 license      = "MIT"
 readme       = "README.md"
-keywords     = ["incremental", "parsing", "prescription", "tree-sitter"]
+keywords     = ["incremental", "parsing", "recipe", "tree-sitter"]
 categories   = ["parser-implementations", "parsing", "text-editors"]
-repository   = "https://github.com/kjanat/tree-sitter-prescription"
+repository   = "https://github.com/kjanat/tree-sitter-recipe"
 edition      = "2021"
 autoexamples = false
 build        = "bindings/rust/build.rs"

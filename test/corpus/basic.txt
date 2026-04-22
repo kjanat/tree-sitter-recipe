@@ -9,8 +9,8 @@ S/ take 1 tablet twice daily
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (word)
@@ -38,8 +38,8 @@ S/ 3 dd 1 tablet bij pijn
 ---
 
 (source_file
-  (recipe_section
-    (recipe_marker)
+  (rx_section
+    (rx_marker)
     (ingredient_line
       (word)
       (dose (number) (unit))))

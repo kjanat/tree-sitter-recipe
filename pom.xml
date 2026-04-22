@@ -7,11 +7,11 @@
 >
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.tree-sitter</groupId>
-	<artifactId>jtreesitter-prescription</artifactId>
-	<name>JTreeSitter Prescription</name>
+	<artifactId>jtreesitter-recipe</artifactId>
+	<name>JTreeSitter Recipe</name>
 	<version>0.1.0</version>
-	<description>Pharmacological prescription notation</description>
-	<url>https://github.com/kjanat/tree-sitter-prescription</url>
+	<description>Pharmacological recipe notation</description>
+	<url>https://github.com/kjanat/tree-sitter-recipe</url>
 	<licenses>
 		<license>
 			<name>MIT</name>
@@ -26,9 +26,9 @@
 		</developer>
 	</developers>
 	<scm>
-		<url>https://github.com/kjanat/tree-sitter-prescription</url>
-		<connection>scm:git:git://github.com/kjanat/tree-sitter-prescription.git</connection>
-		<developerConnection>scm:git:ssh://github.com/kjanat/tree-sitter-prescription.git</developerConnection>
+		<url>https://github.com/kjanat/tree-sitter-recipe</url>
+		<connection>scm:git:git://github.com/kjanat/tree-sitter-recipe.git</connection>
+		<developerConnection>scm:git:ssh://github.com/kjanat/tree-sitter-recipe.git</developerConnection>
 	</scm>
 	<properties>
 		<maven.compiler.release>23</maven.compiler.release>

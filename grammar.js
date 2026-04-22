@@ -1,5 +1,5 @@
 /**
- * @file Pharmacological prescription notation
+ * @file Pharmacological recipe notation
  * @author Kaj Kowalski <info@kajkowalski.nl>
  * @license MIT
  */
@@ -25,7 +25,7 @@ import {
 import { UNITS } from "./grammar/units/index.js";
 
 export default grammar({
-	name: "prescription",
+	name: "recipe",
 
 	// Enables context-sensitive keyword promotion so "ad", "dtd", "no" etc.
 	// are recognized as keywords only when they appear as complete words.
@@ -44,7 +44,7 @@ export default grammar({
 	// Declaring the conflict lets tree-sitter's GLR look ahead far enough to
 	// disambiguate at parse time.
 	conflicts: $ => [
-		[$.recipe_section],
+		[$.rx_section],
 		[$.signa_section],
 	],
 
@@ -58,14 +58,14 @@ export default grammar({
 
 		_section: $ =>
 			choice(
-				$.recipe_section,
+				$.rx_section,
 				$.dispense_section,
 				$.signa_section,
 			),
 
-		recipe_section: $ =>
+		rx_section: $ =>
 			seq(
-				$.recipe_marker,
+				$.rx_marker,
 				$.ingredient_line,
 				repeat(seq($._newline, $.ingredient_line)),
 			),
@@ -78,7 +78,7 @@ export default grammar({
 			),
 
 		// Case-insensitive markers: R/, r/, Da/, da/, D/, d/, S/, s/
-		recipe_marker: _ => token(prec(4, /[Rr]\//)),
+		rx_marker: _ => token(prec(4, /[Rr]\//)),
 		dispense_marker: _ => token(prec(4, /[Dd][Aa]?\//)),
 		signa_marker: _ => token(prec(4, /[Ss]\//)),
 

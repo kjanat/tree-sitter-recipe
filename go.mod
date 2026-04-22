@@ -1,4 +1,4 @@
-module github.com/kjanat/tree-sitter-prescription
+module github.com/kjanat/tree-sitter-recipe
 
 go 1.22
 

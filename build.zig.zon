@@ -1,5 +1,5 @@
 .{
-    .name = .tree_sitter_prescription,
+    .name = .tree_sitter_recipe,
     .fingerprint = 0x200d4c28742ed456,
     .version = "0.1.0",
     .dependencies = .{

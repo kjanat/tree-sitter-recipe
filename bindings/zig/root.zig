@@ -1,5 +1,5 @@
-extern fn tree_sitter_prescription() callconv(.c) *const anyopaque;
+extern fn tree_sitter_recipe() callconv(.c) *const anyopaque;
 
 pub fn language() *const anyopaque {
-    return tree_sitter_prescription();
+    return tree_sitter_recipe();
 }

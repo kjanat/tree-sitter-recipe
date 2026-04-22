@@ -1,6 +1,6 @@
-# tree-sitter-prescription
+# tree-sitter-recipe
 
-Tree-sitter grammar for `.prescription` files — a digital notation for
+Tree-sitter grammar for `.recipe` files — a digital notation for
 pharmacological prescriptions in the Dutch/Latin KNMP/FNA tradition.
 
 ## What it parses
@@ -19,7 +19,7 @@ system.
 
 ## Example
 
-```prescription
+```recipe
 /**
  * Patient: 45yo female, chronic URTI
  * Allergies: none known
@@ -48,8 +48,8 @@ bun test           # or: npm test
 ```sh
 npx tree-sitter generate                   # regenerate parser after grammar changes
 npx tree-sitter test                       # run corpus tests
-npx tree-sitter parse file.prescription    # inspect parse tree
-npx tree-sitter highlight file.prescription # visualize syntax highlighting
+npx tree-sitter parse file.recipe          # inspect parse tree
+npx tree-sitter highlight file.recipe      # visualize syntax highlighting
 npx tree-sitter build --wasm               # build WASM for playground
 ```
 
