@@ -6,21 +6,8 @@
 	"exports": {
 		".": "./grammar.js",
 		"./grammar.js": "./grammar.js",
-		"./grammar/latin/compounding.js": "./grammar/latin/compounding.js",
-		"./grammar/latin/conditional.js": "./grammar/latin/conditional.js",
-		"./grammar/latin/dispensing.js": "./grammar/latin/dispensing.js",
-		"./grammar/latin/forms.js": "./grammar/latin/forms.js",
-		"./grammar/latin/frequency.js": "./grammar/latin/frequency.js",
-		"./grammar/latin/index.js": "./grammar/latin/index.js",
-		"./grammar/latin/route.js": "./grammar/latin/route.js",
-		"./grammar/latin/timing.js": "./grammar/latin/timing.js",
-		"./grammar/latin/warning.js": "./grammar/latin/warning.js",
-		"./grammar/units/activity.js": "./grammar/units/activity.js",
-		"./grammar/units/countable.js": "./grammar/units/countable.js",
-		"./grammar/units/index.js": "./grammar/units/index.js",
-		"./grammar/units/mass.js": "./grammar/units/mass.js",
-		"./grammar/units/rate.js": "./grammar/units/rate.js",
-		"./grammar/units/volume.js": "./grammar/units/volume.js"
+		"./grammar/latin": "./grammar/latin/index.js",
+		"./grammar/units": "./grammar/units/index.js"
 	},
 	"publish": {
 		"include": [

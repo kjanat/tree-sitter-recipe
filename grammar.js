@@ -146,7 +146,7 @@ export default grammar({
 			),
 
 		number: _ => /\d+([.,]\d+)?/,
-		word: _ => /[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\-]*/,
+		word: _ => /[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9-]*/,
 		// `.` — Dutch sentence terminators ("sachet à 4 g.").
 		// `-` — dose ranges ("1-2 tabletten"). Inside drug names the dash is
 		// already absorbed by the `word` rule via its own character class, so

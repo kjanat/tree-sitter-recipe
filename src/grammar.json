@@ -1582,7 +1582,7 @@
 		},
 		"word": {
 			"type": "PATTERN",
-			"value": "[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\-]*"
+			"value": "[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9-]*"
 		},
 		"punctuation": {
 			"type": "PATTERN",

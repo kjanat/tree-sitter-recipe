@@ -60,9 +60,11 @@
 	],
 	"scripts": {
 		"build:types": "tsc",
+		"check": "biome check",
 		"generate": "tree-sitter generate; dprint fmt",
 		"highlight": "tree-sitter highlight",
 		"postinstall": "node-gyp-build",
+		"lint": "biome lint",
 		"prepack": "bun run build:types",
 		"prestart": "tree-sitter build --wasm",
 		"start": "tree-sitter playground",
@@ -73,6 +75,7 @@
 		"node-gyp-build": "^4.8.4"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^2.4.12",
 		"@types/bun": "^1.3.12",
 		"dprint": "^0.54.0",
 		"prebuildify": "^6.0.1",
