@@ -12,7 +12,6 @@
 		"type": "git",
 		"url": "git+https://github.com/kjanat/tree-sitter-recipe.git"
 	},
-	"funding": "https://none",
 	"license": "MIT",
 	"author": {
 		"name": "Kaj Kowalski",
@@ -22,16 +21,24 @@
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./bindings/node/index.d.ts",
-			"default": "./bindings/node/index.js"
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
 		},
 		"./grammar.js": {
 			"types": "./dist/grammar.d.ts",
-			"default": "./grammar.js"
+			"default": "./dist/grammar.js"
+		},
+		"./grammar/latin": {
+			"types": "./dist/grammar/latin/index.d.ts",
+			"default": "./dist/grammar/latin/index.js"
+		},
+		"./grammar/units": {
+			"types": "./dist/grammar/units/index.d.ts",
+			"default": "./dist/grammar/units/index.js"
 		},
 		"./grammar/*.js": {
 			"types": "./dist/grammar/*.d.ts",
-			"default": "./grammar/*.js"
+			"default": "./dist/grammar/*.js"
 		},
 		"./queries/*": "./queries/*",
 		"./test/fixtures/*": "./test/fixtures/*",
@@ -44,19 +51,12 @@
 	"module": "bindings/node",
 	"types": "bindings/node",
 	"files": [
-		"grammar.js",
-		"grammar/**",
-		"dist/**/*.d.ts",
-		"dist/**/*.d.ts.map",
-		"tree-sitter.json",
+		"*.wasm",
 		"binding.gyp",
+		"dist",
 		"prebuilds/**",
-		"bindings/node/*",
-		"queries/*",
-		"src/**",
-		"test/fixtures/**",
-		"test/highlight/**",
-		"*.wasm"
+		"test/**/*.recipe",
+		"tree-sitter.json"
 	],
 	"scripts": {
 		"bd": "bun run build",

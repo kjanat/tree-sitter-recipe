@@ -34,8 +34,7 @@
 			}
 		],
 		"links": {
-			"repository": "https://github.com/kjanat/tree-sitter-recipe",
-			"funding": "https://none"
+			"repository": "https://github.com/kjanat/tree-sitter-recipe"
 		}
 	},
 	"bindings": {
