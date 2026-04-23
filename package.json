@@ -59,8 +59,10 @@
 		"*.wasm"
 	],
 	"scripts": {
-		"build:types": "tsc",
+		"bd": "bun run build",
+		"build": "tsdown",
 		"check": "biome check",
+		"fmt": "dprint fmt",
 		"generate": "tree-sitter generate; dprint fmt",
 		"highlight": "tree-sitter highlight",
 		"postinstall": "node-gyp-build",
@@ -81,6 +83,7 @@
 		"prebuildify": "^6.0.1",
 		"tree-sitter": "^0.25.0",
 		"tree-sitter-cli": "^0.26.8",
+		"tsdown": "^0.21.10",
 		"typescript": "^6.0.3"
 	},
 	"peerDependencies": {

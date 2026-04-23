@@ -1,5 +1,5 @@
 /**
- * @file Administration routes.
+ * Administration routes.
  *
  * Real-world prescriptions use both classical lowercase (`i.v.`) and
  * uppercase clinical notation (`I.V.`, `IV`) interchangeably. Tree-sitter
@@ -14,7 +14,7 @@
  * @license MIT
  */
 
-/** @type {readonly string[]} */
+/** Canonical dotted lowercase route abbreviations — the base set from which uppercase is derived. */
 const DOTTED_CANONICAL = [
 	"i.m.", // intramuscular
 	"i.v.", // intravenous
@@ -44,12 +44,12 @@ const DOTTED_CANONICAL = [
 	"o.u.", // oculus uterque — both eyes
 	"a.u.e.", // ad usum externum — for external use
 	"u.e.", // usus externus — external use
-];
+] as const;
 
-/** @type {readonly string[]} */
+/** All single-token route abbreviations — dotted (both casings) + dotless clinical shorthand. */
 const ROUTE = [
 	...DOTTED_CANONICAL,
-	...DOTTED_CANONICAL.map(s => s.toUpperCase()),
+	...DOTTED_CANONICAL.map((s) => s.toUpperCase()),
 	// Dotless clinical shorthand — letters unambiguous with common words.
 	"IV",
 	"IM",
@@ -59,9 +59,9 @@ const ROUTE = [
 	"PR",
 	"PV",
 	"SQ", // subcutaneous (US clinical variant)
-];
+] as const;
 
-/** @type {readonly string[]} */
+/** Canonical multi-word route phrases before sentence-casing. */
 const ROUTE_MULTIWORD_CANONICAL = [
 	"per os", // orally
 	"per rectum",
@@ -72,13 +72,13 @@ const ROUTE_MULTIWORD_CANONICAL = [
 	"in ocul.", // in the eye(s)
 	"in aur.", // in the ear(s)
 	"in nar.", // in the nostril(s)
-];
+] as const;
 
-/** @type {readonly string[]} */
+/** Multi-word route phrases — lowercase + sentence-cased variants. */
 const ROUTE_MULTIWORD = [
 	...ROUTE_MULTIWORD_CANONICAL,
 	// Sentence-case — signa lines occasionally start with the route.
-	...ROUTE_MULTIWORD_CANONICAL.map(s => s.charAt(0).toUpperCase() + s.slice(1)),
-];
+	...ROUTE_MULTIWORD_CANONICAL.map((s) => s.charAt(0).toUpperCase() + s.slice(1)),
+] as const;
 
 export { ROUTE, ROUTE_MULTIWORD };

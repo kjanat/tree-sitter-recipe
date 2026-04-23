@@ -897,6 +897,10 @@
 		"named": false
 	},
 	{
+		"type": "lb",
+		"named": false
+	},
+	{
 		"type": "lin.",
 		"named": false
 	},
@@ -1127,6 +1131,10 @@
 	},
 	{
 		"type": "o.u.",
+		"named": false
+	},
+	{
+		"type": "oz",
 		"named": false
 	},
 	{

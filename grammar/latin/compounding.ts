@@ -1,5 +1,5 @@
 /**
- * @file Compounding / extemporaneous-preparation directives.
+ * Compounding / extemporaneous-preparation directives.
  *
  * Instructions to the pharmacist about HOW to combine ingredients — distinct
  * from dispensing (labeling), route (administration), or form (preparation
@@ -11,7 +11,7 @@
  * @license MIT
  */
 
-/** @type {readonly string[]} */
+/** Single-token compounding verbs — "mix", "dissolve", "divide", etc. */
 export const COMPOUNDING = [
 	"mf", // misce fiat — mix and make
 	"m.f.", // dotted variant
@@ -25,9 +25,9 @@ export const COMPOUNDING = [
 	"div.", // divide — divide into parts
 	"solve", // dissolve
 	"coq.", // coque — boil
-];
+] as const;
 
-/** @type {readonly string[]} */
+/** Multi-word compounding phrases — "mix to make a powder", "divide into equal parts", etc. */
 export const COMPOUNDING_MULTIWORD = [
 	"m.f. pulv.", // misce fiat pulvis — mix to make a powder
 	"m.f. caps.", // mix to make capsules
@@ -38,4 +38,4 @@ export const COMPOUNDING_MULTIWORD = [
 	"ad lib.", // ad libitum — at pleasure / freely
 	"div. in p. aeq.", // divide into equal parts
 	"div. in d.", // divide into doses
-];
+] as const;

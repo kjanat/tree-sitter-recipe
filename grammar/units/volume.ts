@@ -1,10 +1,12 @@
 /**
- * @file Volume units — continuous measurement. Both casings accepted
- * because "ml" and "mL" both appear in real prescriptions.
+ * Volume units — continuous measurement.
+ *
+ * Both casings accepted because "ml" and "mL" both appear in
+ * real prescriptions.
  * @license MIT
  */
 
-/** @type {readonly string[]} */
+/** Volume units from microliters to liters, both casings. */
 const VOLUME = [
 	"µl", // microliter (Greek mu)
 	"ul", // microliter (ASCII fallback)
@@ -18,6 +20,6 @@ const VOLUME = [
 	"dL",
 	"l",
 	"L",
-];
+] as const;
 
 export { VOLUME, VOLUME as default };

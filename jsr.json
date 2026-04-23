@@ -4,21 +4,20 @@
 	"version": "0.1.0",
 	"license": "MIT",
 	"exports": {
-		".": "./grammar.js",
-		"./grammar.js": "./grammar.js",
-		"./grammar/latin": "./grammar/latin/index.js",
-		"./grammar/units": "./grammar/units/index.js"
+		".": "./dist/index.js",
+		"./grammar.js": "./dist/grammar.js",
+		"./grammar/latin": "./dist/grammar/latin/index.js",
+		"./grammar/units": "./dist/grammar/units/index.js"
 	},
 	"publish": {
 		"include": [
-			"grammar.js",
-			"grammar/**/*.js",
-			"queries/*.scm",
+			"dist/**",
 			"test/highlight/*.recipe",
 			"tree-sitter.json",
 			"LICENSE",
 			"README.md",
 			"jsr.json"
-		]
+		],
+		"exclude": ["!dist"]
 	}
 }

@@ -7,32 +7,36 @@
 		"moduleDetection": "force",
 		"allowJs": true,
 		"checkJs": true,
+
 		// Bundler mode
 		"moduleResolution": "bundler",
-		"allowImportingTsExtensions": false,
+		"allowImportingTsExtensions": true,
 		"verbatimModuleSyntax": true,
 
 		"rootDir": ".",
 		"outDir": "./dist",
 		"declaration": true,
-		"declarationMap": true,
+		"declarationMap": false,
 		"emitDeclarationOnly": true,
+		"noEmit": false,
 
 		"composite": true,
 		"tsBuildInfoFile": "node_modules/.cache/tsbuildinfo",
+
 		// Best practices
 		"strict": true,
 		"skipLibCheck": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedIndexedAccess": true,
 		"noImplicitOverride": true,
+
 		// Some stricter flags (disabled by default)
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noPropertyAccessFromIndexSignature": false,
 		// Types
-		"types": ["bun"]
+		"types": ["bun", "tree-sitter-cli/dsl"]
 	},
-	"include": ["grammar.js", "grammar/**/*.js"],
-	"exclude": ["**/node_modules", "bindings/node", "dist"]
+	"include": ["grammar.ts", "grammar/**/*.ts", "bindings/node"],
+	"exclude": ["**/node_modules", "bindings/node", "dist", "grammar.js"]
 }

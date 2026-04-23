@@ -1,9 +1,13 @@
 /**
- * @file Emergency / safety priority markers. Uppercase by tradition.
+ * Emergency / safety priority markers.
+ *
+ * Uppercase by tradition. Includes urgency flags (CITO, STAT, URGENT) and
+ * regulatory safety markers (LASA, REMS, BLACKBOX) that highlight-queries
+ * can style distinctly to draw clinical attention.
  * @license MIT
  */
 
-/** @type {readonly string[]} */
+/** Urgency and safety keywords — CITO, STAT, URGENT, plus regulatory flags. */
 const WARNING = [
 	// CITO — classical Latin for "quickly"
 	"CITO",
@@ -25,6 +29,6 @@ const WARNING = [
 	"TERATOGEN", // pregnancy-contraindicated flag
 	"NIEUW", // Dutch — new prescription flag
 	"NEW", // english equivalent
-];
+] as const;
 
 export { WARNING };

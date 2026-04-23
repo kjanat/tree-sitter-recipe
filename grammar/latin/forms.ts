@@ -1,9 +1,12 @@
 /**
- * @file Pharmaceutical form keywords (not units — these name the preparation).
+ * Pharmaceutical form keywords — names for the preparation type.
+ *
+ * Not units (those are in `grammar/units/`); these name the dosage form
+ * itself: ointment, solution, syrup, suppository, etc.
  * @license MIT
  */
 
-/** @type {readonly string[]} */
+/** Single-token dosage form names — "powder", "ointment", "solution", etc. */
 const FORMS = [
 	"aq. pur.", // aqua purificata — purified water
 	"aq. dest.", // aqua destillata — distilled water
@@ -29,9 +32,9 @@ const FORMS = [
 	"spray", // modern — spray
 	"patch", // modern — transdermal patch
 	"pasta", // Latin/Dutch — paste
-];
+] as const;
 
-/** @type {readonly string[]} */
+/** Multi-word dosage forms — "ear drops", "eye drops", "water for injection". */
 const FORMS_MULTIWORD = [
 	"gtt aur.", // guttae auriculares — ear drops
 	"gtt nas.", // guttae nasales — nose drops
@@ -40,6 +43,6 @@ const FORMS_MULTIWORD = [
 	"pulv. adsp.", // pulvis adspersorius — dusting powder
 	"sol. inj.", // solutio iniectabilis — injectable solution
 	"unguent. opht.", // ophthalmic ointment
-];
+] as const;
 
 export { FORMS, FORMS_MULTIWORD };

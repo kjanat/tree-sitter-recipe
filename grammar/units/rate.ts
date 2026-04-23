@@ -1,5 +1,5 @@
 /**
- * @file Rate and concentration units — quantity-per-denominator forms.
+ * Rate and concentration units — quantity-per-denominator forms.
  *
  * These appear in IV infusions ("µg/h"), body-weight dosing ("mg/kg"),
  * concentration ("mg/ml"), and daily totals ("mg/24h", "mg/dag"). Enumerated
@@ -7,13 +7,13 @@
  * is clinically meaningful and (b) tokenizing them as atomic units avoids
  * any interaction with the `/` in section markers.
  *
- * Note: the slash is part of the token, consumed in one lexer step. This is
- * safe because section markers (`R/`, `S/`, `Da/`) match a strict 2–3 char
- * shape that can never overlap with `<letters>/<letters>`.
+ * The slash is part of the token, consumed in one lexer step. This is safe
+ * because section markers (`R/`, `S/`, `Da/`) match a strict 2–3 char shape
+ * that can never overlap with `<letters>/<letters>`.
  * @license MIT
  */
 
-/** Units of rate or concentration. @type {readonly string[]} */
+/** Compound quantity-per-denominator tokens — infusion rates, concentrations, body-weight dosing. */
 const RATE = [
 	// Weight-volume-time compound rates (longest first for clarity)
 	"mg/kg/dag", // Dutch — mg per kg per day
@@ -76,6 +76,6 @@ const RATE = [
 	"mg/m²",
 	"mcg/m2",
 	"µg/m²",
-];
+] as const;
 
 export { RATE, RATE as default };

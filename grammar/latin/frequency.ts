@@ -1,10 +1,11 @@
 /**
- * @file Dosing frequency — classical Latin + Q-series clinical shorthand.
- * Modern compact form (`N dd`) is parsed by a separate rule in grammar.js.
+ * Dosing frequency — classical Latin "de die" forms + Q-series clinical shorthand.
+ *
+ * Modern compact form (`N dd`) is parsed by a separate rule in `grammar.js`.
  * @license MIT
  */
 
-/** @type {readonly string[]} */
+/** Frequency abbreviations — "twice daily", "every 4 hours", "weekly", etc. */
 const FREQUENCY = [
 	// Classical "de die" forms — number-per-day vocabulary
 	"b.d.d.", // bis de die — twice daily
@@ -29,6 +30,6 @@ const FREQUENCY = [
 	"q.w.", // weekly
 	"b.i.w.", // twice weekly
 	"t.i.w.", // three times weekly
-];
+] as const;
 
 export { FREQUENCY };

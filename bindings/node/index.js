@@ -1,16 +1,26 @@
+/* @ts-self-types="./index.d.ts" */
 import { readFileSync } from "node:fs";
+import { createRequire } from "node:module";
+import { dirname, join } from "node:path";
+import { dlopen } from "node:process";
 import { fileURLToPath } from "node:url";
 
-const root = fileURLToPath(new URL("../..", import.meta.url));
+const root = dirname(fileURLToPath(import.meta.resolve("tree-sitter-recipe/package.json")));
+const require = createRequire(join(root, "package.json"));
 
-const binding = typeof process.versions.bun === "string"
-	// Support `bun build --compile` by being statically analyzable enough to find the .node file at build-time
-	? await import(`${root}/prebuilds/${process.platform}-${process.arch}/tree-sitter-recipe.node`)
-	: (await import("node-gyp-build")).default(root);
+const nativePath = join(root, "prebuilds", `${process.platform}-${process.arch}`, "tree-sitter-recipe.node");
+
+let binding;
+if (typeof process.versions.bun === "string") {
+	const module = { exports: {} };
+	dlopen(module, nativePath);
+	binding = module.exports;
+} else {
+	binding = require("node-gyp-build")(root);
+}
 
 try {
-	const nodeTypes = await import(`${root}/src/node-types.json`, { with: { type: "json" } });
-	binding.nodeTypeInfo = nodeTypes.default;
+	binding.nodeTypeInfo = JSON.parse(readFileSync(`${root}/src/node-types.json`, "utf8"));
 } catch {}
 
 const queries = [
