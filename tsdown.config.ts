@@ -20,7 +20,10 @@ function injectSelfTypes(dir: string) {
 			if (existsSync(join(dir, dtsName))) {
 				const content = readFileSync(fullPath, "utf8");
 				if (!content.startsWith("/* @ts-self-types=")) {
-					writeFileSync(fullPath, `/* @ts-self-types="./${dtsName}" */\n${content}`);
+					writeFileSync(
+						fullPath,
+						`/* @ts-self-types="./${dtsName}" */\n${content}`,
+					);
 				}
 			}
 		}
@@ -31,7 +34,13 @@ function generateGrammarRuleNames() {
 	const sourcePath = "./grammar.ts";
 	const generatedPath = "./grammar/generated/recipe-rule-names.ts";
 	const sourceText = readFileSync(sourcePath, "utf8");
-	const sourceFile = ts.createSourceFile(sourcePath, sourceText, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS);
+	const sourceFile = ts.createSourceFile(
+		sourcePath,
+		sourceText,
+		ts.ScriptTarget.Latest,
+		true,
+		ts.ScriptKind.TS,
+	);
 	const ruleNames: string[] = [];
 
 	const visit = (node: ts.Node) => {
@@ -43,9 +52,12 @@ function generateGrammarRuleNames() {
 		) {
 			for (const property of node.initializer.properties) {
 				if (
-					!ts.isPropertyAssignment(property) && !ts.isMethodDeclaration(property)
+					!ts.isPropertyAssignment(property)
+					&& !ts.isMethodDeclaration(property)
 					&& !ts.isShorthandPropertyAssignment(property)
-				) continue;
+				) {
+					continue;
+				}
 				const propertyName = property.name;
 				if (ts.isIdentifier(propertyName) || ts.isStringLiteral(propertyName)) {
 					ruleNames.push(propertyName.text);
@@ -62,24 +74,20 @@ function generateGrammarRuleNames() {
 		throw new Error(`Could not find grammar rule names in ${sourcePath}`);
 	}
 
-	const generatedText = [
-		"/**",
-		" * Generated from grammar.ts.",
-		" * Do not edit manually.",
-		" */",
-		"export type RecipeGrammarRuleName =",
-		...ruleNames.map(ruleName => `\t| ${JSON.stringify(ruleName)}`),
-		";",
-		"",
-	].join("\n");
-
+	const generatedText = `\
+/**
+ * Generated from grammar.ts.
+ * Do not edit manually.
+ */
+export type RecipeGrammarRuleName =
+${ruleNames.map(ruleName => `\t| ${JSON.stringify(ruleName)}`).join("\n")};\n`;
 	writeFileSync(generatedPath, generatedText);
 }
 
 export default defineConfig({
 	entry: [
 		{
-			"grammar": "./grammar.ts",
+			grammar: "./grammar.ts",
 			"grammar/*": ["./grammar/*/index.ts"],
 		},
 	],
@@ -112,5 +120,5 @@ export default defineConfig({
 			injectSelfTypes("./dist");
 		},
 	},
-	"onSuccess": "bun fmt",
+	onSuccess: "bun fmt",
 });
