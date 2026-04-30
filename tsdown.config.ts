@@ -5,6 +5,8 @@ import { join, parse } from "node:path";
 import { defineConfig } from "tsdown";
 import ts from "typescript";
 
+const srcGrammarPath = "./grammar.js";
+
 const SELF_TYPED_JS_EXTENSIONS = new Set([".js", ".mjs", ".cjs"]);
 
 function injectSelfTypes(dir: string) {
@@ -31,7 +33,7 @@ function injectSelfTypes(dir: string) {
 }
 
 function generateGrammarRuleNames() {
-	const sourcePath = "./grammar.ts";
+	const sourcePath = srcGrammarPath;
 	const generatedPath = "./grammar/generated/recipe-rule-names.ts";
 	const sourceText = readFileSync(sourcePath, "utf8");
 	const sourceFile = ts.createSourceFile(
@@ -76,7 +78,7 @@ function generateGrammarRuleNames() {
 
 	const generatedText = `\
 /**
- * Generated from grammar.ts.
+ * Generated from ${srcGrammarPath}.
  * Do not edit manually.
  */
 export type RecipeGrammarRuleName =
@@ -85,12 +87,10 @@ ${ruleNames.map(ruleName => `\t| ${JSON.stringify(ruleName)}`).join("\n")};\n`;
 }
 
 export default defineConfig({
-	entry: [
-		{
-			grammar: "./grammar.ts",
-			"grammar/*": ["./grammar/*/index.ts"],
-		},
-	],
+	entry: [{
+		grammar: srcGrammarPath,
+		"grammar/*": ["./grammar/*/index.*"],
+	}],
 	copy: [
 		"package.json",
 		"bindings/node/{index.{js,d.ts},binding.cc}",

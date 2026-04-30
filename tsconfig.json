@@ -37,6 +37,6 @@
 		// Types
 		"types": ["bun", "tree-sitter-cli/dsl"]
 	},
-	"include": ["grammar.ts", "grammar/**/*.ts", "bindings/node"],
-	"exclude": ["**/node_modules", "bindings/node", "dist", "grammar.js"]
+	"include": ["./grammar.{ts,js}", "./grammar/**/*.{ts,js}", "bindings/node"],
+	"exclude": ["**/node_modules", "dist"]
 }

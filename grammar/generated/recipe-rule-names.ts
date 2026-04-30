@@ -1,5 +1,5 @@
 /**
- * Generated from grammar.ts.
+ * Generated from grammar.js.
  * Do not edit manually.
  */
 export type RecipeGrammarRuleName =

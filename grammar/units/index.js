@@ -22,11 +22,11 @@
  * @license MIT
  */
 
-import { default as ACTIVITY } from "./activity.ts";
-import { default as COUNTABLE } from "./countable.ts";
-import { default as MASS } from "./mass.ts";
-import { default as RATE } from "./rate.ts";
-import { default as VOLUME } from "./volume.ts";
+import { default as ACTIVITY } from "./activity";
+import { default as COUNTABLE } from "./countable";
+import { default as MASS } from "./mass";
+import { default as RATE } from "./rate";
+import { default as VOLUME } from "./volume";
 
 export { ACTIVITY, COUNTABLE, MASS, RATE, VOLUME };
 

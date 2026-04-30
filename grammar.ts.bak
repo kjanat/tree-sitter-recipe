@@ -1,5 +1,5 @@
 /**
- * Tree-sitter grammar for pharmacological recipe notation.
+ * # Tree-sitter grammar for pharmacological recipe notation.
  *
  * Parses classical prescription format with three sections:
  * - **R/** (Recipe) — ingredient lines with doses, units, and Latin abbreviations
@@ -25,7 +25,9 @@
  */
 /// <reference types="tree-sitter-cli/dsl" />
 
-import type { RecipeGrammarRuleName } from "./grammar/generated/recipe-rule-names.ts";
+/** @typedef {import("./grammar/generated/recipe-rule-names").RecipeGrammarRuleName} RecipeGrammarRuleName */
+/** @typedef {GrammarSchema<RecipeGrammarRuleName>} RecipeGrammar */
+
 import {
 	COMPOUNDING,
 	COMPOUNDING_MULTIWORD_RE,
@@ -41,13 +43,11 @@ import {
 	TIMING,
 	TIMING_MULTIWORD_RE,
 	WARNING,
-} from "./grammar/latin/index.ts";
-import { UNITS } from "./grammar/units/index.ts";
+} from "./grammar/latin";
+import { UNITS } from "./grammar/units";
 
-type RecipeGrammar = GrammarSchema<RecipeGrammarRuleName>;
-
-/** Recipe language tree-sitter grammar definition. */
-const recipeGrammar: RecipeGrammar = grammar({
+/** Recipe language tree-sitter grammar definition. @type RecipeGrammar */
+const recipeGrammar = grammar({
 	name: "recipe",
 
 	// Enables context-sensitive keyword promotion so "ad", "dtd", "no" etc.
