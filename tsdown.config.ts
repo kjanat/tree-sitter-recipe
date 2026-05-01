@@ -159,6 +159,7 @@ const config = {
 			exports["./binding.gyp"] = "./binding.gyp";
 			exports["./queries/*"] = "./queries/*";
 			exports["./test/{highlight,fixtures}/*.recipe"] = "./test/{highlight,fixtures}/*.recipe";
+			exports["./tree-sitter-recipe.wasm"] = "./tree-sitter-recipe.wasm";
 			exports["./tree-sitter.json"] = "./tree-sitter.json";
 			exports["./src/*"] = "./src/*";
 			console.log(exports);

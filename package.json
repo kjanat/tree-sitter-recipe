@@ -38,6 +38,7 @@
 		"./binding.gyp": "./binding.gyp",
 		"./queries/*": "./queries/*",
 		"./test/{highlight,fixtures}/*.recipe": "./test/{highlight,fixtures}/*.recipe",
+		"./tree-sitter-recipe.wasm": "./tree-sitter-recipe.wasm",
 		"./tree-sitter.json": "./tree-sitter.json",
 		"./src/*": "./src/*"
 	},
