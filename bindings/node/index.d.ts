@@ -1,22 +1,4 @@
-type BaseNode = {
-	type: string;
-	named: boolean;
-};
-
-type ChildNode = {
-	multiple: boolean;
-	required: boolean;
-	types: BaseNode[];
-};
-
-type NodeInfo =
-	| (BaseNode & {
-		subtypes: BaseNode[];
-	})
-	| (BaseNode & {
-		fields: { [name: string]: ChildNode };
-		children: ChildNode[];
-	});
+import type { Language, NodeInfo } from "tree-sitter";
 
 /**
  * The tree-sitter language object for this grammar.
@@ -32,10 +14,15 @@ type NodeInfo =
  */
 declare const binding: {
 	/**
+	 * The language name.
+	 */
+	name: Language["name"];
+
+	/**
 	 * The inner language object.
 	 * @private
 	 */
-	language: unknown;
+	language: Language;
 
 	/**
 	 * The content of the `node-types.json` file for this grammar.

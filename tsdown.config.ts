@@ -1,73 +1,62 @@
 /// <reference types="node" />
 
-import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join, parse } from "node:path";
-import { defineConfig } from "tsdown";
-import ts from "typescript";
+import { readFileSync, writeFileSync } from "node:fs";
+import { defineConfig, type UserConfig } from "tsdown";
+import {
+	createSourceFile,
+	forEachChild,
+	isIdentifier,
+	isMethodDeclaration,
+	isObjectLiteralExpression,
+	isPropertyAssignment,
+	isShorthandPropertyAssignment,
+	isStringLiteral,
+	ScriptKind,
+	ScriptTarget,
+} from "typescript";
+import type { Node } from "typescript";
+import jsrTsSelfTypes from "./plugins/jsr-ts-self-types.ts";
 
-const srcGrammarPath = "./grammar.js";
-
-const SELF_TYPED_JS_EXTENSIONS = new Set([".js", ".mjs", ".cjs"]);
-
-function injectSelfTypes(dir: string) {
-	for (const entry of readdirSync(dir, { withFileTypes: true })) {
-		const fullPath = join(dir, entry.name);
-		if (entry.isDirectory()) {
-			injectSelfTypes(fullPath);
-		} else if (entry.isFile()) {
-			const { name, ext } = parse(entry.name);
-			if (!SELF_TYPED_JS_EXTENSIONS.has(ext) || name.endsWith(".d")) continue;
-
-			const dtsName = `${name}.d.ts`;
-			if (existsSync(join(dir, dtsName))) {
-				const content = readFileSync(fullPath, "utf8");
-				if (!content.startsWith("/* @ts-self-types=")) {
-					writeFileSync(
-						fullPath,
-						`/* @ts-self-types="./${dtsName}" */\n${content}`,
-					);
-				}
-			}
-		}
-	}
-}
+const root = import.meta.dirname;
+const srcGrammarPath = `${root}/grammar.js` as const;
+const grammarRuleNames = `${root}/grammar/generated/recipe-rule-names.ts` as const;
 
 function generateGrammarRuleNames() {
 	const sourcePath = srcGrammarPath;
-	const generatedPath = "./grammar/generated/recipe-rule-names.ts";
+	const generatedPath = grammarRuleNames;
 	const sourceText = readFileSync(sourcePath, "utf8");
-	const sourceFile = ts.createSourceFile(
+	const sourceFile = createSourceFile(
 		sourcePath,
 		sourceText,
-		ts.ScriptTarget.Latest,
+		ScriptTarget.Latest,
 		true,
-		ts.ScriptKind.TS,
+		ScriptKind.TS,
 	);
 	const ruleNames: string[] = [];
 
-	const visit = (node: ts.Node) => {
+	const visit = (node: Node) => {
 		if (
-			ts.isPropertyAssignment(node)
-			&& ts.isIdentifier(node.name)
+			isPropertyAssignment(node)
+			&& isIdentifier(node.name)
 			&& node.name.text === "rules"
-			&& ts.isObjectLiteralExpression(node.initializer)
+			&& isObjectLiteralExpression(node.initializer)
 		) {
 			for (const property of node.initializer.properties) {
 				if (
-					!ts.isPropertyAssignment(property)
-					&& !ts.isMethodDeclaration(property)
-					&& !ts.isShorthandPropertyAssignment(property)
+					!isPropertyAssignment(property)
+					&& !isMethodDeclaration(property)
+					&& !isShorthandPropertyAssignment(property)
 				) {
 					continue;
 				}
 				const propertyName = property.name;
-				if (ts.isIdentifier(propertyName) || ts.isStringLiteral(propertyName)) {
+				if (isIdentifier(propertyName) || isStringLiteral(propertyName)) {
 					ruleNames.push(propertyName.text);
 				}
 			}
 		}
 
-		ts.forEachChild(node, visit);
+		forEachChild(node, visit);
 	};
 
 	visit(sourceFile);
@@ -76,8 +65,7 @@ function generateGrammarRuleNames() {
 		throw new Error(`Could not find grammar rule names in ${sourcePath}`);
 	}
 
-	const generatedText = `\
-/**
+	const generatedText = `/**
  * Generated from ${srcGrammarPath}.
  * Do not edit manually.
  */
@@ -86,39 +74,108 @@ ${ruleNames.map(ruleName => `\t| ${JSON.stringify(ruleName)}`).join("\n")};\n`;
 	writeFileSync(generatedPath, generatedText);
 }
 
-export default defineConfig({
-	entry: [{
-		grammar: srcGrammarPath,
-		"grammar/*": ["./grammar/*/index.*"],
-	}],
-	copy: [
-		"package.json",
-		"bindings/node/{index.{js,d.ts},binding.cc}",
-		{ from: "src", to: "dist", flatten: false },
-		{ from: "queries", to: "dist", flatten: false },
+// This is the previously held shape.
+// "exports": {
+// 		".": {
+// 			"types": "./dist/index.d.ts",
+// 			"default": "./dist/index.js"
+// 		},
+// 		"./grammar.js": {
+// 			"types": "./dist/grammar.d.ts",
+// 			"default": "./dist/grammar.js"
+// 		},
+// 		"./grammar/latin": {
+// 			"types": "./dist/grammar/latin/index.d.ts",
+// 			"default": "./dist/grammar/latin/index.js"
+// 		},
+// 		"./grammar/units": {
+// 			"types": "./dist/grammar/units/index.d.ts",
+// 			"default": "./dist/grammar/units/index.js"
+// 		},
+// 		"./grammar/*.js": {
+// 			"types": "./dist/grammar/*.d.ts",
+// 			"default": "./dist/grammar/*.js"
+// 		},
+// 		"./queries/*": "./queries/*",
+// 		"./test/fixtures/*": "./test/fixtures/*",
+// 		"./test/highlight/*": "./test/highlight/*",
+// 		"./package.json": "./package.json",
+// 		"./tree-sitter.json": "./tree-sitter.json",
+// 		"./binding.gyp": "./binding.gyp"
+// 	},
+
+const deps = {
+	neverBundle: ["tree-sitter", "tree-sitter-cli"],
+	alwaysBundle: [],
+	onlyBundle: [],
+	skipNodeModulesBundle: false,
+} satisfies UserConfig["deps"];
+
+// const hooks = {
+// 	"build:before": () => {
+// 		generateGrammarRuleNames();
+// 	},
+// } satisfies UserConfig["hooks"];
+
+const config = {
+	plugins: [jsrTsSelfTypes()],
+	entry: [
+		{
+			"index": "./bindings/node/index",
+			"grammar": srcGrammarPath,
+			"grammar/latin": "./grammar/latin/index.js",
+			// "grammar/latin/*": ["./grammar/latin/**/*.ts", "!./grammar/latin/index.js"],
+			"grammar/units": "./grammar/units/index.js",
+			// "grammar/units/*": ["./grammar/units/**/*.ts", "!./grammar/units/index.js"],
+		},
 	],
-	outDir: "./dist",
+	exports: {
+		enabled: true,
+		packageJson: true,
+		legacy: true,
+		customExports(exports, { pkg, chunks, isPublish }) {
+			console.log("<INITIAL_TSDOWN_EXPORTS>\n", exports, "\n</INITIAL_TSDOWN_EXPORTS>");
+			console.log("<exports[\"./grammar/units\"]>\n", exports["./grammar/units"], "\n</exports[\"./grammar/units\"]>");
+			console.log("<PACKAGE_JSON>\n", pkg, "\n</PACKAGE_JSON>");
+			console.log("<CHUNKS>\n", JSON.stringify(chunks).substring(0, 1000), "\n</CHUNKS>");
+			console.log("<IS_PUBLISH>\n", isPublish, "\n</IS_PUBLISH>");
+			// exports["."] = {
+			// 	types: "./bindings/node/index.d.ts",
+			// 	default: "./bindings/node/index.js",
+			// };
+			exports["./grammar"] = {
+				types: "./dist/grammar.d.ts",
+				default: "./dist/grammar.js",
+			};
+			exports["./grammar/*"] = "./dist/grammar/*";
+			// exports["./grammar/latin"] = {
+			// 	types: "./dist/grammar/latin/index.d.ts",
+			// 	default: exports["./grammar/latin"],
+			// };
+			// exports["./grammar/units"] = {
+			// 	types: "./dist/grammar/units/index.d.ts",
+			// 	default: exports["./grammar/units"],
+			// };
+			exports["./binding.gyp"] = "./binding.gyp";
+			exports["./queries/*"] = "./queries/*";
+			exports["./test/{highlight,fixtures}/*.recipe"] = "./test/{highlight,fixtures}/*.recipe";
+			exports["./tree-sitter.json"] = "./tree-sitter.json";
+			exports["./src/*"] = "./src/*";
+			console.log(exports);
+			return exports;
+		},
+	},
 	dts: true,
 	clean: true,
 	treeshake: true,
-	unbundle: true,
+	unbundle: false,
 	sourcemap: false,
 	hash: false,
 	platform: "node",
 	fixedExtension: false,
-	deps: {
-		neverBundle: ["tree-sitter", "tree-sitter-cli"],
-		alwaysBundle: [],
-		onlyBundle: [],
-		skipNodeModulesBundle: false,
-	},
-	hooks: {
-		"build:before": () => {
-			generateGrammarRuleNames();
-		},
-		"build:done": () => {
-			injectSelfTypes("./dist");
-		},
-	},
+	deps,
+	// hooks,
 	onSuccess: "bun fmt",
-});
+} satisfies UserConfig;
+
+export default defineConfig(config);

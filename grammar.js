@@ -20,13 +20,10 @@
  *
  * @see {@link https://github.com/kjanat/tree-sitter-recipe}
  * @author Kaj Kowalski <info@kajkowalski.nl>
- * @module
+ * @module grammar
  * @license MIT
  */
-/// <reference types="tree-sitter-cli/dsl" />
-
-/** @typedef {import("./grammar/generated/recipe-rule-names").RecipeGrammarRuleName} RecipeGrammarRuleName */
-/** @typedef {GrammarSchema<RecipeGrammarRuleName>} RecipeGrammar */
+/// <reference path="./node_modules/tree-sitter-cli/dsl.d.ts" />
 
 import {
 	COMPOUNDING,
@@ -43,11 +40,11 @@ import {
 	TIMING,
 	TIMING_MULTIWORD_RE,
 	WARNING,
-} from "./grammar/latin";
-import { UNITS } from "./grammar/units";
+} from "#grammar/latin";
+import { UNITS } from "#grammar/units";
 
-/** Recipe language tree-sitter grammar definition. @type RecipeGrammar */
-const recipeGrammar = grammar({
+/** Recipe language tree-sitter grammar definition. */
+export default grammar({
 	name: "recipe",
 
 	// Enables context-sensitive keyword promotion so "ad", "dtd", "no" etc.
@@ -192,5 +189,3 @@ const recipeGrammar = grammar({
 		_newline: _ => /\r?\n/,
 	},
 });
-
-export default recipeGrammar;

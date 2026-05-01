@@ -25,14 +25,14 @@
  * @license MIT
  */
 
-import { COMPOUNDING, COMPOUNDING_MULTIWORD } from "./compounding";
-import { CONDITIONAL, CONDITIONAL_MULTIWORD } from "./conditional";
-import { DISPENSING, DISPENSING_MULTIWORD } from "./dispensing";
-import { FORMS, FORMS_MULTIWORD } from "./forms";
-import { FREQUENCY } from "./frequency";
-import { ROUTE, ROUTE_MULTIWORD } from "./route";
-import { TIMING, TIMING_MULTIWORD } from "./timing";
-import { WARNING } from "./warning";
+import { COMPOUNDING, COMPOUNDING_MULTIWORD } from "./compounding.ts";
+import { CONDITIONAL, CONDITIONAL_MULTIWORD } from "./conditional.ts";
+import { DISPENSING, DISPENSING_MULTIWORD } from "./dispensing.ts";
+import { FORMS, FORMS_MULTIWORD } from "./forms.ts";
+import { FREQUENCY } from "./frequency.ts";
+import { ROUTE, ROUTE_MULTIWORD } from "./route.ts";
+import { TIMING, TIMING_MULTIWORD } from "./timing.ts";
+import { WARNING } from "./warning.ts";
 
 export {
 	COMPOUNDING,

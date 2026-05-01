@@ -1,0 +1,10 @@
+If:
+  PathMatch: bindings/node/.*\.cc
+CompileFlags:
+  Add:
+    - -I../../node_modules/node-addon-api
+    - -I/usr/include/node
+    - -I../../src
+    - -std=c++20
+    - -xc++
+  Compiler: clang++

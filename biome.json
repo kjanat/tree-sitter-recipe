@@ -1,18 +1,11 @@
 {
 	"$schema": "https://biomejs.dev/schemas/latest/schema.json",
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true,
-		"defaultBranch": "master"
-	},
+	"vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true, "defaultBranch": "master" },
 	"files": {
-		"includes": ["grammar.js", "grammar/**/*.js", "bindings/node/**/*.{js,ts}"]
+		"includes": ["./grammar.js", "./grammar/**/*.*{j,t}s", "./bindings/node/*.*{j,t}s", "./src/**"],
+		"ignoreUnknown": true
 	},
-	"formatter": {
-		"enabled": false,
-		"indentStyle": "tab"
-	},
+	"formatter": { "enabled": false },
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -30,15 +23,12 @@
 			"types": "recommended"
 		}
 	},
-	"javascript": {
-		"assist": { "enabled": true },
-		"linter": { "enabled": true }
-	},
 	"assist": {
 		"enabled": true,
 		"actions": {
 			"source": {
-				"organizeImports": "on"
+				"recommended": true,
+				"organizeImports": "off"
 			}
 		}
 	}

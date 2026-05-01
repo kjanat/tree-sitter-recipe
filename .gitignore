@@ -26,6 +26,7 @@ dist/
 *.dylib
 *.dll
 *.pc
+*.pc.stamp
 *.exp
 *.lib
 
@@ -47,6 +48,7 @@ zig-out/
 *.tgz
 *.zip
 *.jar
-bun.lock
+*.bak
+*.log
 tree-sitter/
-/.settings/
+.settings/

@@ -1,1721 +1,1721 @@
 {
-	"$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
-	"name": "recipe",
-	"word": "word",
-	"rules": {
-		"source_file": {
-			"type": "REPEAT",
-			"content": {
-				"type": "CHOICE",
-				"members": [
-					{
-						"type": "SYMBOL",
-						"name": "_section"
-					},
-					{
-						"type": "SYMBOL",
-						"name": "_newline"
-					}
-				]
-			}
-		},
-		"_section": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "SYMBOL",
-					"name": "rx_section"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "dispense_section"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "signa_section"
-				}
-			]
-		},
-		"rx_section": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "SYMBOL",
-					"name": "rx_marker"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "ingredient_line"
-				},
-				{
-					"type": "REPEAT",
-					"content": {
-						"type": "SEQ",
-						"members": [
-							{
-								"type": "SYMBOL",
-								"name": "_newline"
-							},
-							{
-								"type": "SYMBOL",
-								"name": "ingredient_line"
-							}
-						]
-					}
-				}
-			]
-		},
-		"dispense_section": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "SYMBOL",
-					"name": "dispense_marker"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "dispense_body"
-				}
-			]
-		},
-		"signa_section": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "SYMBOL",
-					"name": "signa_marker"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "signa_line"
-				},
-				{
-					"type": "REPEAT",
-					"content": {
-						"type": "SEQ",
-						"members": [
-							{
-								"type": "SYMBOL",
-								"name": "_newline"
-							},
-							{
-								"type": "SYMBOL",
-								"name": "signa_line"
-							}
-						]
-					}
-				}
-			]
-		},
-		"rx_marker": {
-			"type": "TOKEN",
-			"content": {
-				"type": "PREC",
-				"value": 4,
-				"content": {
-					"type": "PATTERN",
-					"value": "[Rr]\\/"
-				}
-			}
-		},
-		"dispense_marker": {
-			"type": "TOKEN",
-			"content": {
-				"type": "PREC",
-				"value": 4,
-				"content": {
-					"type": "PATTERN",
-					"value": "[Dd][Aa]?\\/"
-				}
-			}
-		},
-		"signa_marker": {
-			"type": "TOKEN",
-			"content": {
-				"type": "PREC",
-				"value": 4,
-				"content": {
-					"type": "PATTERN",
-					"value": "[Ss]\\/"
-				}
-			}
-		},
-		"ingredient_line": {
-			"type": "REPEAT1",
-			"content": {
-				"type": "SYMBOL",
-				"name": "_atom"
-			}
-		},
-		"dispense_body": {
-			"type": "REPEAT1",
-			"content": {
-				"type": "SYMBOL",
-				"name": "_atom"
-			}
-		},
-		"signa_line": {
-			"type": "REPEAT1",
-			"content": {
-				"type": "SYMBOL",
-				"name": "_atom"
-			}
-		},
-		"_atom": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "SYMBOL",
-					"name": "latin_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "frequency"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "dtd_directive"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "fill_to"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "dose"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "number"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "word"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "punctuation"
-				}
-			]
-		},
-		"latin_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "SYMBOL",
-					"name": "frequency_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "timing_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "route_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "dispensing_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "warning_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "form_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "compounding_abbrev"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "conditional_abbrev"
-				}
-			]
-		},
-		"frequency_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "b.d.d."
-				},
-				{
-					"type": "STRING",
-					"value": "t.d.d."
-				},
-				{
-					"type": "STRING",
-					"value": "q.i.d."
-				},
-				{
-					"type": "STRING",
-					"value": "s.d.d."
-				},
-				{
-					"type": "STRING",
-					"value": "d.d."
-				},
-				{
-					"type": "STRING",
-					"value": "q.h."
-				},
-				{
-					"type": "STRING",
-					"value": "q.2h."
-				},
-				{
-					"type": "STRING",
-					"value": "q.3h."
-				},
-				{
-					"type": "STRING",
-					"value": "q.4h."
-				},
-				{
-					"type": "STRING",
-					"value": "q.6h."
-				},
-				{
-					"type": "STRING",
-					"value": "q.8h."
-				},
-				{
-					"type": "STRING",
-					"value": "q.12h."
-				},
-				{
-					"type": "STRING",
-					"value": "q.d."
-				},
-				{
-					"type": "STRING",
-					"value": "q.a.d."
-				},
-				{
-					"type": "STRING",
-					"value": "q.a.m."
-				},
-				{
-					"type": "STRING",
-					"value": "q.p.m."
-				},
-				{
-					"type": "STRING",
-					"value": "q.o.d."
-				},
-				{
-					"type": "STRING",
-					"value": "q.w."
-				},
-				{
-					"type": "STRING",
-					"value": "b.i.w."
-				},
-				{
-					"type": "STRING",
-					"value": "t.i.w."
-				}
-			]
-		},
-		"timing_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "a.c."
-				},
-				{
-					"type": "STRING",
-					"value": "p.c."
-				},
-				{
-					"type": "STRING",
-					"value": "a.n."
-				},
-				{
-					"type": "STRING",
-					"value": "h.s."
-				},
-				{
-					"type": "STRING",
-					"value": "i.c."
-				},
-				{
-					"type": "STRING",
-					"value": "mane"
-				},
-				{
-					"type": "STRING",
-					"value": "nocte"
-				},
-				{
-					"type": "STRING",
-					"value": "vesp."
-				},
-				{
-					"type": "STRING",
-					"value": "matut."
-				},
-				{
-					"type": "TOKEN",
-					"content": {
-						"type": "PREC",
-						"value": 3,
-						"content": {
-							"type": "PATTERN",
-							"value": "m\\.\\s+et\\s+v\\.|mane\\s+et\\s+nocte|inter\\s+cibos|ante\\s+prandium|post\\s+prandium|hora\\s+somni|in\\s+ieiunio"
-						}
-					}
-				}
-			]
-		},
-		"route_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "i.m."
-				},
-				{
-					"type": "STRING",
-					"value": "i.v."
-				},
-				{
-					"type": "STRING",
-					"value": "s.c."
-				},
-				{
-					"type": "STRING",
-					"value": "s.l."
-				},
-				{
-					"type": "STRING",
-					"value": "subling."
-				},
-				{
-					"type": "STRING",
-					"value": "p.o."
-				},
-				{
-					"type": "STRING",
-					"value": "p.r."
-				},
-				{
-					"type": "STRING",
-					"value": "rect."
-				},
-				{
-					"type": "STRING",
-					"value": "p.v."
-				},
-				{
-					"type": "STRING",
-					"value": "vag."
-				},
-				{
-					"type": "STRING",
-					"value": "i.n."
-				},
-				{
-					"type": "STRING",
-					"value": "nas."
-				},
-				{
-					"type": "STRING",
-					"value": "inh."
-				},
-				{
-					"type": "STRING",
-					"value": "neb."
-				},
-				{
-					"type": "STRING",
-					"value": "top."
-				},
-				{
-					"type": "STRING",
-					"value": "buc."
-				},
-				{
-					"type": "STRING",
-					"value": "transd."
-				},
-				{
-					"type": "STRING",
-					"value": "i.a."
-				},
-				{
-					"type": "STRING",
-					"value": "i.d."
-				},
-				{
-					"type": "STRING",
-					"value": "i.t."
-				},
-				{
-					"type": "STRING",
-					"value": "i.o."
-				},
-				{
-					"type": "STRING",
-					"value": "i.p."
-				},
-				{
-					"type": "STRING",
-					"value": "epid."
-				},
-				{
-					"type": "STRING",
-					"value": "o.d."
-				},
-				{
-					"type": "STRING",
-					"value": "o.s."
-				},
-				{
-					"type": "STRING",
-					"value": "o.u."
-				},
-				{
-					"type": "STRING",
-					"value": "a.u.e."
-				},
-				{
-					"type": "STRING",
-					"value": "u.e."
-				},
-				{
-					"type": "STRING",
-					"value": "I.M."
-				},
-				{
-					"type": "STRING",
-					"value": "I.V."
-				},
-				{
-					"type": "STRING",
-					"value": "S.C."
-				},
-				{
-					"type": "STRING",
-					"value": "S.L."
-				},
-				{
-					"type": "STRING",
-					"value": "SUBLING."
-				},
-				{
-					"type": "STRING",
-					"value": "P.O."
-				},
-				{
-					"type": "STRING",
-					"value": "P.R."
-				},
-				{
-					"type": "STRING",
-					"value": "RECT."
-				},
-				{
-					"type": "STRING",
-					"value": "P.V."
-				},
-				{
-					"type": "STRING",
-					"value": "VAG."
-				},
-				{
-					"type": "STRING",
-					"value": "I.N."
-				},
-				{
-					"type": "STRING",
-					"value": "NAS."
-				},
-				{
-					"type": "STRING",
-					"value": "INH."
-				},
-				{
-					"type": "STRING",
-					"value": "NEB."
-				},
-				{
-					"type": "STRING",
-					"value": "TOP."
-				},
-				{
-					"type": "STRING",
-					"value": "BUC."
-				},
-				{
-					"type": "STRING",
-					"value": "TRANSD."
-				},
-				{
-					"type": "STRING",
-					"value": "I.A."
-				},
-				{
-					"type": "STRING",
-					"value": "I.D."
-				},
-				{
-					"type": "STRING",
-					"value": "I.T."
-				},
-				{
-					"type": "STRING",
-					"value": "I.O."
-				},
-				{
-					"type": "STRING",
-					"value": "I.P."
-				},
-				{
-					"type": "STRING",
-					"value": "EPID."
-				},
-				{
-					"type": "STRING",
-					"value": "O.D."
-				},
-				{
-					"type": "STRING",
-					"value": "O.S."
-				},
-				{
-					"type": "STRING",
-					"value": "O.U."
-				},
-				{
-					"type": "STRING",
-					"value": "A.U.E."
-				},
-				{
-					"type": "STRING",
-					"value": "U.E."
-				},
-				{
-					"type": "STRING",
-					"value": "IV"
-				},
-				{
-					"type": "STRING",
-					"value": "IM"
-				},
-				{
-					"type": "STRING",
-					"value": "SC"
-				},
-				{
-					"type": "STRING",
-					"value": "SL"
-				},
-				{
-					"type": "STRING",
-					"value": "PO"
-				},
-				{
-					"type": "STRING",
-					"value": "PR"
-				},
-				{
-					"type": "STRING",
-					"value": "PV"
-				},
-				{
-					"type": "STRING",
-					"value": "SQ"
-				},
-				{
-					"type": "TOKEN",
-					"content": {
-						"type": "PREC",
-						"value": 3,
-						"content": {
-							"type": "PATTERN",
-							"value": "per\\s+os|per\\s+rectum|per\\s+vaginam|per\\s+inhalationem|ad\\s+us\\.\\s+int\\.|ad\\s+us\\.\\s+ext\\.|in\\s+ocul\\.|in\\s+aur\\.|in\\s+nar\\.|Per\\s+os|Per\\s+rectum|Per\\s+vaginam|Per\\s+inhalationem|Ad\\s+us\\.\\s+int\\.|Ad\\s+us\\.\\s+ext\\.|In\\s+ocul\\.|In\\s+aur\\.|In\\s+nar\\."
-						}
-					}
-				}
-			]
-		},
-		"dispensing_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "d.s.p."
-				},
-				{
-					"type": "STRING",
-					"value": "d.c.p."
-				},
-				{
-					"type": "STRING",
-					"value": "d.i.m.m."
-				},
-				{
-					"type": "STRING",
-					"value": "u.c."
-				},
-				{
-					"type": "STRING",
-					"value": "u.d."
-				},
-				{
-					"type": "STRING",
-					"value": "m.d.u."
-				},
-				{
-					"type": "STRING",
-					"value": "z.n."
-				},
-				{
-					"type": "STRING",
-					"value": "sig."
-				},
-				{
-					"type": "STRING",
-					"value": "rep."
-				},
-				{
-					"type": "STRING",
-					"value": "n.r."
-				},
-				{
-					"type": "STRING",
-					"value": "disp."
-				},
-				{
-					"type": "STRING",
-					"value": "non rep."
-				},
-				{
-					"type": "TOKEN",
-					"content": {
-						"type": "PREC",
-						"value": 3,
-						"content": {
-							"type": "PATTERN",
-							"value": "d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\.|sec\\.\\s+art\\.|m\\.\\s+dict\\.|ut\\s+dict\\."
-						}
-					}
-				}
-			]
-		},
-		"warning_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "CITO"
-				},
-				{
-					"type": "STRING",
-					"value": "cito"
-				},
-				{
-					"type": "STRING",
-					"value": "Cito"
-				},
-				{
-					"type": "STRING",
-					"value": "STAT"
-				},
-				{
-					"type": "STRING",
-					"value": "stat"
-				},
-				{
-					"type": "STRING",
-					"value": "Stat"
-				},
-				{
-					"type": "STRING",
-					"value": "URGENT"
-				},
-				{
-					"type": "STRING",
-					"value": "urgent"
-				},
-				{
-					"type": "STRING",
-					"value": "Urgent"
-				},
-				{
-					"type": "STRING",
-					"value": "PIM"
-				},
-				{
-					"type": "STRING",
-					"value": "LASA"
-				},
-				{
-					"type": "STRING",
-					"value": "REMS"
-				},
-				{
-					"type": "STRING",
-					"value": "BLACKBOX"
-				},
-				{
-					"type": "STRING",
-					"value": "TERATOGEN"
-				},
-				{
-					"type": "STRING",
-					"value": "NIEUW"
-				},
-				{
-					"type": "STRING",
-					"value": "NEW"
-				}
-			]
-		},
-		"form_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "aq. pur."
-				},
-				{
-					"type": "STRING",
-					"value": "aq. dest."
-				},
-				{
-					"type": "STRING",
-					"value": "collut."
-				},
-				{
-					"type": "STRING",
-					"value": "lin."
-				},
-				{
-					"type": "STRING",
-					"value": "supp."
-				},
-				{
-					"type": "STRING",
-					"value": "pulv."
-				},
-				{
-					"type": "STRING",
-					"value": "ungt."
-				},
-				{
-					"type": "STRING",
-					"value": "ung."
-				},
-				{
-					"type": "STRING",
-					"value": "emp."
-				},
-				{
-					"type": "STRING",
-					"value": "sol."
-				},
-				{
-					"type": "STRING",
-					"value": "susp."
-				},
-				{
-					"type": "STRING",
-					"value": "syr."
-				},
-				{
-					"type": "STRING",
-					"value": "inj."
-				},
-				{
-					"type": "STRING",
-					"value": "crm."
-				},
-				{
-					"type": "STRING",
-					"value": "tinct."
-				},
-				{
-					"type": "STRING",
-					"value": "mixt."
-				},
-				{
-					"type": "STRING",
-					"value": "elix."
-				},
-				{
-					"type": "STRING",
-					"value": "troch."
-				},
-				{
-					"type": "STRING",
-					"value": "past."
-				},
-				{
-					"type": "STRING",
-					"value": "aeros."
-				},
-				{
-					"type": "STRING",
-					"value": "gel."
-				},
-				{
-					"type": "STRING",
-					"value": "spray"
-				},
-				{
-					"type": "STRING",
-					"value": "patch"
-				},
-				{
-					"type": "STRING",
-					"value": "pasta"
-				},
-				{
-					"type": "TOKEN",
-					"content": {
-						"type": "PREC",
-						"value": 3,
-						"content": {
-							"type": "PATTERN",
-							"value": "gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\.|aq\\.\\s+pro\\s+inj\\.|pulv\\.\\s+adsp\\.|sol\\.\\s+inj\\.|unguent\\.\\s+opht\\."
-						}
-					}
-				}
-			]
-		},
-		"compounding_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "mf"
-				},
-				{
-					"type": "STRING",
-					"value": "m.f."
-				},
-				{
-					"type": "STRING",
-					"value": "aa"
-				},
-				{
-					"type": "STRING",
-					"value": "aa."
-				},
-				{
-					"type": "STRING",
-					"value": "q.s."
-				},
-				{
-					"type": "STRING",
-					"value": "q.p."
-				},
-				{
-					"type": "STRING",
-					"value": "c.s."
-				},
-				{
-					"type": "STRING",
-					"value": "f."
-				},
-				{
-					"type": "STRING",
-					"value": "ft."
-				},
-				{
-					"type": "STRING",
-					"value": "div."
-				},
-				{
-					"type": "STRING",
-					"value": "solve"
-				},
-				{
-					"type": "STRING",
-					"value": "coq."
-				},
-				{
-					"type": "TOKEN",
-					"content": {
-						"type": "PREC",
-						"value": 3,
-						"content": {
-							"type": "PATTERN",
-							"value": "m\\.f\\.\\s+pulv\\.|m\\.f\\.\\s+caps\\.|m\\.f\\.\\s+ungt\\.|m\\.f\\.\\s+sol\\.|m\\.f\\.\\s+susp\\.|m\\.\\s+et\\s+ft\\.|ad\\s+lib\\.|div\\.\\s+in\\s+p\\.\\s+aeq\\.|div\\.\\s+in\\s+d\\."
-						}
-					}
-				}
-			]
-		},
-		"conditional_abbrev": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "s.o.s."
-				},
-				{
-					"type": "STRING",
-					"value": "p.r.n."
-				},
-				{
-					"type": "STRING",
-					"value": "prn"
-				},
-				{
-					"type": "STRING",
-					"value": "PRN"
-				},
-				{
-					"type": "TOKEN",
-					"content": {
-						"type": "PREC",
-						"value": 3,
-						"content": {
-							"type": "PATTERN",
-							"value": "si\\s+nec\\.\\s+sit|si\\s+opus|zo\\s+nodig|bij\\s+pijn|bij\\s+koorts|bij\\s+nood|in\\s+geval\\s+van"
-						}
-					}
-				}
-			]
-		},
-		"frequency": {
-			"type": "TOKEN",
-			"content": {
-				"type": "PREC",
-				"value": 3,
-				"content": {
-					"type": "PATTERN",
-					"value": "[1-9]\\s*dd"
-				}
-			}
-		},
-		"dose": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "SYMBOL",
-					"name": "number"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "unit"
-				}
-			]
-		},
-		"unit": {
-			"type": "CHOICE",
-			"members": [
-				{
-					"type": "STRING",
-					"value": "mg/kg/dag"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/kg/dag."
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/kg/min"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/kg/min"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/kg/u"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/kg/h"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/kg/h"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/kg/h"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/pufje"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/pufje"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/puff"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/puff"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/ml"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/dl"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/l"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/ml"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/ml"
-				},
-				{
-					"type": "STRING",
-					"value": "ng/ml"
-				},
-				{
-					"type": "STRING",
-					"value": "g/l"
-				},
-				{
-					"type": "STRING",
-					"value": "g/dl"
-				},
-				{
-					"type": "STRING",
-					"value": "mmol/l"
-				},
-				{
-					"type": "STRING",
-					"value": "mol/l"
-				},
-				{
-					"type": "STRING",
-					"value": "mEq/l"
-				},
-				{
-					"type": "STRING",
-					"value": "IE/ml"
-				},
-				{
-					"type": "STRING",
-					"value": "IU/ml"
-				},
-				{
-					"type": "STRING",
-					"value": "E/ml"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/kg"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/kg"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/kg"
-				},
-				{
-					"type": "STRING",
-					"value": "ng/kg"
-				},
-				{
-					"type": "STRING",
-					"value": "IE/kg"
-				},
-				{
-					"type": "STRING",
-					"value": "IU/kg"
-				},
-				{
-					"type": "STRING",
-					"value": "ml/kg"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/h"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/h"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/h"
-				},
-				{
-					"type": "STRING",
-					"value": "ml/h"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/min"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/min"
-				},
-				{
-					"type": "STRING",
-					"value": "ml/min"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/uur"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/uur"
-				},
-				{
-					"type": "STRING",
-					"value": "ml/uur"
-				},
-				{
-					"type": "STRING",
-					"value": "IE/uur"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/24h"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/dag"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/dag"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/dag"
-				},
-				{
-					"type": "STRING",
-					"value": "IE/dag"
-				},
-				{
-					"type": "STRING",
-					"value": "IU/dag"
-				},
-				{
-					"type": "STRING",
-					"value": "ml/dag"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/m2"
-				},
-				{
-					"type": "STRING",
-					"value": "mg/m²"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg/m2"
-				},
-				{
-					"type": "STRING",
-					"value": "µg/m²"
-				},
-				{
-					"type": "STRING",
-					"value": "ng"
-				},
-				{
-					"type": "STRING",
-					"value": "mcg"
-				},
-				{
-					"type": "STRING",
-					"value": "µg"
-				},
-				{
-					"type": "STRING",
-					"value": "mg"
-				},
-				{
-					"type": "STRING",
-					"value": "g"
-				},
-				{
-					"type": "STRING",
-					"value": "kg"
-				},
-				{
-					"type": "STRING",
-					"value": "lb"
-				},
-				{
-					"type": "STRING",
-					"value": "oz"
-				},
-				{
-					"type": "STRING",
-					"value": "µl"
-				},
-				{
-					"type": "STRING",
-					"value": "ul"
-				},
-				{
-					"type": "STRING",
-					"value": "µL"
-				},
-				{
-					"type": "STRING",
-					"value": "uL"
-				},
-				{
-					"type": "STRING",
-					"value": "ml"
-				},
-				{
-					"type": "STRING",
-					"value": "mL"
-				},
-				{
-					"type": "STRING",
-					"value": "cl"
-				},
-				{
-					"type": "STRING",
-					"value": "cL"
-				},
-				{
-					"type": "STRING",
-					"value": "dl"
-				},
-				{
-					"type": "STRING",
-					"value": "dL"
-				},
-				{
-					"type": "STRING",
-					"value": "l"
-				},
-				{
-					"type": "STRING",
-					"value": "L"
-				},
-				{
-					"type": "STRING",
-					"value": "IU"
-				},
-				{
-					"type": "STRING",
-					"value": "IE"
-				},
-				{
-					"type": "STRING",
-					"value": "E"
-				},
-				{
-					"type": "STRING",
-					"value": "%"
-				},
-				{
-					"type": "STRING",
-					"value": "‰"
-				},
-				{
-					"type": "STRING",
-					"value": "ppm"
-				},
-				{
-					"type": "STRING",
-					"value": "mEq"
-				},
-				{
-					"type": "STRING",
-					"value": "mOsm"
-				},
-				{
-					"type": "STRING",
-					"value": "tablet"
-				},
-				{
-					"type": "STRING",
-					"value": "tablets"
-				},
-				{
-					"type": "STRING",
-					"value": "tabl."
-				},
-				{
-					"type": "STRING",
-					"value": "tab"
-				},
-				{
-					"type": "STRING",
-					"value": "tabs"
-				},
-				{
-					"type": "STRING",
-					"value": "tbl."
-				},
-				{
-					"type": "STRING",
-					"value": "capsule"
-				},
-				{
-					"type": "STRING",
-					"value": "capsules"
-				},
-				{
-					"type": "STRING",
-					"value": "cap"
-				},
-				{
-					"type": "STRING",
-					"value": "caps"
-				},
-				{
-					"type": "STRING",
-					"value": "caps."
-				},
-				{
-					"type": "STRING",
-					"value": "gtt."
-				},
-				{
-					"type": "STRING",
-					"value": "gtt"
-				},
-				{
-					"type": "STRING",
-					"value": "druppel"
-				},
-				{
-					"type": "STRING",
-					"value": "druppels"
-				},
-				{
-					"type": "STRING",
-					"value": "zakje"
-				},
-				{
-					"type": "STRING",
-					"value": "zakjes"
-				},
-				{
-					"type": "STRING",
-					"value": "sachet"
-				},
-				{
-					"type": "STRING",
-					"value": "sachets"
-				},
-				{
-					"type": "STRING",
-					"value": "ampul"
-				},
-				{
-					"type": "STRING",
-					"value": "ampullen"
-				},
-				{
-					"type": "STRING",
-					"value": "amp."
-				},
-				{
-					"type": "STRING",
-					"value": "flac."
-				},
-				{
-					"type": "STRING",
-					"value": "flacon"
-				},
-				{
-					"type": "STRING",
-					"value": "flacons"
-				},
-				{
-					"type": "STRING",
-					"value": "fl."
-				},
-				{
-					"type": "STRING",
-					"value": "vial"
-				},
-				{
-					"type": "STRING",
-					"value": "vials"
-				},
-				{
-					"type": "STRING",
-					"value": "spuit"
-				},
-				{
-					"type": "STRING",
-					"value": "spuiten"
-				},
-				{
-					"type": "STRING",
-					"value": "pen"
-				},
-				{
-					"type": "STRING",
-					"value": "pennen"
-				},
-				{
-					"type": "STRING",
-					"value": "pufje"
-				},
-				{
-					"type": "STRING",
-					"value": "pufjes"
-				},
-				{
-					"type": "STRING",
-					"value": "puff"
-				},
-				{
-					"type": "STRING",
-					"value": "puffs"
-				},
-				{
-					"type": "STRING",
-					"value": "dosis"
-				},
-				{
-					"type": "STRING",
-					"value": "doses"
-				},
-				{
-					"type": "STRING",
-					"value": "stuk"
-				},
-				{
-					"type": "STRING",
-					"value": "stuks"
-				},
-				{
-					"type": "STRING",
-					"value": "piece"
-				},
-				{
-					"type": "STRING",
-					"value": "pieces"
-				},
-				{
-					"type": "STRING",
-					"value": "zetpil"
-				},
-				{
-					"type": "STRING",
-					"value": "zetpillen"
-				}
-			]
-		},
-		"fill_to": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "ALIAS",
-					"content": {
-						"type": "STRING",
-						"value": "ad"
-					},
-					"named": false,
-					"value": "fill_marker"
-				},
-				{
-					"type": "SYMBOL",
-					"name": "dose"
-				}
-			]
-		},
-		"dtd_directive": {
-			"type": "SEQ",
-			"members": [
-				{
-					"type": "ALIAS",
-					"content": {
-						"type": "CHOICE",
-						"members": [
-							{
-								"type": "STRING",
-								"value": "dtd"
-							},
-							{
-								"type": "STRING",
-								"value": "d.t.d."
-							}
-						]
-					},
-					"named": false,
-					"value": "dtd_keyword"
-				},
-				{
-					"type": "CHOICE",
-					"members": [
-						{
-							"type": "ALIAS",
-							"content": {
-								"type": "STRING",
-								"value": "no"
-							},
-							"named": false,
-							"value": "dtd_no"
-						},
-						{
-							"type": "BLANK"
-						}
-					]
-				},
-				{
-					"type": "SYMBOL",
-					"name": "number"
-				}
-			]
-		},
-		"number": {
-			"type": "PATTERN",
-			"value": "\\d+([.,]\\d+)?"
-		},
-		"word": {
-			"type": "PATTERN",
-			"value": "[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9-]*"
-		},
-		"punctuation": {
-			"type": "PATTERN",
-			"value": "[-.,;:()]"
-		},
-		"line_comment": {
-			"type": "TOKEN",
-			"content": {
-				"type": "SEQ",
-				"members": [
-					{
-						"type": "STRING",
-						"value": "#"
-					},
-					{
-						"type": "PATTERN",
-						"value": "[^\\n]*"
-					}
-				]
-			}
-		},
-		"doc_comment_line": {
-			"type": "TOKEN",
-			"content": {
-				"type": "PREC",
-				"value": 1,
-				"content": {
-					"type": "SEQ",
-					"members": [
-						{
-							"type": "STRING",
-							"value": "#!"
-						},
-						{
-							"type": "PATTERN",
-							"value": "[^\\n]*"
-						}
-					]
-				}
-			}
-		},
-		"block_comment": {
-			"type": "TOKEN",
-			"content": {
-				"type": "SEQ",
-				"members": [
-					{
-						"type": "STRING",
-						"value": "/*"
-					},
-					{
-						"type": "PATTERN",
-						"value": "[^*]*\\*+([^/*][^*]*\\*+)*"
-					},
-					{
-						"type": "STRING",
-						"value": "/"
-					}
-				]
-			}
-		},
-		"doc_comment_block": {
-			"type": "TOKEN",
-			"content": {
-				"type": "PREC",
-				"value": 1,
-				"content": {
-					"type": "SEQ",
-					"members": [
-						{
-							"type": "STRING",
-							"value": "/**"
-						},
-						{
-							"type": "PATTERN",
-							"value": "[^*]*\\*+([^/*][^*]*\\*+)*"
-						},
-						{
-							"type": "STRING",
-							"value": "/"
-						}
-					]
-				}
-			}
-		},
-		"_newline": {
-			"type": "PATTERN",
-			"value": "\\r?\\n"
-		}
-	},
-	"extras": [
-		{
-			"type": "PATTERN",
-			"value": "[ \\t]+"
-		},
-		{
-			"type": "SYMBOL",
-			"name": "line_comment"
-		},
-		{
-			"type": "SYMBOL",
-			"name": "block_comment"
-		},
-		{
-			"type": "SYMBOL",
-			"name": "doc_comment_line"
-		},
-		{
-			"type": "SYMBOL",
-			"name": "doc_comment_block"
-		}
-	],
-	"conflicts": [
-		[
-			"rx_section"
-		],
-		[
-			"signa_section"
-		]
-	],
-	"precedences": [],
-	"externals": [],
-	"inline": [],
-	"supertypes": [
-		"latin_abbrev"
-	],
-	"reserved": {}
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "recipe",
+  "word": "word",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_section"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_newline"
+          }
+        ]
+      }
+    },
+    "_section": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "rx_section"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dispense_section"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "signa_section"
+        }
+      ]
+    },
+    "rx_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "rx_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ingredient_line"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_newline"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "ingredient_line"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "dispense_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "dispense_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dispense_body"
+        }
+      ]
+    },
+    "signa_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "signa_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "signa_line"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_newline"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "signa_line"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "rx_marker": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 4,
+        "content": {
+          "type": "PATTERN",
+          "value": "[Rr]\\/"
+        }
+      }
+    },
+    "dispense_marker": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 4,
+        "content": {
+          "type": "PATTERN",
+          "value": "[Dd][Aa]?\\/"
+        }
+      }
+    },
+    "signa_marker": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 4,
+        "content": {
+          "type": "PATTERN",
+          "value": "[Ss]\\/"
+        }
+      }
+    },
+    "ingredient_line": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_atom"
+      }
+    },
+    "dispense_body": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_atom"
+      }
+    },
+    "signa_line": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_atom"
+      }
+    },
+    "_atom": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "latin_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "frequency"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dtd_directive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fill_to"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dose"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "word"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "punctuation"
+        }
+      ]
+    },
+    "latin_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "frequency_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "timing_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "route_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dispensing_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "warning_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "form_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "compounding_abbrev"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "conditional_abbrev"
+        }
+      ]
+    },
+    "frequency_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "b.d.d."
+        },
+        {
+          "type": "STRING",
+          "value": "t.d.d."
+        },
+        {
+          "type": "STRING",
+          "value": "q.i.d."
+        },
+        {
+          "type": "STRING",
+          "value": "s.d.d."
+        },
+        {
+          "type": "STRING",
+          "value": "d.d."
+        },
+        {
+          "type": "STRING",
+          "value": "q.h."
+        },
+        {
+          "type": "STRING",
+          "value": "q.2h."
+        },
+        {
+          "type": "STRING",
+          "value": "q.3h."
+        },
+        {
+          "type": "STRING",
+          "value": "q.4h."
+        },
+        {
+          "type": "STRING",
+          "value": "q.6h."
+        },
+        {
+          "type": "STRING",
+          "value": "q.8h."
+        },
+        {
+          "type": "STRING",
+          "value": "q.12h."
+        },
+        {
+          "type": "STRING",
+          "value": "q.d."
+        },
+        {
+          "type": "STRING",
+          "value": "q.a.d."
+        },
+        {
+          "type": "STRING",
+          "value": "q.a.m."
+        },
+        {
+          "type": "STRING",
+          "value": "q.p.m."
+        },
+        {
+          "type": "STRING",
+          "value": "q.o.d."
+        },
+        {
+          "type": "STRING",
+          "value": "q.w."
+        },
+        {
+          "type": "STRING",
+          "value": "b.i.w."
+        },
+        {
+          "type": "STRING",
+          "value": "t.i.w."
+        }
+      ]
+    },
+    "timing_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "a.c."
+        },
+        {
+          "type": "STRING",
+          "value": "p.c."
+        },
+        {
+          "type": "STRING",
+          "value": "a.n."
+        },
+        {
+          "type": "STRING",
+          "value": "h.s."
+        },
+        {
+          "type": "STRING",
+          "value": "i.c."
+        },
+        {
+          "type": "STRING",
+          "value": "mane"
+        },
+        {
+          "type": "STRING",
+          "value": "nocte"
+        },
+        {
+          "type": "STRING",
+          "value": "vesp."
+        },
+        {
+          "type": "STRING",
+          "value": "matut."
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 3,
+            "content": {
+              "type": "PATTERN",
+              "value": "m\\.\\s+et\\s+v\\.|mane\\s+et\\s+nocte|inter\\s+cibos|ante\\s+prandium|post\\s+prandium|hora\\s+somni|in\\s+ieiunio"
+            }
+          }
+        }
+      ]
+    },
+    "route_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "i.m."
+        },
+        {
+          "type": "STRING",
+          "value": "i.v."
+        },
+        {
+          "type": "STRING",
+          "value": "s.c."
+        },
+        {
+          "type": "STRING",
+          "value": "s.l."
+        },
+        {
+          "type": "STRING",
+          "value": "subling."
+        },
+        {
+          "type": "STRING",
+          "value": "p.o."
+        },
+        {
+          "type": "STRING",
+          "value": "p.r."
+        },
+        {
+          "type": "STRING",
+          "value": "rect."
+        },
+        {
+          "type": "STRING",
+          "value": "p.v."
+        },
+        {
+          "type": "STRING",
+          "value": "vag."
+        },
+        {
+          "type": "STRING",
+          "value": "i.n."
+        },
+        {
+          "type": "STRING",
+          "value": "nas."
+        },
+        {
+          "type": "STRING",
+          "value": "inh."
+        },
+        {
+          "type": "STRING",
+          "value": "neb."
+        },
+        {
+          "type": "STRING",
+          "value": "top."
+        },
+        {
+          "type": "STRING",
+          "value": "buc."
+        },
+        {
+          "type": "STRING",
+          "value": "transd."
+        },
+        {
+          "type": "STRING",
+          "value": "i.a."
+        },
+        {
+          "type": "STRING",
+          "value": "i.d."
+        },
+        {
+          "type": "STRING",
+          "value": "i.t."
+        },
+        {
+          "type": "STRING",
+          "value": "i.o."
+        },
+        {
+          "type": "STRING",
+          "value": "i.p."
+        },
+        {
+          "type": "STRING",
+          "value": "epid."
+        },
+        {
+          "type": "STRING",
+          "value": "o.d."
+        },
+        {
+          "type": "STRING",
+          "value": "o.s."
+        },
+        {
+          "type": "STRING",
+          "value": "o.u."
+        },
+        {
+          "type": "STRING",
+          "value": "a.u.e."
+        },
+        {
+          "type": "STRING",
+          "value": "u.e."
+        },
+        {
+          "type": "STRING",
+          "value": "I.M."
+        },
+        {
+          "type": "STRING",
+          "value": "I.V."
+        },
+        {
+          "type": "STRING",
+          "value": "S.C."
+        },
+        {
+          "type": "STRING",
+          "value": "S.L."
+        },
+        {
+          "type": "STRING",
+          "value": "SUBLING."
+        },
+        {
+          "type": "STRING",
+          "value": "P.O."
+        },
+        {
+          "type": "STRING",
+          "value": "P.R."
+        },
+        {
+          "type": "STRING",
+          "value": "RECT."
+        },
+        {
+          "type": "STRING",
+          "value": "P.V."
+        },
+        {
+          "type": "STRING",
+          "value": "VAG."
+        },
+        {
+          "type": "STRING",
+          "value": "I.N."
+        },
+        {
+          "type": "STRING",
+          "value": "NAS."
+        },
+        {
+          "type": "STRING",
+          "value": "INH."
+        },
+        {
+          "type": "STRING",
+          "value": "NEB."
+        },
+        {
+          "type": "STRING",
+          "value": "TOP."
+        },
+        {
+          "type": "STRING",
+          "value": "BUC."
+        },
+        {
+          "type": "STRING",
+          "value": "TRANSD."
+        },
+        {
+          "type": "STRING",
+          "value": "I.A."
+        },
+        {
+          "type": "STRING",
+          "value": "I.D."
+        },
+        {
+          "type": "STRING",
+          "value": "I.T."
+        },
+        {
+          "type": "STRING",
+          "value": "I.O."
+        },
+        {
+          "type": "STRING",
+          "value": "I.P."
+        },
+        {
+          "type": "STRING",
+          "value": "EPID."
+        },
+        {
+          "type": "STRING",
+          "value": "O.D."
+        },
+        {
+          "type": "STRING",
+          "value": "O.S."
+        },
+        {
+          "type": "STRING",
+          "value": "O.U."
+        },
+        {
+          "type": "STRING",
+          "value": "A.U.E."
+        },
+        {
+          "type": "STRING",
+          "value": "U.E."
+        },
+        {
+          "type": "STRING",
+          "value": "IV"
+        },
+        {
+          "type": "STRING",
+          "value": "IM"
+        },
+        {
+          "type": "STRING",
+          "value": "SC"
+        },
+        {
+          "type": "STRING",
+          "value": "SL"
+        },
+        {
+          "type": "STRING",
+          "value": "PO"
+        },
+        {
+          "type": "STRING",
+          "value": "PR"
+        },
+        {
+          "type": "STRING",
+          "value": "PV"
+        },
+        {
+          "type": "STRING",
+          "value": "SQ"
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 3,
+            "content": {
+              "type": "PATTERN",
+              "value": "per\\s+os|per\\s+rectum|per\\s+vaginam|per\\s+inhalationem|ad\\s+us\\.\\s+int\\.|ad\\s+us\\.\\s+ext\\.|in\\s+ocul\\.|in\\s+aur\\.|in\\s+nar\\.|Per\\s+os|Per\\s+rectum|Per\\s+vaginam|Per\\s+inhalationem|Ad\\s+us\\.\\s+int\\.|Ad\\s+us\\.\\s+ext\\.|In\\s+ocul\\.|In\\s+aur\\.|In\\s+nar\\."
+            }
+          }
+        }
+      ]
+    },
+    "dispensing_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "d.s.p."
+        },
+        {
+          "type": "STRING",
+          "value": "d.c.p."
+        },
+        {
+          "type": "STRING",
+          "value": "d.i.m.m."
+        },
+        {
+          "type": "STRING",
+          "value": "u.c."
+        },
+        {
+          "type": "STRING",
+          "value": "u.d."
+        },
+        {
+          "type": "STRING",
+          "value": "m.d.u."
+        },
+        {
+          "type": "STRING",
+          "value": "z.n."
+        },
+        {
+          "type": "STRING",
+          "value": "sig."
+        },
+        {
+          "type": "STRING",
+          "value": "rep."
+        },
+        {
+          "type": "STRING",
+          "value": "n.r."
+        },
+        {
+          "type": "STRING",
+          "value": "disp."
+        },
+        {
+          "type": "STRING",
+          "value": "non rep."
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 3,
+            "content": {
+              "type": "PATTERN",
+              "value": "d\\.c\\.\\s+prohib\\.|d\\.s\\.\\s+monit\\.|sec\\.\\s+art\\.|m\\.\\s+dict\\.|ut\\s+dict\\."
+            }
+          }
+        }
+      ]
+    },
+    "warning_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "CITO"
+        },
+        {
+          "type": "STRING",
+          "value": "cito"
+        },
+        {
+          "type": "STRING",
+          "value": "Cito"
+        },
+        {
+          "type": "STRING",
+          "value": "STAT"
+        },
+        {
+          "type": "STRING",
+          "value": "stat"
+        },
+        {
+          "type": "STRING",
+          "value": "Stat"
+        },
+        {
+          "type": "STRING",
+          "value": "URGENT"
+        },
+        {
+          "type": "STRING",
+          "value": "urgent"
+        },
+        {
+          "type": "STRING",
+          "value": "Urgent"
+        },
+        {
+          "type": "STRING",
+          "value": "PIM"
+        },
+        {
+          "type": "STRING",
+          "value": "LASA"
+        },
+        {
+          "type": "STRING",
+          "value": "REMS"
+        },
+        {
+          "type": "STRING",
+          "value": "BLACKBOX"
+        },
+        {
+          "type": "STRING",
+          "value": "TERATOGEN"
+        },
+        {
+          "type": "STRING",
+          "value": "NIEUW"
+        },
+        {
+          "type": "STRING",
+          "value": "NEW"
+        }
+      ]
+    },
+    "form_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "aq. pur."
+        },
+        {
+          "type": "STRING",
+          "value": "aq. dest."
+        },
+        {
+          "type": "STRING",
+          "value": "collut."
+        },
+        {
+          "type": "STRING",
+          "value": "lin."
+        },
+        {
+          "type": "STRING",
+          "value": "supp."
+        },
+        {
+          "type": "STRING",
+          "value": "pulv."
+        },
+        {
+          "type": "STRING",
+          "value": "ungt."
+        },
+        {
+          "type": "STRING",
+          "value": "ung."
+        },
+        {
+          "type": "STRING",
+          "value": "emp."
+        },
+        {
+          "type": "STRING",
+          "value": "sol."
+        },
+        {
+          "type": "STRING",
+          "value": "susp."
+        },
+        {
+          "type": "STRING",
+          "value": "syr."
+        },
+        {
+          "type": "STRING",
+          "value": "inj."
+        },
+        {
+          "type": "STRING",
+          "value": "crm."
+        },
+        {
+          "type": "STRING",
+          "value": "tinct."
+        },
+        {
+          "type": "STRING",
+          "value": "mixt."
+        },
+        {
+          "type": "STRING",
+          "value": "elix."
+        },
+        {
+          "type": "STRING",
+          "value": "troch."
+        },
+        {
+          "type": "STRING",
+          "value": "past."
+        },
+        {
+          "type": "STRING",
+          "value": "aeros."
+        },
+        {
+          "type": "STRING",
+          "value": "gel."
+        },
+        {
+          "type": "STRING",
+          "value": "spray"
+        },
+        {
+          "type": "STRING",
+          "value": "patch"
+        },
+        {
+          "type": "STRING",
+          "value": "pasta"
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 3,
+            "content": {
+              "type": "PATTERN",
+              "value": "gtt\\s+aur\\.|gtt\\s+nas\\.|gtt\\s+ophth\\.|aq\\.\\s+pro\\s+inj\\.|pulv\\.\\s+adsp\\.|sol\\.\\s+inj\\.|unguent\\.\\s+opht\\."
+            }
+          }
+        }
+      ]
+    },
+    "compounding_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mf"
+        },
+        {
+          "type": "STRING",
+          "value": "m.f."
+        },
+        {
+          "type": "STRING",
+          "value": "aa"
+        },
+        {
+          "type": "STRING",
+          "value": "aa."
+        },
+        {
+          "type": "STRING",
+          "value": "q.s."
+        },
+        {
+          "type": "STRING",
+          "value": "q.p."
+        },
+        {
+          "type": "STRING",
+          "value": "c.s."
+        },
+        {
+          "type": "STRING",
+          "value": "f."
+        },
+        {
+          "type": "STRING",
+          "value": "ft."
+        },
+        {
+          "type": "STRING",
+          "value": "div."
+        },
+        {
+          "type": "STRING",
+          "value": "solve"
+        },
+        {
+          "type": "STRING",
+          "value": "coq."
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 3,
+            "content": {
+              "type": "PATTERN",
+              "value": "m\\.f\\.\\s+pulv\\.|m\\.f\\.\\s+caps\\.|m\\.f\\.\\s+ungt\\.|m\\.f\\.\\s+sol\\.|m\\.f\\.\\s+susp\\.|m\\.\\s+et\\s+ft\\.|ad\\s+lib\\.|div\\.\\s+in\\s+p\\.\\s+aeq\\.|div\\.\\s+in\\s+d\\."
+            }
+          }
+        }
+      ]
+    },
+    "conditional_abbrev": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "s.o.s."
+        },
+        {
+          "type": "STRING",
+          "value": "p.r.n."
+        },
+        {
+          "type": "STRING",
+          "value": "prn"
+        },
+        {
+          "type": "STRING",
+          "value": "PRN"
+        },
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 3,
+            "content": {
+              "type": "PATTERN",
+              "value": "si\\s+nec\\.\\s+sit|si\\s+opus|zo\\s+nodig|bij\\s+pijn|bij\\s+koorts|bij\\s+nood|in\\s+geval\\s+van"
+            }
+          }
+        }
+      ]
+    },
+    "frequency": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 3,
+        "content": {
+          "type": "PATTERN",
+          "value": "[1-9]\\s*dd"
+        }
+      }
+    },
+    "dose": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unit"
+        }
+      ]
+    },
+    "unit": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mg/kg/dag"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/kg/dag."
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/kg/min"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/kg/min"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/kg/u"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/kg/h"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/kg/h"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/kg/h"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/pufje"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/pufje"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/puff"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/puff"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/ml"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/dl"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/l"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/ml"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/ml"
+        },
+        {
+          "type": "STRING",
+          "value": "ng/ml"
+        },
+        {
+          "type": "STRING",
+          "value": "g/l"
+        },
+        {
+          "type": "STRING",
+          "value": "g/dl"
+        },
+        {
+          "type": "STRING",
+          "value": "mmol/l"
+        },
+        {
+          "type": "STRING",
+          "value": "mol/l"
+        },
+        {
+          "type": "STRING",
+          "value": "mEq/l"
+        },
+        {
+          "type": "STRING",
+          "value": "IE/ml"
+        },
+        {
+          "type": "STRING",
+          "value": "IU/ml"
+        },
+        {
+          "type": "STRING",
+          "value": "E/ml"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/kg"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/kg"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/kg"
+        },
+        {
+          "type": "STRING",
+          "value": "ng/kg"
+        },
+        {
+          "type": "STRING",
+          "value": "IE/kg"
+        },
+        {
+          "type": "STRING",
+          "value": "IU/kg"
+        },
+        {
+          "type": "STRING",
+          "value": "ml/kg"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/h"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/h"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/h"
+        },
+        {
+          "type": "STRING",
+          "value": "ml/h"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/min"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/min"
+        },
+        {
+          "type": "STRING",
+          "value": "ml/min"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/uur"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/uur"
+        },
+        {
+          "type": "STRING",
+          "value": "ml/uur"
+        },
+        {
+          "type": "STRING",
+          "value": "IE/uur"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/24h"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/dag"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/dag"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/dag"
+        },
+        {
+          "type": "STRING",
+          "value": "IE/dag"
+        },
+        {
+          "type": "STRING",
+          "value": "IU/dag"
+        },
+        {
+          "type": "STRING",
+          "value": "ml/dag"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/m2"
+        },
+        {
+          "type": "STRING",
+          "value": "mg/m²"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg/m2"
+        },
+        {
+          "type": "STRING",
+          "value": "µg/m²"
+        },
+        {
+          "type": "STRING",
+          "value": "ng"
+        },
+        {
+          "type": "STRING",
+          "value": "mcg"
+        },
+        {
+          "type": "STRING",
+          "value": "µg"
+        },
+        {
+          "type": "STRING",
+          "value": "mg"
+        },
+        {
+          "type": "STRING",
+          "value": "g"
+        },
+        {
+          "type": "STRING",
+          "value": "kg"
+        },
+        {
+          "type": "STRING",
+          "value": "lb"
+        },
+        {
+          "type": "STRING",
+          "value": "oz"
+        },
+        {
+          "type": "STRING",
+          "value": "µl"
+        },
+        {
+          "type": "STRING",
+          "value": "ul"
+        },
+        {
+          "type": "STRING",
+          "value": "µL"
+        },
+        {
+          "type": "STRING",
+          "value": "uL"
+        },
+        {
+          "type": "STRING",
+          "value": "ml"
+        },
+        {
+          "type": "STRING",
+          "value": "mL"
+        },
+        {
+          "type": "STRING",
+          "value": "cl"
+        },
+        {
+          "type": "STRING",
+          "value": "cL"
+        },
+        {
+          "type": "STRING",
+          "value": "dl"
+        },
+        {
+          "type": "STRING",
+          "value": "dL"
+        },
+        {
+          "type": "STRING",
+          "value": "l"
+        },
+        {
+          "type": "STRING",
+          "value": "L"
+        },
+        {
+          "type": "STRING",
+          "value": "IU"
+        },
+        {
+          "type": "STRING",
+          "value": "IE"
+        },
+        {
+          "type": "STRING",
+          "value": "E"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        },
+        {
+          "type": "STRING",
+          "value": "‰"
+        },
+        {
+          "type": "STRING",
+          "value": "ppm"
+        },
+        {
+          "type": "STRING",
+          "value": "mEq"
+        },
+        {
+          "type": "STRING",
+          "value": "mOsm"
+        },
+        {
+          "type": "STRING",
+          "value": "tablet"
+        },
+        {
+          "type": "STRING",
+          "value": "tablets"
+        },
+        {
+          "type": "STRING",
+          "value": "tabl."
+        },
+        {
+          "type": "STRING",
+          "value": "tab"
+        },
+        {
+          "type": "STRING",
+          "value": "tabs"
+        },
+        {
+          "type": "STRING",
+          "value": "tbl."
+        },
+        {
+          "type": "STRING",
+          "value": "capsule"
+        },
+        {
+          "type": "STRING",
+          "value": "capsules"
+        },
+        {
+          "type": "STRING",
+          "value": "cap"
+        },
+        {
+          "type": "STRING",
+          "value": "caps"
+        },
+        {
+          "type": "STRING",
+          "value": "caps."
+        },
+        {
+          "type": "STRING",
+          "value": "gtt."
+        },
+        {
+          "type": "STRING",
+          "value": "gtt"
+        },
+        {
+          "type": "STRING",
+          "value": "druppel"
+        },
+        {
+          "type": "STRING",
+          "value": "druppels"
+        },
+        {
+          "type": "STRING",
+          "value": "zakje"
+        },
+        {
+          "type": "STRING",
+          "value": "zakjes"
+        },
+        {
+          "type": "STRING",
+          "value": "sachet"
+        },
+        {
+          "type": "STRING",
+          "value": "sachets"
+        },
+        {
+          "type": "STRING",
+          "value": "ampul"
+        },
+        {
+          "type": "STRING",
+          "value": "ampullen"
+        },
+        {
+          "type": "STRING",
+          "value": "amp."
+        },
+        {
+          "type": "STRING",
+          "value": "flac."
+        },
+        {
+          "type": "STRING",
+          "value": "flacon"
+        },
+        {
+          "type": "STRING",
+          "value": "flacons"
+        },
+        {
+          "type": "STRING",
+          "value": "fl."
+        },
+        {
+          "type": "STRING",
+          "value": "vial"
+        },
+        {
+          "type": "STRING",
+          "value": "vials"
+        },
+        {
+          "type": "STRING",
+          "value": "spuit"
+        },
+        {
+          "type": "STRING",
+          "value": "spuiten"
+        },
+        {
+          "type": "STRING",
+          "value": "pen"
+        },
+        {
+          "type": "STRING",
+          "value": "pennen"
+        },
+        {
+          "type": "STRING",
+          "value": "pufje"
+        },
+        {
+          "type": "STRING",
+          "value": "pufjes"
+        },
+        {
+          "type": "STRING",
+          "value": "puff"
+        },
+        {
+          "type": "STRING",
+          "value": "puffs"
+        },
+        {
+          "type": "STRING",
+          "value": "dosis"
+        },
+        {
+          "type": "STRING",
+          "value": "doses"
+        },
+        {
+          "type": "STRING",
+          "value": "stuk"
+        },
+        {
+          "type": "STRING",
+          "value": "stuks"
+        },
+        {
+          "type": "STRING",
+          "value": "piece"
+        },
+        {
+          "type": "STRING",
+          "value": "pieces"
+        },
+        {
+          "type": "STRING",
+          "value": "zetpil"
+        },
+        {
+          "type": "STRING",
+          "value": "zetpillen"
+        }
+      ]
+    },
+    "fill_to": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "STRING",
+            "value": "ad"
+          },
+          "named": false,
+          "value": "fill_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dose"
+        }
+      ]
+    },
+    "dtd_directive": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "dtd"
+              },
+              {
+                "type": "STRING",
+                "value": "d.t.d."
+              }
+            ]
+          },
+          "named": false,
+          "value": "dtd_keyword"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "STRING",
+                "value": "no"
+              },
+              "named": false,
+              "value": "dtd_no"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "number"
+        }
+      ]
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "\\d+([.,]\\d+)?"
+    },
+    "word": {
+      "type": "PATTERN",
+      "value": "[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9-]*"
+    },
+    "punctuation": {
+      "type": "PATTERN",
+      "value": "[-.,;:()]"
+    },
+    "line_comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\n]*"
+          }
+        ]
+      }
+    },
+    "doc_comment_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "#!"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^\\n]*"
+            }
+          ]
+        }
+      }
+    },
+    "block_comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "/*"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+          },
+          {
+            "type": "STRING",
+            "value": "/"
+          }
+        ]
+      }
+    },
+    "doc_comment_block": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 1,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "/**"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+            },
+            {
+              "type": "STRING",
+              "value": "/"
+            }
+          ]
+        }
+      }
+    },
+    "_newline": {
+      "type": "PATTERN",
+      "value": "\\r?\\n"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "[ \\t]+"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "line_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "block_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "doc_comment_line"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "doc_comment_block"
+    }
+  ],
+  "conflicts": [
+    [
+      "rx_section"
+    ],
+    [
+      "signa_section"
+    ]
+  ],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": [
+    "latin_abbrev"
+  ],
+  "reserved": {}
 }

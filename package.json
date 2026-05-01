@@ -19,44 +19,44 @@
 		"url": "https://github.com/kjanat"
 	},
 	"type": "module",
+	"imports": {
+		"#grammar": "./grammar.js",
+		"#grammar/*": "./grammar/*",
+		"#grammar/latin": "./grammar/latin/index.js",
+		"#grammar/units": "./grammar/units/index.js"
+	},
 	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"default": "./dist/index.js"
-		},
-		"./grammar.js": {
+		".": "./dist/index.js",
+		"./grammar": {
 			"types": "./dist/grammar.d.ts",
 			"default": "./dist/grammar.js"
 		},
-		"./grammar/latin": {
-			"types": "./dist/grammar/latin/index.d.ts",
-			"default": "./dist/grammar/latin/index.js"
-		},
-		"./grammar/units": {
-			"types": "./dist/grammar/units/index.d.ts",
-			"default": "./dist/grammar/units/index.js"
-		},
-		"./grammar/*.js": {
-			"types": "./dist/grammar/*.d.ts",
-			"default": "./dist/grammar/*.js"
-		},
-		"./queries/*": "./queries/*",
-		"./test/fixtures/*": "./test/fixtures/*",
-		"./test/highlight/*": "./test/highlight/*",
+		"./grammar/latin": "./dist/grammar/latin.js",
+		"./grammar/units": "./dist/grammar/units.js",
 		"./package.json": "./package.json",
+		"./grammar/*": "./dist/grammar/*",
+		"./binding.gyp": "./binding.gyp",
+		"./queries/*": "./queries/*",
+		"./test/{highlight,fixtures}/*.recipe": "./test/{highlight,fixtures}/*.recipe",
 		"./tree-sitter.json": "./tree-sitter.json",
-		"./binding.gyp": "./binding.gyp"
+		"./src/*": "./src/*"
 	},
-	"main": "bindings/node",
-	"module": "bindings/node",
-	"types": "bindings/node",
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"files": [
 		"*.wasm",
 		"binding.gyp",
+		"bindings/node",
 		"dist",
-		"prebuilds/**",
+		"jsr.json",
+		"prebuilds",
+		"queries",
+		"scripts",
+		"src",
 		"test/**/*.recipe",
-		"tree-sitter.json"
+		"tree-sitter.json",
+		"!**/*.o"
 	],
 	"scripts": {
 		"bd": "bun run build",
@@ -65,12 +65,13 @@
 		"fmt": "dprint fmt",
 		"generate": "tree-sitter generate; dprint fmt",
 		"highlight": "tree-sitter highlight",
-		"postinstall": "node-gyp-build",
+		"postinstall": "node scripts/ensure-native.mjs",
 		"lint": "biome lint",
-		"prepack": "bun run build:types",
+		"prepack": "bun run build",
 		"prestart": "tree-sitter build --wasm",
 		"start": "tree-sitter playground",
-		"test": "node --test bindings/node/*_test.js"
+		"test": "node --test bindings/node/*_test.js",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"node-addon-api": "^8.5.0",
@@ -96,7 +97,10 @@
 	},
 	"packageManager": "bun@1.3.13",
 	"volta": {
-		"node": "22.22.2",
-		"npm": "11.12.1"
+		"node": "25.9.0",
+		"npm": "11.13.0"
+	},
+	"patchedDependencies": {
+		"tree-sitter@0.25.0": "patches/tree-sitter@0.25.0.patch"
 	}
 }

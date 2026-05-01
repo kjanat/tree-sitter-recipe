@@ -1,38 +1,27 @@
 {
 	"$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
-	"grammars": [
-		{
-			"name": "recipe",
-			"camelcase": "Recipe",
-			"title": "Recipe",
-			"scope": "source.recipe",
-			"file-types": [
-				"recipe"
-			],
-			"injection-regex": "^recipe$",
-			"class-name": "TreeSitterRecipe",
-			"highlights": [
-				"queries/highlights.scm"
-			],
-			"injections": [
-				"queries/injections.scm"
-			],
-			"locals": [
-				"queries/locals.scm"
-			]
-		}
-	],
+	"grammars": [{
+		"name": "recipe",
+		"camelcase": "Recipe",
+		"title": "Recipe",
+		"scope": "source.recipe",
+		"file-types": ["recipe"],
+		"injection-regex": "^recipe$",
+		"class-name": "TreeSitterRecipe",
+		"highlights": ["queries/highlights.scm"],
+		"injections": ["queries/injections.scm"],
+		"locals": ["queries/locals.scm"],
+		"tags": ["queries/tags.scm"]
+	}],
 	"metadata": {
 		"version": "0.1.0",
 		"license": "MIT",
 		"description": "Pharmacological recipe notation",
-		"authors": [
-			{
-				"name": "Kaj Kowalski",
-				"email": "info@kajkowalski.nl",
-				"url": "https://github.com/kjanat"
-			}
-		],
+		"authors": [{
+			"name": "Kaj Kowalski",
+			"email": "info@kajkowalski.nl",
+			"url": "https://github.com/kjanat"
+		}],
 		"links": {
 			"repository": "https://github.com/kjanat/tree-sitter-recipe"
 		}

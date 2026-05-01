@@ -15,6 +15,12 @@ LIBDIR ?= $(PREFIX)/lib
 BINDIR ?= $(PREFIX)/bin
 PCLIBDIR ?= $(LIBDIR)/pkgconfig
 
+# auto-escalate install/uninstall via sudo when run as non-root,
+# unless NO_SUDO=1 is set (used by install-user/uninstall-user)
+ifeq ($(filter 0,$(shell id -u))$(NO_SUDO),)
+NEEDS_SUDO := 1
+endif
+
 # source/object files
 PARSER := $(SRC_DIR)/parser.c
 EXTRAS := $(filter-out $(PARSER),$(wildcard $(SRC_DIR)/*.c))
@@ -64,7 +70,17 @@ ifneq ($(findstring mingw32,$(MACHINE)),)
 lib$(LANGUAGE_NAME).dll.a: lib$(LANGUAGE_NAME).$(SOEXT)
 endif
 
-$(LANGUAGE_NAME).pc: bindings/c/$(LANGUAGE_NAME).pc.in
+# marker file: tracks the PREFIX last used to generate the .pc — depending on
+# FORCE makes the recipe run every invocation, but it only rewrites the stamp
+# (and bumps its mtime) when PREFIX has actually changed. The .pc then
+# rebuilds iff the stamp's mtime moved.
+.PHONY: FORCE
+FORCE:
+
+$(LANGUAGE_NAME).pc.stamp: FORCE
+	@[ "$$(cat $@ 2>/dev/null)" = '$(PREFIX)' ] || printf '%s\n' '$(PREFIX)' > $@
+
+$(LANGUAGE_NAME).pc: bindings/c/$(LANGUAGE_NAME).pc.in $(LANGUAGE_NAME).pc.stamp
 	sed -e 's|@PROJECT_VERSION@|$(VERSION)|' \
 		-e 's|@CMAKE_INSTALL_LIBDIR@|$(LIBDIR:$(PREFIX)/%=%)|' \
 		-e 's|@CMAKE_INSTALL_INCLUDEDIR@|$(INCLUDEDIR:$(PREFIX)/%=%)|' \
@@ -78,6 +94,11 @@ $(SRC_DIR)/grammar.json: grammar.js
 $(PARSER): $(SRC_DIR)/grammar.json
 	$(TS) generate $^
 
+ifdef NEEDS_SUDO
+install: all
+	@echo "→ escalating to sudo for system install"
+	@exec sudo $(MAKE) -C '$(CURDIR)' install PREFIX='$(PREFIX)' DESTDIR='$(DESTDIR)' NO_SUDO=1
+else
 install: all
 	install -d '$(DESTDIR)$(DATADIR)'/tree-sitter/queries/recipe '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter '$(DESTDIR)$(PCLIBDIR)' '$(DESTDIR)$(LIBDIR)'
 	install -m644 bindings/c/tree_sitter/$(LANGUAGE_NAME).h '$(DESTDIR)$(INCLUDEDIR)'/tree_sitter/$(LANGUAGE_NAME).h
@@ -96,7 +117,17 @@ endif
 ifneq ($(wildcard queries/*.scm),)
 	install -m644 queries/*.scm '$(DESTDIR)$(DATADIR)'/tree-sitter/queries/recipe
 endif
+endif
 
+install-user:
+	$(RM) $(LANGUAGE_NAME).pc
+	$(MAKE) install PREFIX='$(HOME)/.local' NO_SUDO=1
+
+ifdef NEEDS_SUDO
+uninstall:
+	@echo "→ escalating to sudo for system uninstall"
+	@exec sudo $(MAKE) -C '$(CURDIR)' uninstall PREFIX='$(PREFIX)' DESTDIR='$(DESTDIR)' NO_SUDO=1
+else
 uninstall:
 	$(RM) '$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).a \
 		'$(DESTDIR)$(LIBDIR)'/lib$(LANGUAGE_NAME).$(SOEXTVER) \
@@ -105,11 +136,15 @@ uninstall:
 		'$(DESTDIR)$(INCLUDEDIR)'/tree_sitter/$(LANGUAGE_NAME).h \
 		'$(DESTDIR)$(PCLIBDIR)'/$(LANGUAGE_NAME).pc
 	$(RM) -r '$(DESTDIR)$(DATADIR)'/tree-sitter/queries/recipe
+endif
+
+uninstall-user:
+	$(MAKE) uninstall PREFIX='$(HOME)/.local' NO_SUDO=1
 
 clean:
-	$(RM) $(OBJS) $(LANGUAGE_NAME).pc lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT) lib$(LANGUAGE_NAME).dll.a
+	$(RM) $(OBJS) $(LANGUAGE_NAME).pc $(LANGUAGE_NAME).pc.stamp lib$(LANGUAGE_NAME).a lib$(LANGUAGE_NAME).$(SOEXT) lib$(LANGUAGE_NAME).dll.a
 
 test:
 	$(TS) test
 
-.PHONY: all install uninstall clean test
+.PHONY: all install install-user uninstall uninstall-user clean test

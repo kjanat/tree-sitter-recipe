@@ -12,11 +12,14 @@
 	"publish": {
 		"include": [
 			"dist/**",
-			"test/highlight/*.recipe",
+			"queries/*",
+			"test/**/*.recipe",
 			"tree-sitter.json",
 			"LICENSE",
 			"README.md",
-			"jsr.json"
+			"jsr.json",
+			"package.json",
+			"binding.gyp"
 		],
 		"exclude": ["!dist"]
 	}

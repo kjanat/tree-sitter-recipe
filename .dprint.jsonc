@@ -1,6 +1,6 @@
 {
 	"useTabs": true,
-	"json": { "useTabs": true, "associations": ["*.json", "*.jsonc"] },
+	"json": { "useTabs": true },
 	"markdown": { "textWrap": "maintain", "emphasisKind": "asterisks" },
 	"malva": {},
 	"markup": {
@@ -10,15 +10,15 @@
 	},
 	"yaml": { "printWidth": 160 },
 	"exec": {
-		"associations": ["package.json", "justfile", "*.rs", "*.toml"],
+		"associations": ["justfile", "*.rs", "*.toml"],
 		"commands": [
 			{ "command": "bunx tombi format - --stdin-filename {{file_path}}", "exts": ["toml"] },
 			{ "command": "rustfmt --edition 2021", "exts": ["rs"] },
 			{ "command": "just --dump --justfile {{file_path}}", "fileNames": ["justfile"] },
-			{ "command": "bunx sort-package-json --stdin", "fileNames": ["package.json"] },
+			{ "command": "clang-format --style=GNU", "exts": ["c", "cc", "cpp", "h", "hpp"] },
 		],
 	},
-	"excludes": ["**/*.lock", "**/node_modules", "**/grammars", "**/target"],
+	"excludes": ["**/*.lock", "**/node_modules", "**/grammars", "**/target", "**/src/*.json"],
 	"plugins": [
 		"https://plugins.dprint.dev/json-0.21.3.wasm",
 		"https://plugins.dprint.dev/markdown-0.21.1.wasm",
@@ -28,5 +28,7 @@
 		"https://plugins.dprint.dev/g-plane/pretty_yaml-v0.6.0.wasm",
 		"https://plugins.dprint.dev/exec-0.6.2.json@df98f54ffd3092b8a841aedd6d098a2651f16d0a796a40535774f1a8b4b9d463",
 		"https://plugins.dprint.dev/kjanat/svg-v0.4.0.wasm",
+		"https://plugins.dprint.dev/kjanat/sortpackagejson-0.2.1.wasm",
+		"https://plugins.dprint.dev/ruff-0.7.11.wasm",
 	],
 }
