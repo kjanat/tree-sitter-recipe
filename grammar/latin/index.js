@@ -52,12 +52,13 @@ export {
 };
 
 /**
- * Escape dots as regex metachars, expand whitespace runs into `\s+` so
- * irregular spacing ("m.  et   v.") still matches.
+ * Escape backslashes and dots as regex metachars, expand whitespace runs into
+ * `\s+` so irregular spacing ("m.  et   v.") still matches. Backslash is
+ * escaped first so the escapes we add below are not doubled.
  * @param {string} s - Raw multiword abbreviation string
  * @returns {string} Regex-safe pattern
  */
-const toMultiwordPattern = (s) => s.replace(/\./g, "\\.").replace(/\s+/g, "\\s+");
+const toMultiwordPattern = (s) => s.replace(/\\/g, "\\\\").replace(/\./g, "\\.").replace(/\s+/g, "\\s+");
 
 /**
  * Compile a multiword-abbreviation list into a single alternation regex.
