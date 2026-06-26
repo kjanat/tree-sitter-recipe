@@ -1,12 +1,13 @@
 /* @ts-self-types="./index.d.ts" */
 /// <reference types="node" />
+import nodeTypes from "#src/node-types.json" with { type: "json" };
+import tsJson from "#ts" with { type: "json" };
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
 import { arch, dlopen, platform } from "node:process";
 import { fileURLToPath } from "node:url";
-import nodeTypes from "tree-sitter-recipe/src/node-types.json" with { type: "json" };
-import tsJson from "tree-sitter-recipe/tree-sitter.json" with { type: "json" };
+
 const pkgJson = fileURLToPath(import.meta.resolve("#pkg"));
 const root = dirname(pkgJson);
 const require = createRequire(pkgJson);

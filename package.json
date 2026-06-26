@@ -21,7 +21,9 @@
 		"#grammar/latin": "./grammar/latin/index.js",
 		"#grammar/units": "./grammar/units/index.js",
 		"#plugin/jsr-ts-self-types": "./plugins/jsr-ts-self-types.ts",
-		"#pkg": "./package.json"
+		"#pkg": "./package.json",
+		"#src/*": "./src/*",
+		"#ts": "./tree-sitter.json"
 	},
 	"exports": {
 		".": "./dist/index.js",
