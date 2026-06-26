@@ -5,9 +5,10 @@
 	"license": "MIT",
 	"exports": {
 		".": "./dist/index.js",
-		"./grammar.js": "./dist/grammar.js",
-		"./grammar/latin": "./dist/grammar/latin/index.js",
-		"./grammar/units": "./dist/grammar/units/index.js"
+		"./grammar": "./dist/grammar.js",
+		"./grammar/dutch": "./dist/grammar/dutch.js",
+		"./grammar/latin": "./dist/grammar/latin.js",
+		"./grammar/units": "./dist/grammar/units.js"
 	},
 	"publish": {
 		"include": [
@@ -22,6 +23,6 @@
 			"package.json",
 			"binding.gyp"
 		],
-		"exclude": ["!dist"]
+		"exclude": ["!dist", "!prebuilds"]
 	}
 }

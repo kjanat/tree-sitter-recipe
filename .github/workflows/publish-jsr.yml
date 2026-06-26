@@ -1,20 +1,17 @@
 name: Publish to JSR
-
-on:
-  push: { tags: ["v*"] }
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  id-token: write # JSR OIDC auth
-
+on: { workflow_call: { inputs: { artifact: { type: string, required: true } } } }
 jobs:
   publish:
     name: Publish @kjanat/tree-sitter-recipe
     runs-on: ubuntu-latest
+    permissions: { contents: read, id-token: write }
+    environment: { name: jsr, url: "${{ steps.meta.outputs.url }}" }
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
-      - run: bun install --frozen-lockfile
-      - run: bunx jsr build
+      - run: bun install --frozen-lockfile --ignore-scripts
+      - uses: actions/download-artifact@v8
+        with: { name: "${{ inputs.artifact }}" }
+      - id: meta
+        run: echo "url=https://jsr.io/$(yq -r .name jsr.json)@$(yq -r .version jsr.json)" >> "$GITHUB_OUTPUT"
       - run: bunx jsr publish --provenance

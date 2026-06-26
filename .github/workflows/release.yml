@@ -1,0 +1,18 @@
+name: Release
+on: { push: { tags: ["v*"] }, workflow_dispatch: null }
+permissions: { contents: read, id-token: write }
+jobs:
+  gate:
+    runs-on: ubuntu-slim
+    defaults: { run: { shell: pwsh } }
+    steps: [run: "$p,$j='package.json','jsr.json'|%{(gc $_|ConvertFrom-Json).version};if($p-ne$j){'::error::version mismatch: {0} != {1}' -f $p, $j;exit 1}"]
+  build: { needs: gate, uses: ./.github/workflows/build.yml }
+  npm:
+    needs: build
+    uses: ./.github/workflows/publish-npm.yml
+    with: { artifact: "${{ needs.build.outputs.artifact }}" }
+    secrets: inherit
+  jsr:
+    needs: build
+    uses: ./.github/workflows/publish-jsr.yml
+    with: { artifact: "${{ needs.build.outputs.artifact }}" }

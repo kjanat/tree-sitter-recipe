@@ -12,6 +12,7 @@ const require = createRequire(join(root, "package.json"));
 /**
  * @typedef {import("tree-sitter").Language} Language
  * @typedef {import("tree-sitter").NodeInfo} NodeInfo
+ * @typedef {import("tree-sitter").ChildNode} ChildNode
  * @typedef { "HIGHLIGHTS_QUERY" | "INJECTIONS_QUERY" | "LOCALS_QUERY" | "TAGS_QUERY" } QueryKey
  * @typedef {typeof import("./index.d.ts").default} Binding
  */
@@ -129,12 +130,12 @@ function convertToNodeInfo(rawData) {
 		// Scenario 2: a concrete node. Copy its fields/children into the NodeInfo
 		// shape, narrowing out the `undefined` entries the JSON union admits
 		// (grammars with field-labelled rules give `fields` an optional shape).
-		/** @type {{ [name: string]: import("tree-sitter").ChildNode }} */
+		/** @type {{ [name: string]: ChildNode }} */
 		const fields = {};
 		for (const [name, info] of Object.entries(node.fields ?? {})) {
 			if (info) fields[name] = info;
 		}
-		/** @type {import("tree-sitter").ChildNode[]} */
+		/** @type {ChildNode[]} */
 		const children = node.children ? [node.children].flat() : [];
 		return { ...base, fields, children };
 	});
