@@ -986,13 +986,155 @@
       ]
     },
     "frequency": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "count",
+              "content": {
+                "type": "SYMBOL",
+                "name": "number"
+              }
+            },
+            {
+              "type": "FIELD",
+              "name": "period",
+              "content": {
+                "type": "SYMBOL",
+                "name": "period"
+              }
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "count",
+              "content": {
+                "type": "SYMBOL",
+                "name": "count_word"
+              }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "period",
+                  "content": {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_period_tail"
+                    },
+                    "named": true,
+                    "value": "period"
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_interval_lead"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "every",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "number"
+                  }
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "FIELD",
+              "name": "period",
+              "content": {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_period_noun"
+                },
+                "named": true,
+                "value": "period"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "period": {
       "type": "TOKEN",
       "content": {
         "type": "PREC",
         "value": 3,
         "content": {
           "type": "PATTERN",
-          "value": "[1-9]\\s*dd"
+          "value": "(?:dd|(?:keer|maal|x)[ \\t]+(?:per[ \\t]+(?:dag|week|maand|uur|nacht|ochtend|morgen|middag|avond)|daags))"
+        }
+      }
+    },
+    "count_word": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 3,
+        "content": {
+          "type": "PATTERN",
+          "value": "(?:een|twee|drie|vier|vijf|zes|zeven|acht|negen|tien)[ \\t]*maal"
+        }
+      }
+    },
+    "_period_tail": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 3,
+        "content": {
+          "type": "PATTERN",
+          "value": "(?:daags|per[ \\t]+(?:dag|week|maand|uur|nacht|ochtend|morgen|middag|avond))"
+        }
+      }
+    },
+    "_interval_lead": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 3,
+        "content": {
+          "type": "PATTERN",
+          "value": "om[ \\t]+de(?:[ \\t]+andere)?"
+        }
+      }
+    },
+    "_period_noun": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "PATTERN",
+          "value": "(?:dagen|weken|maanden|uren|nachten|ochtenden|avonden|dag|week|maand|uur|nacht|ochtend|morgen|middag|avond)"
         }
       }
     },

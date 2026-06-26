@@ -1,0 +1,74 @@
+==================
+Dutch prose frequency — keer per dag (patient label)
+==================
+
+S/ Neem 2 capsules 3 keer per dag
+
+---
+
+(source_file
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (word)
+      (dose (number) (unit))
+      (frequency count: (number) period: (period)))))
+
+==================
+Dutch spelled-out frequency — driemaal daags (count_word)
+==================
+
+S/ driemaal daags 1 tablet
+
+---
+
+(source_file
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency count: (count_word) period: (period))
+      (dose (number) (unit)))))
+
+==================
+Dutch interval frequency — om de 8 uur (every)
+==================
+
+S/ 1 tablet om de 8 uur
+
+---
+
+(source_file
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (frequency every: (number) period: (period)))))
+
+==================
+Dutch interval frequency — om de dag (no count)
+==================
+
+S/ 1 tablet om de dag
+
+---
+
+(source_file
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (dose (number) (unit))
+      (frequency period: (period)))))
+
+==================
+Dutch frequency — maal per week
+==================
+
+S/ 2 maal per week
+
+---
+
+(source_file
+  (signa_section
+    (signa_marker)
+    (signa_line
+      (frequency count: (number) period: (period)))))

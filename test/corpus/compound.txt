@@ -31,9 +31,7 @@ S/ 1x daags dun aanbrengen
   (signa_section
     (signa_marker)
     (signa_line
-      (number)
-      (word)
-      (word)
+      (frequency (number) (period))
       (word)
       (word))))
 

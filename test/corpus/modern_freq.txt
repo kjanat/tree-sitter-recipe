@@ -16,7 +16,7 @@ S/ 3 dd 1 tablet
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (dose (number) (unit)))))
 
 ==================
@@ -37,7 +37,7 @@ S/ 1dd 1 tablet
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (dose (number) (unit)))))
 
 ==================
@@ -58,7 +58,7 @@ S/ 2 dd 1 caps voor het ontbijt
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (dose (number) (unit))
       (word)
       (word)

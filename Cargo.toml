@@ -1,10 +1,9 @@
 [package]
 name         = "tree-sitter-recipe"
 version      = "0.1.0"
-# tombi: lint.rules.unused-noqa.disabled = true
-# tombi: lint.rules.deprecated.disabled = true
+# tombi: lint.rules = { unused-noqa.disabled = true, deprecated.disabled = true }
 authors      = ["Kaj Kowalski <info@kajkowalski.nl>"]
-edition      = "2021"
+edition      = "2024"
 description  = "Pharmacological recipe notation"
 readme       = "README.md"
 repository   = "https://github.com/kjanat/tree-sitter-recipe"
@@ -29,7 +28,7 @@ path = "bindings/rust/lib.rs"
 tree-sitter-language = "0.1"
 
 [dev-dependencies]
-tree-sitter = "0.26.8"
+tree-sitter = "0.26.9"
 
 [build-dependencies]
 cc = "1.2"

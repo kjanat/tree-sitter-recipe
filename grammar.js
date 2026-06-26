@@ -26,6 +26,13 @@
 /// <reference path="./node_modules/tree-sitter-cli/dsl.d.ts" />
 
 import {
+	DUTCH_COUNT_WORD_RE,
+	DUTCH_FREQUENCY_TAIL_RE,
+	DUTCH_FREQUENCY_UNIT_RE,
+	DUTCH_INTERVAL_LEAD_RE,
+	DUTCH_PERIOD_NOUN_RE,
+} from "#grammar/dutch";
+import {
 	COMPOUNDING,
 	COMPOUNDING_MULTIWORD_RE,
 	CONDITIONAL,
@@ -146,8 +153,42 @@ export default grammar({
 		compounding_abbrev: _ => choice(...COMPOUNDING, token(prec(3, COMPOUNDING_MULTIWORD_RE))),
 		conditional_abbrev: _ => choice(...CONDITIONAL, token(prec(3, CONDITIONAL_MULTIWORD_RE))),
 
-		// Compact modern frequency: "1 dd", "2 dd", "1dd" — caveman speak for dosing.
-		frequency: _ => token(prec(3, /[1-9]\s*dd/)),
+		// Frequency, field-labelled so a consumer reads dosing semantics off the
+		// tree without re-parsing text. `count:` = how many doses, `every:` =
+		// interval length, `period:` = the unit. One node spans prescriber
+		// shorthand ("1 dd") and the Dutch patient-label prose a model emits.
+		//   "3 keer per dag" -> (frequency count: (number)     period: (period))
+		//   "driemaal daags" -> (frequency count: (count_word) period: (period))
+		//   "om de 8 uur"    -> (frequency every: (number)     period: (period))
+		//   "om de dag"      -> (frequency period: (period))
+		frequency: $ =>
+			choice(
+				// digit count: "3 dd", "3 keer per dag", "1x daags", "2 maal per week"
+				seq(field("count", $.number), field("period", $.period)),
+				// spelled count: "driemaal daags", "eenmaal per dag", "tweemaal"
+				seq(
+					field("count", $.count_word),
+					optional(field("period", alias($._period_tail, $.period))),
+				),
+				// interval: "om de 8 uur", "om de 2 dagen", "om de [andere] dag"
+				seq(
+					$._interval_lead,
+					optional(field("every", $.number)),
+					field("period", alias($._period_noun, $.period)),
+				),
+			),
+
+		// Cadence following a digit count: "dd", "keer per dag", "x daags".
+		period: _ => token(prec(3, DUTCH_FREQUENCY_UNIT_RE)),
+		// Spelled-out count "driemaal" — own node so it shares the `count:` role
+		// with `number` while staying a distinct type. Maps to an int downstream.
+		count_word: _ => token(prec(3, DUTCH_COUNT_WORD_RE)),
+		// Cadence after a spelled count ("driemaal DAAGS"); aliased to `period`.
+		_period_tail: _ => token(prec(3, DUTCH_FREQUENCY_TAIL_RE)),
+		// "om de" / "om de andere" — hidden interval marker; fields carry meaning.
+		_interval_lead: _ => token(prec(3, DUTCH_INTERVAL_LEAD_RE)),
+		// Bare period noun for intervals ("8 UUR", "2 DAGEN"); aliased to `period`.
+		_period_noun: _ => token(prec(2, DUTCH_PERIOD_NOUN_RE)),
 
 		// Dose = number + unit. Extras swallow whitespace between, so
 		// "50mg", "50 mg", "0,1%", "100 g" all parse.

@@ -88,7 +88,7 @@ S/ 2 dd 1 I.M.
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (dose (number) (unit))
       (route_abbrev)
       (timing_abbrev)))
@@ -101,7 +101,7 @@ S/ 2 dd 1 I.M.
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (number)
       (route_abbrev))))
 

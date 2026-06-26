@@ -20,9 +20,14 @@
 (unit)   @type.builtin
 
 ; ── Latin vocabulary, by semantic role ───────────────────────────
-; Frequency — rhythm of dosing. Highlighted as repetition.
+; Frequency — rhythm of dosing. Highlighted as repetition. The count and
+; cadence inside a structured frequency stay repeat-colored too, overriding
+; the generic `(number) @number` so "3 keer per dag" reads as one rhythm.
 (frequency)         @keyword.repeat
 (frequency_abbrev)  @keyword.repeat
+(frequency (number) @keyword.repeat)
+(count_word)        @keyword.repeat
+(period)            @keyword.repeat
 
 ; Timing — when relative to meals/sleep.
 (timing_abbrev) @keyword

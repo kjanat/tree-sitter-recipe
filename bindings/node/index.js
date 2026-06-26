@@ -81,6 +81,7 @@ const construct = {
 };
 
 binding.name = recipeGrammar.name;
+binding.nodeTypeInfo = construct.nodeTypeInfo;
 
 /** @type {ReadonlyArray<readonly [QueryKey, string]>} */
 const queries = [
@@ -125,16 +126,22 @@ function convertToNodeInfo(rawData) {
 			};
 		}
 
-		// Scenario 2: It's a leaf node (contains no fields or children).
-		// We ensure that 'fields' is an empty object and 'children' an empty array.
-		return {
-			...base,
-			fields: node.fields || {},
-			children: node.children
-				? (Array.isArray(node.children) ? node.children : [node.children])
-				: [],
-		};
+		// Scenario 2: a concrete node. Copy its fields/children into the NodeInfo
+		// shape, narrowing out the `undefined` entries the JSON union admits
+		// (grammars with field-labelled rules give `fields` an optional shape).
+		/** @type {{ [name: string]: import("tree-sitter").ChildNode }} */
+		const fields = {};
+		for (const [name, info] of Object.entries(node.fields ?? {})) {
+			if (info) fields[name] = info;
+		}
+		/** @type {import("tree-sitter").ChildNode[]} */
+		const children = node.children ? [node.children].flat() : [];
+		return { ...base, fields, children };
 	});
 }
 
-export { binding, construct as default };
+// Default is the native language object (augmented with name, nodeTypeInfo and
+// the lazy query getters) — i.e. what `parser.setLanguage(...)` expects, and
+// what the JSDoc `import Recipe; parser.setLanguage(Recipe)` example documents.
+// `construct` stays exported for consumers that only want the plain metadata.
+export { binding, binding as default, construct };

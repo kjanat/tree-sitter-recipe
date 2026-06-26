@@ -88,7 +88,7 @@ S/ 2 dd 1 tablet
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (dose (number) (unit)))))
 
 ==================
@@ -136,6 +136,6 @@ S/ 1 dd 1 sachet p.c.
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (dose (number) (unit))
       (timing_abbrev))))

@@ -169,6 +169,46 @@
     "fields": {}
   },
   {
+    "type": "frequency",
+    "named": true,
+    "fields": {
+      "count": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "count_word",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "every": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "period": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "period",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "frequency_abbrev",
     "named": true,
     "fields": {}
@@ -699,6 +739,10 @@
     "named": false
   },
   {
+    "type": "count_word",
+    "named": true
+  },
+  {
     "type": "crm.",
     "named": false
   },
@@ -807,10 +851,6 @@
   {
     "type": "flacons",
     "named": false
-  },
-  {
-    "type": "frequency",
-    "named": true
   },
   {
     "type": "ft.",
@@ -1176,6 +1216,10 @@
   {
     "type": "pennen",
     "named": false
+  },
+  {
+    "type": "period",
+    "named": true
   },
   {
     "type": "piece",

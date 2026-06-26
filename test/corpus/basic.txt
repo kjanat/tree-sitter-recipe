@@ -50,6 +50,6 @@ S/ 3 dd 1 tablet bij pijn
   (signa_section
     (signa_marker)
     (signa_line
-      (frequency)
+      (frequency (number) (period))
       (dose (number) (unit))
       (conditional_abbrev))))
