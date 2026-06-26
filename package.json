@@ -1,6 +1,6 @@
 {
 	"name": "tree-sitter-recipe",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Pharmacological recipe notation",
 	"keywords": [
 		"incremental",
@@ -65,6 +65,7 @@
 	"types": "./dist/index.d.ts",
 	"files": [
 		"*.wasm",
+		"/CHANGELOG.md",
 		"/binding.gyp",
 		"/bindings/node",
 		"/dist",

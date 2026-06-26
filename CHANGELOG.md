@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-06-26
+
+### Added
+
+- Dutch dosing vocabulary now ships numeric helpers — `NUMBER_WORD_VALUE`,
+  `countWordValue()`, `countValue()` — so a consumer maps a `count_word`
+  ("driemaal") or a digit to an integer without rebuilding the lookup itself.
+- The `×` (U+00D7) sign is recognised as a frequency counter alongside `x`,
+  so the grammar tokenises "3× daags".
+- The Node binding's types now declare the native-free `construct` metadata
+  export the runtime already provided.
+
+### Changed
+
+- Every typed subpath export (`.`, `./grammar`, `./grammar/dutch`,
+  `./grammar/latin`, `./grammar/units`) carries an explicit `types` condition,
+  so tooling resolves the bundled `.d.ts` without adjacent-file fallback.
+- `CHANGELOG.md` now ships in the published npm and JSR packages.
+
+### Fixed
+
+- The `postinstall` no longer recompiles the addon when a matching prebuild is
+  already present. It keyed its check off `build/Release/` (never in the
+  tarball), so every install rebuilt from source and demanded a C toolchain,
+  defeating the shipped prebuilds.
+
 ## [0.2.0] - 2026-06-26
 
 ### Added
@@ -41,6 +67,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   grouped by semantic role, dosage units by measurement kind, dose ranges, and
   layered comments. Ships highlight queries and multi-language bindings.
 
-[Unreleased]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kjanat/tree-sitter-recipe/releases/tag/v0.1.0

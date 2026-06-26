@@ -1,7 +1,7 @@
 .{
     .name = .tree_sitter_recipe,
     .fingerprint = 0x13a79fa958027aac,
-    .version = "0.2.0",
+    .version = "0.3.0",
     .paths = .{
         "build.zig",
         "build.zig.zon",
