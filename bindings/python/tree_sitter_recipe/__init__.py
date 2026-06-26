@@ -1,42 +1,35 @@
 """Pharmacological recipe notation"""
 
 from importlib.resources import files as _files
+from typing import Final
 
 from ._binding import language
 
 
-def _get_query(name, file):
+def _get_query(file: str) -> str | None:
     try:
         query = _files(f"{__package__}") / file
-        globals()[name] = query.read_text()
+        return query.read_text()
     except FileNotFoundError:
-        globals()[name] = None
-    return globals()[name]
+        return None
 
 
-def __getattr__(name):
-    if name == "HIGHLIGHTS_QUERY":
-        return _get_query("HIGHLIGHTS_QUERY", "queries/highlights.scm")
-    if name == "INJECTIONS_QUERY":
-        return _get_query("INJECTIONS_QUERY", "queries/injections.scm")
-    if name == "LOCALS_QUERY":
-        return _get_query("LOCALS_QUERY", "queries/locals.scm")
-    if name == "TAGS_QUERY":
-        return _get_query("TAGS_QUERY", "queries/tags.scm")
-
-    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+HIGHLIGHTS_QUERY: Final[str | None] = _get_query("queries/highlights.scm")
+INJECTIONS_QUERY: Final[str | None] = _get_query("queries/injections.scm")
+LOCALS_QUERY: Final[str | None] = _get_query("queries/locals.scm")
+TAGS_QUERY: Final[str | None] = _get_query("queries/tags.scm")
 
 
-__all__ = [
-    "language",
+__all__: Final = [
     "HIGHLIGHTS_QUERY",
     "INJECTIONS_QUERY",
     "LOCALS_QUERY",
     "TAGS_QUERY",
+    "language",
 ]
 
 
-def __dir__():
+def __dir__() -> list[str]:
     return sorted(
         __all__
         + [

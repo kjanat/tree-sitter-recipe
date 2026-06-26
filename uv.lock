@@ -120,9 +120,6 @@ wheels = [
 name = "tree-sitter-recipe"
 version = "0.1.0"
 source = { editable = "." }
-dependencies = [
-    { name = "typing-extensions" },
-]
 
 [package.optional-dependencies]
 core = [
@@ -130,31 +127,56 @@ core = [
 ]
 
 [package.dev-dependencies]
+build = [
+    { name = "setuptools" },
+    { name = "typing-extensions" },
+    { name = "wheel" },
+]
 dev = [
     { name = "basedpyright" },
     { name = "ruff" },
     { name = "setuptools" },
     { name = "tree-sitter" },
     { name = "ty" },
+    { name = "typing-extensions" },
     { name = "wheel" },
+]
+lint = [
+    { name = "basedpyright" },
+    { name = "ruff" },
+    { name = "ty" },
+]
+ts = [
+    { name = "tree-sitter" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "tree-sitter", marker = "extra == 'core'", specifier = "~=0.25" },
-    { name = "typing-extensions", specifier = ">=4.12" },
-]
+requires-dist = [{ name = "tree-sitter", marker = "extra == 'core'", specifier = "~=0.25" }]
 provides-extras = ["core"]
 
 [package.metadata.requires-dev]
+build = [
+    { name = "setuptools", specifier = ">=77.0.0" },
+    { name = "typing-extensions", specifier = ">=4.12" },
+    { name = "wheel" },
+]
 dev = [
     { name = "basedpyright" },
     { name = "ruff" },
+    { name = "setuptools" },
     { name = "setuptools", specifier = ">=77.0.0" },
+    { name = "tree-sitter" },
     { name = "tree-sitter", specifier = "~=0.25" },
     { name = "ty" },
+    { name = "typing-extensions", specifier = ">=4.12" },
     { name = "wheel" },
 ]
+lint = [
+    { name = "basedpyright" },
+    { name = "ruff" },
+    { name = "ty" },
+]
+ts = [{ name = "tree-sitter", specifier = "~=0.25" }]
 
 [[package]]
 name = "ty"

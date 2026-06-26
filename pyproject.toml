@@ -13,7 +13,6 @@ classifiers     = [
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed",
 ]
-dependencies    = ["typing_extensions>=4.12"]
 
 [project.urls]
 Homepage = "https://github.com/kjanat/tree-sitter-recipe"
@@ -22,17 +21,38 @@ Homepage = "https://github.com/kjanat/tree-sitter-recipe"
 core = ["tree-sitter~=0.25"]
 
 [dependency-groups]
-dev = ["basedpyright", "ruff", "setuptools>=77.0.0", "tree-sitter~=0.25", "ty", "wheel"]
+dev   = [
+  { include-group = "build" },
+  { include-group = "lint" },
+  { include-group = "ts" },
+]
+build = ["setuptools>=77.0.0", "typing_extensions>=4.12", "wheel"]
+lint  = ["basedpyright", "ruff", "ty"]
+ts    = ["tree-sitter~=0.25"]
 
 [build-system]
 requires      = ["setuptools>=77.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.basedpyright]
-include  = ["bindings/python", "setup.py"]
-venvPath = "."
-venv     = ".venv"
-
 [tool.cibuildwheel]
-build          = "cp310-*"
-build-frontend = "build"
+build          = "cp313-*"
+build-frontend = "build[uv]"
+
+[tool.pyright]
+include                = ["bindings/python", "setup.py"]
+venvPath               = "."
+venv                   = ".venv"
+reportMissingTypeStubs = false
+pythonVersion          = "3.13"
+
+[tool.ruff]
+target-version = "py313"
+include        = ["bindings/python/**/*.py*", "setup.py"]
+
+[tool.ty]
+environment = { python-version = "3.13", python = ".venv" }
+src         = { include = ["bindings/python/**/*.py*", "setup.py"] }
+
+[tool.uv]
+managed                  = true
+extra-build-dependencies = { tree-sitter-recipe = ["typing_extensions>=4.12"] }
