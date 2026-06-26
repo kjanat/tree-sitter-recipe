@@ -1090,7 +1090,7 @@
         "value": 3,
         "content": {
           "type": "PATTERN",
-          "value": "(?:dd|(?:keer|maal|x)[ \\t]+(?:per[ \\t]+(?:dag|week|maand|uur|nacht|ochtend|morgen|middag|avond)|daags))"
+          "value": "(?:dd|(?:keer|maal|x|×)[ \\t]+(?:per[ \\t]+(?:dag|week|maand|uur|nacht|ochtend|morgen|middag|avond)|daags))"
         }
       }
     },

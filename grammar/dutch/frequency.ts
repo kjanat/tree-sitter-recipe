@@ -44,8 +44,11 @@ const NUMBER_WORDS = [
 	"tien",
 ] as const;
 
-/** Multiplier connectors between a digit and a period ("3 KEER per dag"). */
-const COUNTERS = ["keer", "maal", "x"] as const;
+/**
+ * Multiplier connectors between a digit and a period ("3 KEER per dag").
+ * Both the ASCII `x` and the `×` (U+00D7) a model emits ("3× daags").
+ */
+const COUNTERS = ["keer", "maal", "x", "×"] as const;
 
 /**
  * Plural period nouns, for interval phrasings that count whole periods
@@ -62,4 +65,38 @@ const PERIOD_PLURALS = [
 	"avonden",
 ] as const;
 
-export { COUNTERS, NUMBER_WORDS, PERIOD_PLURALS, PERIODS };
+/**
+ * Numeric value of each spelled-out count, "een" -> 1 … "tien" -> 10.
+ * The canonical word→integer map behind {@linkcode countWordValue} and
+ * {@linkcode countValue}; exposed so consumers needn't rebuild it.
+ */
+const NUMBER_WORD_VALUE: ReadonlyMap<string, number> = new Map(
+	NUMBER_WORDS.map((word, index) => [word, index + 1]),
+);
+
+/**
+ * Integer value of a spelled-out Dutch count word, or `undefined` when the
+ * stem isn't "een".."tien".
+ *
+ * Accepts a bare number word ("drie") or a `count_word` exactly as the grammar
+ * emits it ("driemaal", "drie maal") — the lexer can't split the glued form,
+ * so the trailing "maal" connector is stripped here before lookup. Trims and
+ * lowercases first.
+ */
+function countWordValue(token: string): number | undefined {
+	const stem = token.trim().toLowerCase().replace(/[ \t]*maal$/, "");
+	return NUMBER_WORD_VALUE.get(stem);
+}
+
+/**
+ * Integer value of a count in either notation the grammar's `count:` field
+ * admits — a `number` ("3") or a `count_word` ("drie", "driemaal"). Returns
+ * `undefined` when the text is neither a plain integer nor a known count word.
+ */
+function countValue(token: string): number | undefined {
+	const trimmed = token.trim();
+	if (/^\d+$/.test(trimmed)) return Number(trimmed);
+	return countWordValue(trimmed);
+}
+
+export { COUNTERS, countValue, countWordValue, NUMBER_WORD_VALUE, NUMBER_WORDS, PERIOD_PLURALS, PERIODS };

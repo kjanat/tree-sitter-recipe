@@ -21,7 +21,15 @@
  * @license MIT
  */
 
-import { COUNTERS, NUMBER_WORDS, PERIOD_PLURALS, PERIODS } from "./frequency.ts";
+import {
+	COUNTERS,
+	countValue,
+	countWordValue,
+	NUMBER_WORD_VALUE,
+	NUMBER_WORDS,
+	PERIOD_PLURALS,
+	PERIODS,
+} from "./frequency.ts";
 
 /**
  * Wrap a token list in a non-capturing alternation group.
@@ -75,11 +83,14 @@ const DUTCH_PERIOD_NOUN_RE = new RegExp(alt([...PERIOD_PLURALS, ...PERIODS]));
 
 export {
 	COUNTERS,
+	countValue,
+	countWordValue,
 	DUTCH_COUNT_WORD_RE,
 	DUTCH_FREQUENCY_TAIL_RE,
 	DUTCH_FREQUENCY_UNIT_RE,
 	DUTCH_INTERVAL_LEAD_RE,
 	DUTCH_PERIOD_NOUN_RE,
+	NUMBER_WORD_VALUE,
 	NUMBER_WORDS,
 	PERIOD_PLURALS,
 	PERIODS,
