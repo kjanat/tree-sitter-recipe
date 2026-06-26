@@ -57,6 +57,14 @@ function runNodeGyp(cwd: string) {
 }
 
 function ensureAddon(pkgDir: string, builtName: string, prebuildName: string) {
+	const prebuild = join(pkgDir, "prebuilds", platformDir, `${prebuildName}.node`);
+	if (existsSync(prebuild)) {
+		// A prebuild for this platform is already present (shipped in the
+		// published tarball, or produced by an earlier run). Nothing to
+		// compile — this is what spares consumers a C toolchain.
+		return;
+	}
+
 	const built = join(pkgDir, "build", "Release", builtName);
 	if (!existsSync(built)) {
 		runNodeGyp(pkgDir);
@@ -65,7 +73,6 @@ function ensureAddon(pkgDir: string, builtName: string, prebuildName: string) {
 		throw new Error(`node-gyp did not produce ${built}`);
 	}
 
-	const prebuild = join(pkgDir, "prebuilds", platformDir, `${prebuildName}.node`);
 	mkdirSync(dirname(prebuild), { recursive: true });
 	copyFileSync(built, prebuild);
 }

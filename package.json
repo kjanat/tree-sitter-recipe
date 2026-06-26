@@ -76,18 +76,18 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"node-addon-api": "^8.8",
-		"node-gyp-build": "^4.8"
+		"node-addon-api": "^8.9.0",
+		"node-gyp-build": "^4.8.4"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.5",
-		"@types/bun": "^1.3",
-		"dprint": "^0.54",
-		"prebuildify": "^6",
-		"tree-sitter": "^0.25",
-		"tree-sitter-cli": "^0.26",
-		"tsdown": "^0.22",
-		"typescript": "^6"
+		"@biomejs/biome": "^2.5.1",
+		"@types/bun": "^1.3.14",
+		"dprint": "^0.54.0",
+		"prebuildify": "^6.0.1",
+		"tree-sitter": "^0.25.0",
+		"tree-sitter-cli": "^0.26.9",
+		"tsdown": "^0.22.3",
+		"typescript": "^6.0.3"
 	},
 	"peerDependencies": {
 		"tree-sitter": "^0.25"

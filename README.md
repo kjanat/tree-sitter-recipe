@@ -23,9 +23,9 @@ system.
 ## Example
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo-light.gif">
-  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo.gif">
-  <img alt="tree-sitter-recipe highlighting a prescription" src="https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo.gif">
+  <source media="(prefers-color-scheme: dark)" srcset="demo.gif">
+  <source media="(prefers-color-scheme: light)" srcset="demo-light.gif">
+  <img alt="tree-sitter-recipe highlighting a prescription" src="demo.gif">
 </picture>
 
 <!-- https://github.com/user-attachments/assets/9015f3e7-b706-45bc-99e5-6e420a6c6936 -->
