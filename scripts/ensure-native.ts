@@ -5,7 +5,7 @@
  *
  * Two addons matter when a consumer runs under Bun:
  *
- *   1. this grammar's addon            -> prebuilds/<p-a>/tree-sitter-svg.node
+ *   1. this grammar's addon            -> prebuilds/<p-a>/tree-sitter-recipe.node
  *   2. the `tree-sitter` runtime addon -> prebuilds/<p-a>/tree-sitter.node
  *
  * Node can resolve `build/Release/*.node` through node-gyp-build. Bun's
@@ -80,7 +80,7 @@ function optionalPackageRoot(packageName: string) {
 
 function buildNativeAddons(): void {
 	const grammarRoot = fileURLToPath(new URL("..", import.meta.url));
-	ensureAddon(grammarRoot, "tree_sitter_svg_binding.node", "tree-sitter-svg");
+	ensureAddon(grammarRoot, "tree_sitter_recipe_binding.node", "tree-sitter-recipe");
 
 	const treeSitterRoot = optionalPackageRoot("tree-sitter");
 	if (treeSitterRoot) {
