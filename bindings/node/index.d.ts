@@ -44,4 +44,34 @@ declare const binding: {
 	TAGS_QUERY?: string;
 };
 
-export default binding;
+/**
+ * Plain grammar metadata — the same shape as the default export minus the
+ * native {@linkcode Language} object. For consumers that only want the name,
+ * static node-type info, or the query paths declared in `tree-sitter.json`,
+ * without loading the native addon.
+ */
+declare const construct: {
+	/** The language name. */
+	name: Language["name"];
+
+	/**
+	 * The content of the `node-types.json` file for this grammar.
+	 *
+	 * @see {@linkplain https://tree-sitter.github.io/tree-sitter/using-parsers/6-static-node-types Static Node Types}
+	 */
+	nodeTypeInfo: NodeInfo[];
+
+	/** The syntax highlighting query path(s) for this grammar. */
+	HIGHLIGHTS_QUERY?: string | string[];
+
+	/** The language injection query path(s) for this grammar. */
+	INJECTIONS_QUERY?: string | string[];
+
+	/** The local variable query path(s) for this grammar. */
+	LOCALS_QUERY?: string | string[];
+
+	/** The symbol tagging query path(s) for this grammar. */
+	TAGS_QUERY?: string | string[];
+};
+
+export { binding, binding as default, construct };
