@@ -20,7 +20,8 @@
 		"#grammar/dutch": "./grammar/dutch/index.js",
 		"#grammar/latin": "./grammar/latin/index.js",
 		"#grammar/units": "./grammar/units/index.js",
-		"#plugin/jsr-ts-self-types": "./plugins/jsr-ts-self-types.ts"
+		"#plugin/jsr-ts-self-types": "./plugins/jsr-ts-self-types.ts",
+		"#pkg": "./package.json"
 	},
 	"exports": {
 		".": "./dist/index.js",

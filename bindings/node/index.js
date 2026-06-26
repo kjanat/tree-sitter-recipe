@@ -1,13 +1,15 @@
 /* @ts-self-types="./index.d.ts" */
+/// <reference types="node" />
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join } from "node:path";
-import { dlopen } from "node:process";
+import { arch, dlopen, platform } from "node:process";
 import { fileURLToPath } from "node:url";
 import nodeTypes from "tree-sitter-recipe/src/node-types.json" with { type: "json" };
 import tsJson from "tree-sitter-recipe/tree-sitter.json" with { type: "json" };
-const root = dirname(fileURLToPath(import.meta.resolve("tree-sitter-recipe/package.json")));
-const require = createRequire(join(root, "package.json"));
+const pkgJson = fileURLToPath(import.meta.resolve("#pkg"));
+const root = dirname(pkgJson);
+const require = createRequire(pkgJson);
 
 /**
  * @typedef {import("tree-sitter").Language} Language
@@ -17,7 +19,7 @@ const require = createRequire(join(root, "package.json"));
  * @typedef {typeof import("./index.d.ts").default} Binding
  */
 
-const nativePath = join(root, "prebuilds", `${process.platform}-${process.arch}`, "tree-sitter-recipe.node");
+const nativePath = join(root, "prebuilds", `${platform}-${arch}`, "tree-sitter-recipe.node");
 
 const recipeGrammar = tsJson.grammars.find(g => g.name === "recipe");
 if (!recipeGrammar) throw new Error("'recipe' grammar not declared in tree-sitter.json");
