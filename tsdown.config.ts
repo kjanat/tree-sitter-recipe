@@ -22,9 +22,30 @@ const config = {
 			console.log("<PACKAGE_JSON>\n", pkg, "\n</PACKAGE_JSON>");
 			console.log("<CHUNKS>\n", JSON.stringify(chunks).substring(0, 1000), "\n</CHUNKS>");
 			console.log("<IS_PUBLISH>\n", isPublish, "\n</IS_PUBLISH>");
+			// tsdown emits bare `"./dist/x.js"` strings with no `types`
+			// condition (despite `dts: true`), so attach each generated
+			// `.d.ts` explicitly — otherwise consumers fall back on implicit
+			// adjacent-`.d.ts` resolution that only some moduleResolution
+			// modes honour.
+			exports["."] = {
+				types: "./dist/index.d.ts",
+				default: "./dist/index.js",
+			};
 			exports["./grammar"] = {
 				types: "./dist/grammar.d.ts",
 				default: "./dist/grammar.js",
+			};
+			exports["./grammar/dutch"] = {
+				types: "./dist/grammar/dutch.d.ts",
+				default: "./dist/grammar/dutch.js",
+			};
+			exports["./grammar/latin"] = {
+				types: "./dist/grammar/latin.d.ts",
+				default: "./dist/grammar/latin.js",
+			};
+			exports["./grammar/units"] = {
+				types: "./dist/grammar/units.d.ts",
+				default: "./dist/grammar/units.js",
 			};
 			exports["./grammar/*"] = "./dist/grammar/*";
 			exports["./binding.gyp"] = "./binding.gyp";

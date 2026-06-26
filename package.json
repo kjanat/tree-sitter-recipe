@@ -2,7 +2,12 @@
 	"name": "tree-sitter-recipe",
 	"version": "0.2.0",
 	"description": "Pharmacological recipe notation",
-	"keywords": ["incremental", "parsing", "tree-sitter", "recipe"],
+	"keywords": [
+		"incremental",
+		"parsing",
+		"tree-sitter",
+		"recipe"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kjanat/tree-sitter-recipe.git"
@@ -26,14 +31,26 @@
 		"#ts": "./tree-sitter.json"
 	},
 	"exports": {
-		".": "./dist/index.js",
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
 		"./grammar": {
 			"types": "./dist/grammar.d.ts",
 			"default": "./dist/grammar.js"
 		},
-		"./grammar/dutch": "./dist/grammar/dutch.js",
-		"./grammar/latin": "./dist/grammar/latin.js",
-		"./grammar/units": "./dist/grammar/units.js",
+		"./grammar/dutch": {
+			"types": "./dist/grammar/dutch.d.ts",
+			"default": "./dist/grammar/dutch.js"
+		},
+		"./grammar/latin": {
+			"types": "./dist/grammar/latin.d.ts",
+			"default": "./dist/grammar/latin.js"
+		},
+		"./grammar/units": {
+			"types": "./dist/grammar/units.d.ts",
+			"default": "./dist/grammar/units.js"
+		},
 		"./package.json": "./package.json",
 		"./grammar/*": "./dist/grammar/*",
 		"./binding.gyp": "./binding.gyp",
