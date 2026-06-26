@@ -118,7 +118,7 @@ wheels = [
 
 [[package]]
 name = "tree-sitter-recipe"
-version = "0.1.0"
+version = "0.2.0"
 source = { editable = "." }
 
 [package.optional-dependencies]
@@ -163,9 +163,7 @@ build = [
 dev = [
     { name = "basedpyright" },
     { name = "ruff" },
-    { name = "setuptools" },
     { name = "setuptools", specifier = ">=77.0.0" },
-    { name = "tree-sitter" },
     { name = "tree-sitter", specifier = "~=0.25" },
     { name = "ty" },
     { name = "typing-extensions", specifier = ">=4.12" },

@@ -1,6 +1,6 @@
 {
 	"name": "tree-sitter-recipe",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Pharmacological recipe notation",
 	"keywords": ["incremental", "parsing", "tree-sitter", "recipe"],
 	"repository": {

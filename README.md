@@ -22,7 +22,11 @@ system.
 
 ## Example
 
-![demo.gif](https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo.gif)
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo-light.gif">
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo.gif">
+  <img alt="tree-sitter-recipe highlighting a prescription" src="https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo.gif">
+</picture>
 
 <!-- https://github.com/user-attachments/assets/9015f3e7-b706-45bc-99e5-6e420a6c6936 -->
 
@@ -77,9 +81,12 @@ All four live in `extras`, so they parse anywhere without affecting structure.
 Doc variants (`#!`, `/**`) are intended for tooling (LSP, formatter, docgen)
 to associate them with the next section by source position.
 
-## Supported abbreviations (V1)
+## Supported abbreviations
 
 **Frequency:** `d.d.`, `b.d.d.`, `t.d.d.`, `q.i.d.`, `s.d.d.` plus modern `N dd`
+
+**Dutch prose frequency:** `3 keer per dag`, `driemaal daags`, `om de 8 uur`
+(structured into `count`/`every`/`period` fields)
 
 **Timing:** `a.c.`, `p.c.`, `a.n.`, `m. et v.`
 
@@ -95,7 +102,7 @@ to associate them with the next section by source position.
 
 **Conditional:** `si nec. sit`
 
-## Not in V1
+## Not yet supported
 
 - International abbreviations (`Rx`, `Rp`, `sig.`, `prn`, `qd`, `qid`, `bid`,
   `tid`, `hs`, `stat`) — reserved for `#!dialect international` pragma.
@@ -103,7 +110,7 @@ to associate them with the next section by source position.
   appearing in signa phrases (`2 x daags`).
 - ISMP error-prone-abbreviation linting — future tooling, not a grammar
   concern.
-- Nested language injection inside doc comments — reserved for V2.
+- Nested language injection inside doc comments — reserved for a later release.
 
 ## License
 

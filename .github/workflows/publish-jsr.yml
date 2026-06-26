@@ -14,4 +14,4 @@ jobs:
         with: { name: "${{ inputs.artifact }}" }
       - id: meta
         run: echo "url=https://jsr.io/$(yq -r .name jsr.json)@$(yq -r .version jsr.json)" >> "$GITHUB_OUTPUT"
-      - run: bunx jsr publish --provenance
+      - run: bunx jsr publish

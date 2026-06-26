@@ -5,7 +5,10 @@ jobs:
   gate:
     runs-on: ubuntu-slim
     defaults: { run: { shell: pwsh } }
-    steps: [run: "$p,$j='package.json','jsr.json'|%{(gc $_|ConvertFrom-Json).version};if($p-ne$j){'::error::version mismatch: {0} != {1}' -f $p, $j;exit 1}"]
+    steps: [
+      { uses: actions/checkout@v7, with: { sparse-checkout: . } },
+      { run: "$p,$j='package.json','jsr.json'|%{jq .version $_};if($p-ne$j){'::error::version mismatch: {0} != {1}' -f $p, $j;exit 1}" },
+    ]
   build: { needs: gate, uses: ./.github/workflows/build.yml }
   npm:
     needs: build

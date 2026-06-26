@@ -9,7 +9,7 @@
 	<groupId>io.github.tree-sitter</groupId>
 	<artifactId>jtreesitter-recipe</artifactId>
 	<name>JTreeSitter Recipe</name>
-	<version>0.1.0</version>
+	<version>0.2.0</version>
 	<description>Pharmacological recipe notation</description>
 	<url>https://github.com/kjanat/tree-sitter-recipe</url>
 	<licenses>

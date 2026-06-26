@@ -1,5 +1,6 @@
 name: Build
-on: { workflow_call: { outputs: { artifact: { value: build } } } }
+on: { workflow_call: { outputs: { artifact: { value: build } } }, workflow_dispatch: null }
+permissions: { contents: read }
 jobs:
   prebuild:
     name: Prebuild ${{ matrix.os }}
@@ -8,6 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v6
+        with: { node-version-file: .node-version }
+      - run: npm install -g node-gyp
       - run: bun install --frozen-lockfile
       - run: bunx prebuildify --napi
       - uses: actions/upload-artifact@v7
@@ -19,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
+      - uses: actions/setup-node@v6
+        with: { node-version-file: .node-version }
+      - run: npm install -g node-gyp
       - uses: tree-sitter/setup-action@v2
         with: { install-lib: false }
       - run: bun install --frozen-lockfile
