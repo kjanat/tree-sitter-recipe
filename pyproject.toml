@@ -13,17 +13,25 @@ classifiers     = [
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed",
 ]
+dependencies    = ["typing_extensions>=4.12"]
 
 [project.urls]
 Homepage = "https://github.com/kjanat/tree-sitter-recipe"
-# Funding  = "https://none"
 
 [project.optional-dependencies]
-core = ["tree-sitter~=0.24"]
+core = ["tree-sitter~=0.25"]
+
+[dependency-groups]
+dev = ["basedpyright", "ruff", "setuptools>=77.0.0", "tree-sitter~=0.25", "ty", "wheel"]
 
 [build-system]
-requires      = ["setuptools>=62.4.0", "wheel"]
+requires      = ["setuptools>=77.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.basedpyright]
+include  = ["bindings/python", "setup.py"]
+venvPath = "."
+venv     = ".venv"
 
 [tool.cibuildwheel]
 build          = "cp310-*"
