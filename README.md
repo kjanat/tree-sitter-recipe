@@ -1,5 +1,8 @@
 # tree-sitter-recipe
 
+[![NPM](https://img.shields.io/npm/v/tree-sitter-recipe?logo=npm&labelColor=CB3837&color=black)][npm]
+[![JSR](https://img.shields.io/jsr/v/@kjanat/tree-sitter-recipe?logoColor=083344&logo=jsr&logoSize=auto&label=&labelColor=f7df1e&color=black)][jsr]
+
 Tree-sitter grammar for `.recipe` files — a digital notation for
 pharmacological prescriptions in the Dutch/Latin KNMP/FNA tradition.
 
@@ -19,6 +22,12 @@ system.
 
 ## Example
 
+![demo.gif](https://cdn.jsdelivr.net/gh/kjanat/tree-sitter-recipe@master/demo.gif)
+
+<!-- https://github.com/user-attachments/assets/9015f3e7-b706-45bc-99e5-6e420a6c6936 -->
+
+<details><summary>Click to expand the example</summary>
+
 ```recipe
 /**
  * Patient: 45yo female, chronic URTI
@@ -35,6 +44,8 @@ S/ 3 dd 1 caps
 
 # pharmacist: check interaction table before dispensing
 ```
+
+</details>
 
 ## Install
 
@@ -99,3 +110,8 @@ to associate them with the next section by source position.
 [MIT][License] © Kaj Kowalski
 
 [License]: LICENSE
+[npm]: https://npm.im/tree-sitter-recipe
+[jsr]: https://jsr.io/@kjanat/tree-sitter-recipe
+
+<!-- rumdl-disable-file MD033 -->
+<!-- markdownlint-disable-file MD033 -->
