@@ -1,6 +1,6 @@
 [package]
 name         = "tree-sitter-recipe"
-version      = "0.3.0"
+version      = "0.3.1"
 # tombi: lint.rules = { unused-noqa.disabled = true, deprecated.disabled = true }
 authors      = ["Kaj Kowalski <info@kajkowalski.nl>"]
 edition      = "2024"

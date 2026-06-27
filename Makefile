@@ -1,6 +1,6 @@
 LANGUAGE_NAME := tree-sitter-recipe
 HOMEPAGE_URL := https://github.com/kjanat/tree-sitter-recipe
-VERSION := 0.3.0
+VERSION := 0.3.1
 
 # repository
 SRC_DIR := src

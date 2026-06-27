@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-recipe
-        VERSION "0.3.0"
+        VERSION "0.3.1"
         DESCRIPTION "Pharmacological recipe notation"
         HOMEPAGE_URL "https://github.com/kjanat/tree-sitter-recipe"
         LANGUAGES C)

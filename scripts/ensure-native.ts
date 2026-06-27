@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * Build the native addons this grammar needs and place them where Bun's
  * loader expects them.

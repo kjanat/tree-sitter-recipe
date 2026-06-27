@@ -11,6 +11,7 @@ const config = {
 		"grammar/dutch": "./grammar/dutch/index.js",
 		"grammar/latin": "./grammar/latin/index.js",
 		"grammar/units": "./grammar/units/index.js",
+		"ensure-native": "./scripts/ensure-native.ts",
 	}],
 	exports: {
 		enabled: true,

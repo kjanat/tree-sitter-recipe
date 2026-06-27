@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.1] - 2026-06-27
+
+### Fixed
+
+- `postinstall` no longer runs a raw `.ts` file. node refuses to
+  type-strip TypeScript under `node_modules`, so `node
+  scripts/ensure-native.ts` crashed every `npm install` of this
+  package (and of anything depending on it) with
+  `ERR_UNSUPPORTED_NODE_MODULES_TYPE_STRIPPING`. The script is now
+  bundled to `dist/ensure-native.js` and run from there.
+
 ## [0.3.0] - 2026-06-26
 
 ### Added
@@ -67,7 +78,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   grouped by semantic role, dosage units by measurement kind, dose ranges, and
   layered comments. Ships highlight queries and multi-language bindings.
 
-[Unreleased]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kjanat/tree-sitter-recipe/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kjanat/tree-sitter-recipe/releases/tag/v0.1.0
+
+<!-- markdownlint-disable-file MD024 -->
