@@ -2,7 +2,8 @@
 
 ## OVERVIEW
 
-This repo owns the `recipe` Tree-sitter grammar and thin multi-language bindings. Real language work belongs in grammar, vocab, query, and test files.
+This repo owns the `recipe` Tree-sitter grammar and thin multi-language
+bindings. Real language work belongs in grammar, vocab, query, and test files.
 
 ## WHERE TO LOOK
 
@@ -33,7 +34,8 @@ Regenerate from `grammar.js` and vocab files.
 ## CONVENTIONS
 
 - `word` is load-bearing. It enables context-sensitive keyword promotion.
-- Comments live in `extras`; they parse almost anywhere without changing section structure.
+- Comments live in `extras`; they parse almost anywhere without changing section
+  structure.
 - `dispense_marker` intentionally accepts both `D/` and `Da/`.
 - Keep accented Latin support in `word`; do not shrink regexes to ASCII.
 - Grammar, vocab, queries, and tests move together.
@@ -54,7 +56,8 @@ bunx tree-sitter highlight test/highlight/latin.recipe
 
 ## ANTI-PATTERNS
 
-- Do not edit bindings first when semantics change; fix grammar/query/test source instead.
+- Do not edit bindings first when semantics change; fix grammar/query/test source
+  instead.
 - Do not rename nodes or aliases in `grammar.js` without updating `queries/highlights.scm`.
 - Do not trust binding tests alone; they do not replace corpus coverage.
 - Do not treat `tree-sitter/` vendored checkout as project-owned source.
@@ -62,5 +65,7 @@ bunx tree-sitter highlight test/highlight/latin.recipe
 ## GOTCHAS
 
 - `latin_abbrev` is a supertype; downstream queries usually capture concrete categories.
-- Aliases like `"fill_marker"`, `"dtd_keyword"`, and `"dtd_no"` are part of downstream contracts.
-- `bindings/node/index.js` tolerates missing `queries/tags.scm`; absence is not current bug.
+- Aliases like `"fill_marker"`, `"dtd_keyword"`, and `"dtd_no"` are part of
+  downstream contracts.
+- `bindings/node/index.js` tolerates missing `queries/tags.scm`; absence is not
+  current bug.
